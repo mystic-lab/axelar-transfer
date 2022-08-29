@@ -1,80 +1,50 @@
-# Fungible Faucet Dapp
+# Axelar Transfer Contract
 
-TL;DR:
+This repo holds the Agoric smart contract for interacting with the Axelar cross-chain protocol through Agoric for cross-chain asset transfers.
 
-The Fungible Faucet Dapp sends tokens to a user's wallet when they
-click the "Mint Fungible Tokens" button.
+Install the [prerequisite smart contract](https://github.com/pitalco/interaccounts). Then follow the following instructions.
 
-Install the [prerequisites](https://agoric.com/documentation/getting-started/before-using-agoric.html). Then checkout the latest `beta` release for the sdk:
+## Getting Started
+You will need to have Golang, NodeJS and Rust installed to get started.
+
+## Installation
+
 ```sh
-cd agoric-sdk
-git checkout beta
-yarn && yarn build
+git clone https://github.com/pitalco/axelar-transfer
+
+cd interaccounts
+
+# Install all required software. Agoric, Axelar, and Hermes Relayer
+make install
+
+# Start a local Agoric chain
+make start
 ```
 
-Then in a first terminal in the directory where you want to put your dapp, install the dapp:
+
+Keep an eye in agoric.log file. Once Agoric starts up, initialize all the connections and the Hermes relayer
 ```sh
-agoric init --dapp-template dapp-fungible-faucet --dapp-branch beta my-fungible-faucet
-cd my-fungible-faucet
-# Start the Agoric platform
-agoric install && agoric start --reset
+make init
 ```
 
-In a second terminal, deploy this contract and the API server
+Once the process above completes, start the Hermes Relayer to relay transactions across chains. hermes.log tracks all the logs for Hermes
 ```sh
-agoric deploy contract/deploy.js
-agoric deploy api/deploy.js
+make start-rly
 ```
 
-In a third terminal, 
+## Deploying the Contract
+
+In a seperate terminal, run the following command to start the local-solo. You will have to keep this terminal up running the solo
 ```sh
-# Navigate to the `ui` directory and start a local server
-cd ui && yarn start
+agoric start local-solo --reset
+# once local-solo starts up, run
+agoric open --repl
 ```
-Then navigate to http://127.0.0.1:3000.
 
-The Fungible Faucet Dapp is the simplest [Agoric
-Dapp](https://agoric.com/documentation/dapps/). It
-demonstrates the three important parts of
-a dapp and how they should be connected:
-1. the browser UI (the frontend)
-2. the API server (the backend)
-3. the on-chain contract
+Once the repl opens, lets deploy the contract to Zoe so we can use it from our repl and our other contracts. Move back to an open terminal and run the following commands
+```sh
+# Make sure you are in the base contract directory
+cd ~/axelar-transfer/contract
 
-This dapp starts a local
-blockchain on your computer, and deploys a basic contract to that
-blockchain. It does not currently deploy or connect to the Agoric testnet.
-
-This particular dapp UI is written in vanilla JS for simplicity (as
-opposed to using a framework).
-
-## Using the Dapp
-
-1. Navigate to http://127.0.0.1:3000.
-2. Enter `agoric open` in your terminal
-3. A window for your wallet should open.
-4. Under "Dapps" in the wallet, enable the FungibleFaucet Dapp:
-
-![Enable Dapp](./readme-assets/enable-dapp.png)
-
-5. Back on the Fungible Faucet page, click the "Mint Fungible Tokens" button.
-
-![Mint Fungible Tokens](./readme-assets/mint-button.png)
-
-6. Go back to your wallet and approve the offer stating that you want
-   1000 tokens. 
-
-![Mint Fungible Tokens](./readme-assets/approve-offer.png) 
-
-7. Once the offer has been approved, your wallet makes an offer to Zoe
-   on your behalf, giving you tokens from the `mintPayments` contract.
-   You will receive a message that the offer was successful and should
-   see the tokens in your purses.
-
-![Offer Completed](./readme-assets/offer-completed.png) 
-
-![Tokens Received](./readme-assets/tokens-received.png) 
-
-To learn more about how to build Agoric Dapps, please see the [Dapp Guide](https://agoric.com/documentation/dapps/).
-
-See the [Dapp Deployment Guide](https://github.com/Agoric/agoric-sdk/wiki/Dapp-Deployment-Guide) for how to deploy this Dapp on a public website, such as https://fungiblefaucet.testnet.agoric.com/
+agoric deploy ./deploy.js
+```
