@@ -47,7 +47,7 @@ const installBundle = async (pathResolve, zoe, board) => {
   // To share the installation, we're going to put it in the
   // board. The board is a shared, on-chain object that maps
   // strings to objects.
-  const CONTRACT_NAME = 'fungibleFaucet';
+  const CONTRACT_NAME = 'axelar';
   const INSTALLATION_BOARD_ID = await E(board).getId(installation);
   console.log('- SUCCESS! contract code installed on Zoe');
   console.log(`-- Contract Name: ${CONTRACT_NAME}`);
