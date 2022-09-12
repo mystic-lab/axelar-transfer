@@ -26,7 +26,14 @@
     "eslint-plugin-react-hooks": "^4.3.0",
     "prettier": "^2.5.1",
     "@agoric/solo": "beta",
-    "@agoric/cosmic-swingset": "beta"
+    "@agoric/cosmic-swingset": "beta",
+    "@axelar-network/axelarjs-sdk": "^0.9.1",
+    "@cosmjs/proto-signing": "^0.28.13",
+    "@cosmjs/tendermint-rpc": "^0.28.13"
+  },
+  "resolutions": {
+    "**/protobufjs": "agoric-labs/protobuf.js#Agoric-built",
+    "**/cosmjs-types": "agoric-labs/cosmjs-types#Agoric-built"
   },
   "scripts": {
     "preinstall": "node -e \"process.env.AGORIC_INSTALL && process.exit(0); console.warn('please use: agoric install . For details, see https://agoric.com/documentation/'); process.exit(1)\"",
@@ -34,7 +41,8 @@
     "lint-check": "yarn workspaces run lint-check",
     "test": "yarn workspaces run test",
     "integration-test": "yarn ava",
-    "build": "yarn workspaces run build"
+    "build": "yarn workspaces run build",
+    "postinstall": "patch-package"
   },
   "dependencies": {
     "agoric": "beta"

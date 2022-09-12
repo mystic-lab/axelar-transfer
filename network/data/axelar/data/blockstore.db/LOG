@@ -1,0 +1,23 @@
+=============== Sep 10, 2022 (CDT) ===============
+16:05:22.709967 log@legend F·NumFile S·FileSize N·Entry C·BadEntry B·BadBlock Ke·KeyError D·DroppedEntry L·Level Q·SeqNum T·TimeElapsed
+16:05:22.919999 db@open opening
+16:05:22.921730 version@stat F·[] S·0B[] Sc·[]
+16:05:22.997610 db@janitor F·2 G·0
+16:05:22.997679 db@open done T·77.521ms
+17:18:28.195758 memdb@flush N·15425 S·3MiB
+17:18:28.468504 memdb@flush created L0@3 N·15425 S·2MiB "BH:..02c,v12681":"blo..ore,v6"
+17:18:28.468584 version@stat F·[1] S·2MiB[2MiB] Sc·[0.25]
+17:18:28.726617 memdb@flush committed F·1 T·510.9468ms
+17:18:28.735036 journal@remove removed @1
+18:34:10.934203 memdb@flush N·15403 S·3MiB
+18:34:11.321005 memdb@flush created L0@5 N·15403 S·2MiB "BH:..ab6,v26379":"blo..ore,v15426"
+18:34:11.321109 version@stat F·[2] S·4MiB[4MiB] Sc·[0.50]
+18:34:11.621966 memdb@flush committed F·1 T·598.9654ms
+18:34:11.622968 journal@remove removed @2
+19:47:30.017751 memdb@flush N·15402 S·3MiB
+19:47:30.282693 memdb@flush created L0@7 N·15402 S·2MiB "BH:..fd7,v38271":"blo..ore,v30834"
+19:47:30.282779 version@stat F·[3] S·7MiB[7MiB] Sc·[0.75]
+19:47:30.527200 memdb@flush committed F·1 T·499.8202ms
+19:47:30.529698 journal@remove removed @4
+19:50:15.841385 db@close closing
+19:50:15.868875 db@close done T·27.4828ms
