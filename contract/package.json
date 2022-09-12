@@ -24,21 +24,21 @@
     "ava": "^3.15.0"
   },
   "dependencies": {
-    "@endo/bundle-source": "^2.1.1",
-    "@agoric/assert": "beta",
+    "@agoric/assert": "dev",
     "@agoric/babel-standalone": "^7.17.7",
-    "@agoric/swingset-vat": "beta",
-    "@agoric/ertp": "beta",
-    "@endo/eventual-send": "^0.14.8",
-    "@endo/init": "^0.5.37",
-    "@endo/marshal": "^0.6.3",
-    "@agoric/notifier": "beta",
-    "@agoric/store": "beta",
+    "@agoric/ertp": "dev",
+    "@agoric/notifier": "dev",
+    "@agoric/store": "dev",
+    "@agoric/swingset-vat": "dev",
+    "@agoric/zoe": "dev",
+    "@cosmjs/encoding": "^0.28.4",
+    "@endo/base64": "^0.2.25",
+    "@endo/bundle-source": "^2.2.0",
+    "@endo/eventual-send": "^0.15.3",
+    "@endo/init": "^0.5.41",
+    "@endo/marshal": "^0.6.7",
     "@endo/promise-kit": "^0.2.42",
-    "@agoric/zoe": "beta",
-    "@axelar-network/axelarjs-sdk": "^0.9.1",
-    "@cosmjs/proto-signing": "^0.28.13",
-    "@cosmjs/tendermint-rpc": "^0.28.13"
+    "cosmjs-types": "agoric-labs/cosmjs-types#Agoric-built"
   },
   "ava": {
     "files": [

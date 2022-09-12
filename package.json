@@ -29,7 +29,9 @@
     "@agoric/cosmic-swingset": "beta",
     "@axelar-network/axelarjs-sdk": "^0.9.1",
     "@cosmjs/proto-signing": "^0.28.13",
-    "@cosmjs/tendermint-rpc": "^0.28.13"
+    "@cosmjs/tendermint-rpc": "^0.28.13",
+    "patch-package": "latest",
+    "postinstall-postinstall": "latest"
   },
   "resolutions": {
     "**/protobufjs": "agoric-labs/protobuf.js#Agoric-built",

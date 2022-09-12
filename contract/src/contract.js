@@ -1,21 +1,26 @@
 // @ts-check
 import '@agoric/zoe/exported.js';
-import { Far } from '@endo/marshal';
 import { setupAxelar } from './axelar';
+import '@agoric/vats/exported.js';
+import '@agoric/swingset-vat/src/vats/network/types.js';
+import '@agoric/zoe/exported.js';
 
 /**
  * This is a contract to interact with Axelar and perform non-ibc token transfers
  * with Axelar supported chains using ICS-27 through the Interaccounts Contract.
  *
- * @type {ContractStartFn}
+ * @param {ZoeService} zoe
+ * @param {Board} board
+ * @param {[Port]} ports
+ * @param {string} icaInstallId
+ * @param {string} controllerConnectionId
+ * @param {string} hostConnectionId
  * 
- /**
- * @param {ZCF<{board: ERef<DepositFacet>, namesByAddress: ERef<NameHub>}>} zcf
  */
-const start = async (zcf) => {
-  zcf.makeInvitation()
+const start = async (zoe, board, ports, icaInstallId, controllerConnectionId, hostConnectionId) => {
   return {
-    publicFacet: setupAxelar(zcf),
+    publicFacet: setupAxelar({zoe, board, ports, icaInstallId, controllerConnectionId, hostConnectionId}),
+    creatorFacet: () => {},
   }
 };
 
