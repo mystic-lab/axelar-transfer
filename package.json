@@ -27,11 +27,12 @@
     "prettier": "^2.5.1",
     "@agoric/solo": "beta",
     "@agoric/cosmic-swingset": "beta",
-    "@axelar-network/axelarjs-sdk": "^0.9.1",
+    "@axelar-network/axelarjs-types": "^0.24.0",
     "@cosmjs/proto-signing": "^0.28.13",
     "@cosmjs/tendermint-rpc": "^0.28.13",
     "patch-package": "latest",
-    "postinstall-postinstall": "latest"
+    "postinstall-postinstall": "latest",
+    "cosmjs-types": "agoric-labs/cosmjs-types#Agoric-built"
   },
   "resolutions": {
     "**/protobufjs": "agoric-labs/protobuf.js#Agoric-built",

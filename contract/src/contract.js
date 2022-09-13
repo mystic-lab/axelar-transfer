@@ -6,10 +6,11 @@ import '@agoric/swingset-vat/src/vats/network/types.js';
 import '@agoric/zoe/exported.js';
 
 /**
- * This is a contract to interact with Axelar and perform non-ibc token transfers
- * with Axelar supported chains using ICS-27 through the Interaccounts Contract.
+ * This is a contract to interact with Axelar and bridge tokens from Agoric to EVM's
+ * with Axelar to any supported chains using ICS-27 through the Interaccounts Contract.
  *
  * @param {ZoeService} zoe
+ * @param {object} agoricnames
  * @param {Board} board
  * @param {[Port]} ports
  * @param {string} icaInstallId
@@ -17,9 +18,9 @@ import '@agoric/zoe/exported.js';
  * @param {string} hostConnectionId
  * 
  */
-const start = async (zoe, board, ports, icaInstallId, controllerConnectionId, hostConnectionId) => {
+const start = async (zoe, agoricnames, board, ports, icaInstallId, controllerConnectionId, hostConnectionId) => {
   return {
-    publicFacet: setupAxelar({zoe, board, ports, icaInstallId, controllerConnectionId, hostConnectionId}),
+    publicFacet: setupAxelar({zoe, agoricnames, board, ports, icaInstallId, controllerConnectionId, hostConnectionId}),
     creatorFacet: () => {},
   }
 };

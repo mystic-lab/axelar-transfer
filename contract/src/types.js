@@ -5,6 +5,7 @@
  *
  * @typedef {object} Axelar
  * @property {ZoeService} zoe
+ * @property {object} agoricnames
  * @property {Board} board
  * @property {Array<Port>} ports
  * @property {string} icaInstallId
@@ -15,8 +16,8 @@
 /**
  *
  * @typedef {object} AxelarResponse
- * @property {Connection} transferConnection
- * @property {Connection} icaConnection
+ * @property {Function} bridgeToEVM
+ * @property {Function} bridgeFromEVM
  */
 
 /**
