@@ -1,4 +1,6 @@
 import { createHash } from 'crypto';
+import { makeNameHubKit } from '@agoric/vats/src/nameHub.js';
+import { Far } from '@endo/marshal';
 
 /**
  * Marshal an IBC denom via path and denom to a hashed ibc denom
@@ -24,3 +26,14 @@ export const marshalDenomTrace = (channel, denom) => {
     const versionJSON = JSON.parse(version)
     return versionJSON.address
 }
+
+export const makeFakeMyAddressNameAdmin = async () => {
+    const { nameHub, nameAdmin: rawMyAddressNameAdmin } = makeNameHubKit();
+    return Far('fakeMyAddressNameAdmin', {
+      ...nameHub,
+      ...rawMyAddressNameAdmin,
+      getMyAddress() {
+        return 'agoric1test1';
+      },
+    });
+  }

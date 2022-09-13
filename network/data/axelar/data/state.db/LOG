@@ -45,3 +45,9 @@
 19:11:21.893630 table@remove removed @9
 19:50:15.940925 db@close closing
 19:50:15.941895 db@close done T·969.7µs
+=============== Sep 13, 2022 (CDT) ===============
+15:59:27.873782 log@legend F·NumFile S·FileSize N·Entry C·BadEntry B·BadBlock Ke·KeyError D·DroppedEntry L·Level Q·SeqNum T·TimeElapsed
+15:59:28.008686 version@stat F·[0 2] S·2MiB[0B 2MiB] Sc·[0.00 0.02]
+15:59:28.008895 db@open opening
+15:59:28.009159 journal@recovery F·1
+15:59:28.009725 journal@recovery recovering @10

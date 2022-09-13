@@ -21,3 +21,14 @@
 19:47:30.529698 journal@remove removed @4
 19:50:15.841385 db@close closing
 19:50:15.868875 db@close done T·27.4828ms
+=============== Sep 13, 2022 (CDT) ===============
+15:59:26.253773 log@legend F·NumFile S·FileSize N·Entry C·BadEntry B·BadBlock Ke·KeyError D·DroppedEntry L·Level Q·SeqNum T·TimeElapsed
+15:59:26.330610 version@stat F·[3] S·7MiB[7MiB] Sc·[0.75]
+15:59:26.330740 db@open opening
+15:59:26.330921 journal@recovery F·1
+15:59:26.331223 journal@recovery recovering @6
+15:59:26.699186 memdb@flush created L0@8 N·588 S·92KiB "BH:..b42,v46623":"blo..ore,v46236"
+15:59:26.700456 version@stat F·[4] S·7MiB[7MiB] Sc·[1.00]
+15:59:27.465313 db@janitor F·6 G·0
+15:59:27.465382 db@open done T·1.1345679s
+15:59:27.465507 table@compaction L0·4 -> L1·0 S·7MiB Q·46819

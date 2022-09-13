@@ -10,26 +10,21 @@ import { Far } from '@endo/marshal';
  * This is a contract to interact with Axelar and bridge tokens from Agoric to EVM's
  * with Axelar to any supported chains using ICS-27 through the Interaccounts Contract.
  *
- * @param {ZoeService} zoe
- * @param {Instance} pegasus
- * @param {Board} board
- * @param {[Port]} ports
- * @param {Instance} interaccounts
- * @param {string} controllerConnectionId
- * @param {string} hostConnectionId
- * 
+ * @type {ContractStartFn}
  */
-const start = async (zoe, pegasus, board, ports, interaccounts, controllerConnectionId, hostConnectionId) => {
+const start = async () => {
   const creatorFacet = Far('creatorFacet', {
     // The creator of the instance can be called by the creator
   });
 
-  /** @type {Axelar} */
-  const axelar = {zoe, pegasus, board, ports, interaccounts, controllerConnectionId, hostConnectionId}
-
   const publicFacet = Far('publicFacet', {
     // Public faucet for anyone to call
-    setupAxelar: async (/** @type {Axelar} */ axelar) => setupAxelar(axelar),
+    /**
+     * This is a contract to interact with Axelar and bridge tokens from Agoric to EVM's
+     * with Axelar to any supported chains using ICS-27 through the Interaccounts Contract.
+     *
+     */
+    setupAxelar: async (/** @type {ZoeService} */ zoe, /** @type {NameAdmin} */ nameHub, /** @type {string} */ account, /** @type {Port} */ port, /** @type {string} */ controllerConnectionId, /** @type {string} */ hostConnectionId) => await setupAxelar(zoe, nameHub, account, port, controllerConnectionId, hostConnectionId),
   });
   
   return harden({ creatorFacet, publicFacet });

@@ -13,21 +13,30 @@ import { FungibleTokenPacketData } from 'cosmjs-types/ibc/applications/transfer/
  * returns an object with the Axelar contract functions that are to be called
  * to interact with Axelar through Agoric.
  * 
- * @param {Axelar} axelar
+ * @param {ZoeService} zoe
+ * @param {NameAdmin} nameAdmin
+ * @param {string} account
+ * @param {Port} port
+ * @param {string} controllerConnectionId
+ * @param {string} hostConnectionId
  * @returns {Promise<AxelarResponse>}
  */
- export const setupAxelar = async (axelar) => {
+ export const setupAxelar = async (zoe, nameAdmin, account, port, controllerConnectionId, hostConnectionId) => {
+    const nameHub = E(nameAdmin).readonly()
 
-  console.log(axelar)
+    // grab the interaccount installation from name hub
+    /** @type {Installation} */
+    const interaccounts = await E(nameHub).lookup("interaccounts")
+    const instanceIca = await E(zoe).startInstance(interaccounts);
+    // grab the interaccount installation from name hub
+    /** @type {Installation} */
+    const pegasus = await E(nameHub).lookup("pegasus")
+    const instanceP = await E(zoe).startInstance(pegasus);
 
     // create a store for axelar
     const connections = makeWeakMap('axelar');
 
-    const icaPort = axelar.ports[0]
-
-    // Get pf from interaccounts instance
-    const pf = await E(axelar.zoe).getPublicFacet(axelar.interaccounts)
-    connections.init("ica", pf)
+    const icaPort = port
 
     /** @type {ConnectionHandler} */
     const connectionHandlerICA = Far('handler', { 
@@ -41,17 +50,13 @@ import { FungibleTokenPacketData } from 'cosmjs-types/ibc/applications/transfer/
       }, 
       onClose: async (c) => { 
         console.log(`transfer connection opened`) 
-      } 
+      }
     });
 
-    const connectionICA = await E(pf).createICAAccount(icaPort, connectionHandlerICA, axelar.controllerConnectionId, axelar.hostConnectionId)
+    const connectionICA = await E(instanceIca.publicFacet).createICAAccount(icaPort, connectionHandlerICA, controllerConnectionId, hostConnectionId)
 
     // set the connection object for ica
     connections.init("icaConnection", connectionICA)
-
-    // set the transfer object to send ibc transfers
-    const publicFacet = await E(axelar.zoe).getPublicFacet(axelar.pegasus)
-    connections.init("transfer", publicFacet)
 
     return Far('interaccounts', {
       /**

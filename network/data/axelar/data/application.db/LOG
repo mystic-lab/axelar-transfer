@@ -705,3 +705,13 @@
 19:45:00.335404 table@remove removed @285
 19:45:00.335688 table@remove removed @286
 19:45:00.335816 table@remove removed @287
+=============== Sep 13, 2022 (CDT) ===============
+15:59:21.349512 log@legend F·NumFile S·FileSize N·Entry C·BadEntry B·BadBlock Ke·KeyError D·DroppedEntry L·Level Q·SeqNum T·TimeElapsed
+15:59:21.586645 version@stat F·[0 25] S·49MiB[0B 49MiB] Sc·[0.00 0.49]
+15:59:21.586867 db@open opening
+15:59:21.587190 journal@recovery F·1
+15:59:21.587672 journal@recovery recovering @288
+15:59:22.198567 memdb@flush created L0@314 N·20305 S·1MiB "s/7607,v760732":"s/p..hts,v760734"
+15:59:22.199018 version@stat F·[1 25] S·50MiB[1MiB 49MiB] Sc·[0.25 0.49]
+15:59:23.065375 db@janitor F·28 G·0
+15:59:23.065557 db@open done T·1.4786418s
