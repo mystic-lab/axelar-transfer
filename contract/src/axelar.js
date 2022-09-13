@@ -18,13 +18,15 @@ import { FungibleTokenPacketData } from 'cosmjs-types/ibc/applications/transfer/
  */
  export const setupAxelar = async (axelar) => {
 
+  console.log(axelar)
+
     // create a store for axelar
     const connections = makeWeakMap('axelar');
 
     const icaPort = axelar.ports[0]
 
     // Get pf from interaccounts instance
-    const pf = E(axelar.zoe).getPublicFacet(axelar.interaccounts)
+    const pf = await E(axelar.zoe).getPublicFacet(axelar.interaccounts)
     connections.init("ica", pf)
 
     /** @type {ConnectionHandler} */
@@ -38,7 +40,7 @@ import { FungibleTokenPacketData } from 'cosmjs-types/ibc/applications/transfer/
         return ret
       }, 
       onClose: async (c) => { 
-        console.log(`transfer connection opened ${c.getLocalAddress()}`) 
+        console.log(`transfer connection opened`) 
       } 
     });
 
@@ -48,7 +50,7 @@ import { FungibleTokenPacketData } from 'cosmjs-types/ibc/applications/transfer/
     connections.init("icaConnection", connectionICA)
 
     // set the transfer object to send ibc transfers
-    const publicFacet = E(axelar.zoe).getPublicFacet(axelar.pegasus)
+    const publicFacet = await E(axelar.zoe).getPublicFacet(axelar.pegasus)
     connections.init("transfer", publicFacet)
 
     return Far('interaccounts', {
@@ -119,8 +121,8 @@ const sendFromAgoricToEVM = async (connections, destChain, destAddress, denom) =
      *
      * @type {Connection}
      */
-    const icaConnection = connections.get("icaConnection")
-    const ica = connections.get("ica")
+    const icaConnection = await connections.get("icaConnection")
+    const ica = await connections.get("ica")
     const myaddress = parseICAAddress(icaConnection)
 
     const baseAcc = BaseAccount.fromJSON({

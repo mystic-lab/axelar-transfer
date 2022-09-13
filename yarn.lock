@@ -2958,7 +2958,6 @@ cosmiconfig@^7.0.1:
 
 cosmjs-types@^0.4.0, cosmjs-types@agoric-labs/cosmjs-types#Agoric-built:
   version "0.5.0"
-  uid "23773074b3b1a368733ae389f55a363feac32aef"
   resolved "https://codeload.github.com/agoric-labs/cosmjs-types/tar.gz/23773074b3b1a368733ae389f55a363feac32aef"
   dependencies:
     long "^4.0.0"
