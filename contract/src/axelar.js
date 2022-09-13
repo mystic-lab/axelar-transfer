@@ -6,6 +6,7 @@ import { LinkRequest } from '@axelar-network/axelarjs-types/axelar/axelarnet/v1b
 import { LinkRequest as EVMLinkRequest } from '@axelar-network/axelarjs-types/axelar/evm/v1beta1/tx'
 import { parseICAAddress } from './utils';
 import { BaseAccount } from 'cosmjs-types/cosmos/auth/v1beta1/auth'
+import { FungibleTokenPacketData } from 'cosmjs-types/ibc/applications/transfer/v2/packet'
 
 /**
  * Create ICS-20 (transfer) + ICS-27 (ICA) channel (which creates an ICA account) and then
@@ -91,6 +92,19 @@ import { BaseAccount } from 'cosmjs-types/cosmos/auth/v1beta1/auth'
        */
       bridgeToEVMFromEVM (connections, srcChain, destChain, destAddress, denom) {
         return sendToEVMFromEVM(connections, srcChain, destChain, destAddress, denom)
+      },
+      /**
+       * IBC transfer amount specified from the ICA controller account held on Axelar to the Agoric account
+       * that calls the message.
+       *
+       * @param {LegacyMap<string, object>} connections
+       * @param {String} denom
+       * @param {String} amount
+       * @param {String} agoricAddress
+       * @returns {Promise<String>}
+       */
+      transferFromICAAccount (connections, denom, amount, agoricAddress) {
+        return transferFromICAAccount(connections, denom, amount, agoricAddress)
       }
     });
 };
@@ -210,6 +224,42 @@ const sendToAgoricFromEVM = async (connections, srcChain, denom) => {
   })
 
   const msg = await E(ica).makeMsg({type: "/axelar.evm.v1beta1.LinkRequest", value: tx})
+
+  const packet = await E(ica).makeICAPacket([msg]);
+  
+  const resp = await icaConnection.send(JSON.stringify(packet))
+
+  return resp
+}
+
+/**
+ * IBC transfer amount specified from the ICA controller account held on Axelar to the Agoric account
+ * that calls the message.
+ *
+ * @param {LegacyMap<string, object>} connections
+ * @param {String} denom
+ * @param {String} amount
+ * @param {String} agoricAddress
+ * @returns {Promise<String>}
+ */
+ const transferFromICAAccount = async (connections, denom, amount, agoricAddress) => {
+  /**
+   * Get the ica connection object and ica public facet from state
+   *
+   * @type {Connection}
+   */
+  const icaConnection = connections.get("icaConnection")
+  const ica = connections.get("ica")
+  const myaddress = parseICAAddress(icaConnection)
+
+  const tx = FungibleTokenPacketData.fromPartial({
+    denom: denom,
+    amount: amount,
+    sender: myaddress,
+    receiver: agoricAddress,
+  })
+
+  const msg = await E(ica).makeMsg({type: "/ibc.applications.transfer.v1.MsgTransfer", value: tx})
 
   const packet = await E(ica).makeICAPacket([msg]);
   
