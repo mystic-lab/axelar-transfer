@@ -57,7 +57,7 @@ import { BaseAccount } from 'cosmjs-types/cosmos/auth/v1beta1/auth'
 
     return Far('interaccounts', {
       /**
-       * Create an Axelar deposit account for a cross chain transfer. Returns the deposit address.
+       * Creates an Axelar deposit account for a cross chain transfer. Returns the deposit address.
        *
        * @param {LegacyMap<string, object>} connections
        * @param {String} destChain
@@ -78,6 +78,19 @@ import { BaseAccount } from 'cosmjs-types/cosmos/auth/v1beta1/auth'
        */
       bridgeFromEVM (connections, srcChain, denom) {
         return sendToAgoricFromEVM(connections, srcChain, denom)
+      },
+      /**
+       * Create an EVM deposit account for EVM to EVM bridging. Returns the deposit address.
+       *
+       * @param {LegacyMap<string, object>} connections
+       * @param {String} srcChain
+       * @param {String} destChain
+       * @param {String} destAddress
+       * @param {String} denom
+       * @returns {Promise<String>}
+       */
+      bridgeToEVMFromEVM (connections, srcChain, destChain, destAddress, denom) {
+        return sendToEVMFromEVM(connections, srcChain, destChain, destAddress, denom)
       }
     });
 };
@@ -161,4 +174,46 @@ const sendToAgoricFromEVM = async (connections, srcChain, denom) => {
     const resp = await icaConnection.send(JSON.stringify(packet))
 
     return resp
+}
+
+/**
+ * Sends a token from an EVM chain supported by Axelar to Another EVM chain supported by Axelar.
+ *
+ * @param {LegacyMap<string, object>} connections
+ * @param {String} srcChain
+ * @param {String} destChain
+ * @param {String} destAddress
+ * @param {String} denom
+ * @returns {Promise<String>}
+ */
+ const sendToEVMFromEVM = async (connections, srcChain, destChain, destAddress, denom) => {
+  /**
+   * Get the ica connection object and ica public facet from state
+   *
+   * @type {Connection}
+   */
+  const icaConnection = connections.get("icaConnection")
+  const ica = connections.get("ica")
+  const myaddress = parseICAAddress(icaConnection)
+
+  const baseAcc = BaseAccount.fromJSON({
+    address: myaddress
+  })
+  const acc = BaseAccount.encode(baseAcc).finish()
+
+  const tx = EVMLinkRequest.fromPartial({
+    sender: acc,
+    chain: srcChain,
+    recipientAddr: destAddress,
+    recipientChain: destChain,
+    asset: denom,
+  })
+
+  const msg = await E(ica).makeMsg({type: "/axelar.evm.v1beta1.LinkRequest", value: tx})
+
+  const packet = await E(ica).makeICAPacket([msg]);
+  
+  const resp = await icaConnection.send(JSON.stringify(packet))
+
+  return resp
 }
