@@ -38,7 +38,8 @@
     "@endo/init": "^0.5.41",
     "@endo/marshal": "^0.6.7",
     "@endo/promise-kit": "^0.2.42",
-    "cosmjs-types": "agoric-labs/cosmjs-types#Agoric-built"
+    "cosmjs-types": "agoric-labs/cosmjs-types#Agoric-built",
+    "@axelar-network/axelarjs-types": "^0.24.0"
   },
   "ava": {
     "files": [

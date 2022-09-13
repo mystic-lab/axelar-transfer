@@ -1,6 +1,6 @@
 // @ts-check
 import '@agoric/zoe/exported.js';
-import { setupAxelar } from './axelar';
+import { setupAxelar } from './axelar.js';
 import '@agoric/vats/exported.js';
 import '@agoric/swingset-vat/src/vats/network/types.js';
 import '@agoric/zoe/exported.js';

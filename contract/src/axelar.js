@@ -2,11 +2,11 @@
 import { E } from '@endo/eventual-send';
 import { Far } from '@endo/marshal';
 import makeWeakMap from '@agoric/store';
-import { LinkRequest } from '@axelar-network/axelarjs-types/axelar/axelarnet/v1beta1/tx'
-import { LinkRequest as EVMLinkRequest } from '@axelar-network/axelarjs-types/axelar/evm/v1beta1/tx'
-import { parseICAAddress } from './utils';
-import { BaseAccount } from 'cosmjs-types/cosmos/auth/v1beta1/auth'
-import { FungibleTokenPacketData } from 'cosmjs-types/ibc/applications/transfer/v2/packet'
+import { LinkRequest } from '@axelar-network/axelarjs-types/axelar/axelarnet/v1beta1/tx.js'
+import { LinkRequest as EVMLinkRequest } from '@axelar-network/axelarjs-types/axelar/evm/v1beta1/tx.js'
+import { parseICAAddress } from './utils.js';
+import { BaseAccount } from 'cosmjs-types/cosmos/auth/v1beta1/auth.js'
+import { FungibleTokenPacketData } from 'cosmjs-types/ibc/applications/transfer/v2/packet.js'
 
 /**
  * Create ICS-20 (transfer) + ICS-27 (ICA) channel (which creates an ICA account) and then
