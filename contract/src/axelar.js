@@ -23,12 +23,8 @@ import { FungibleTokenPacketData } from 'cosmjs-types/ibc/applications/transfer/
 
     const icaPort = axelar.ports[0]
 
-    // Get installation from board
-    const installation = await E(axelar.board).getValue(axelar.icaInstallId)
-    // Start the instance from above
-    const instance = await E(axelar.zoe).startInstance(installation)
-    // set the ica object in store
-    const pf = await E(instance.publicFacet)
+    // Get pf from interaccounts instance
+    const pf = E(axelar.zoe).getPublicFacet(axelar.interaccounts)
     connections.init("ica", pf)
 
     /** @type {ConnectionHandler} */
@@ -46,14 +42,13 @@ import { FungibleTokenPacketData } from 'cosmjs-types/ibc/applications/transfer/
       } 
     });
 
-    const connectionICA = await E(instance.publicFacet).createICAAccount(icaPort, connectionHandlerICA, axelar.controllerConnectionId, axelar.hostConnectionId)
+    const connectionICA = await E(pf).createICAAccount(icaPort, connectionHandlerICA, axelar.controllerConnectionId, axelar.hostConnectionId)
 
     // set the connection object for ica
     connections.init("icaConnection", connectionICA)
 
     // set the transfer object to send ibc transfers
-    const pegasus = await E(axelar.agoricnames).lookup('instance', 'Pegasus')
-    const publicFacet = E(axelar.zoe).getPublicFacet(pegasus)
+    const publicFacet = E(axelar.zoe).getPublicFacet(axelar.pegasus)
     connections.init("transfer", publicFacet)
 
     return Far('interaccounts', {

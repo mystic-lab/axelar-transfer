@@ -5,10 +5,10 @@
  *
  * @typedef {object} Axelar
  * @property {ZoeService} zoe
- * @property {object} agoricnames
+ * @property {Instance} pegasus
  * @property {Board} board
  * @property {Array<Port>} ports
- * @property {string} icaInstallId
+ * @property {Instance} interaccounts
  * @property {string} controllerConnectionId
  * @property {string} hostConnectionId
  */

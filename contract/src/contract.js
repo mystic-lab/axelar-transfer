@@ -10,17 +10,17 @@ import '@agoric/zoe/exported.js';
  * with Axelar to any supported chains using ICS-27 through the Interaccounts Contract.
  *
  * @param {ZoeService} zoe
- * @param {object} agoricnames
+ * @param {Instance} pegasus
  * @param {Board} board
  * @param {[Port]} ports
- * @param {string} icaInstallId
+ * @param {Instance} interaccounts
  * @param {string} controllerConnectionId
  * @param {string} hostConnectionId
  * 
  */
-const start = async (zoe, agoricnames, board, ports, icaInstallId, controllerConnectionId, hostConnectionId) => {
+const start = async (zoe, pegasus, board, ports, interaccounts, controllerConnectionId, hostConnectionId) => {
   return {
-    publicFacet: setupAxelar({zoe, agoricnames, board, ports, icaInstallId, controllerConnectionId, hostConnectionId}),
+    publicFacet: setupAxelar({zoe, pegasus, board, ports, interaccounts, controllerConnectionId, hostConnectionId}),
     creatorFacet: () => {},
   }
 };
