@@ -1,6 +1,7 @@
 import { createHash } from 'crypto';
 import { makeNameHubKit } from '@agoric/vats/src/nameHub.js';
 import { Far } from '@endo/marshal';
+import { E } from '@endo/eventual-send';
 
 /**
  * Marshal an IBC denom via path and denom to a hashed ibc denom

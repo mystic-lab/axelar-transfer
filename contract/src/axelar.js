@@ -24,32 +24,34 @@ import { FungibleTokenPacketData } from 'cosmjs-types/ibc/applications/transfer/
  export const setupAxelar = async (zoe, nameAdmin, account, port, controllerConnectionId, hostConnectionId) => {
     const nameHub = E(nameAdmin).readonly()
 
+    // create a store for axelar
+    const connections = makeWeakMap('axelar');
+
     // grab the interaccount installation from name hub
     /** @type {Installation} */
     const interaccounts = await E(nameHub).lookup("interaccounts")
     const instanceIca = await E(zoe).startInstance(interaccounts);
+    connections.init("ica", instanceIca)
     // grab the interaccount installation from name hub
     /** @type {Installation} */
     const pegasus = await E(nameHub).lookup("pegasus")
     const instanceP = await E(zoe).startInstance(pegasus);
-
-    // create a store for axelar
-    const connections = makeWeakMap('axelar');
+    connections.init("pegasus", instanceP)
 
     const icaPort = port
 
     /** @type {ConnectionHandler} */
     const connectionHandlerICA = Far('handler', { 
       onOpen: async (...args) => { 
-        console.log(...args) 
+        console.log("Connection opened: ", ...args) 
       }, 
       onReceive: async (c, p) => {
-        console.log('received packet: ', p);
+        console.log('Received packet: ', p);
         const ret = await ""
         return ret
       }, 
       onClose: async (c) => { 
-        console.log(`transfer connection opened`) 
+        console.log(`Connection closed: `, c) 
       }
     });
 
@@ -62,51 +64,50 @@ import { FungibleTokenPacketData } from 'cosmjs-types/ibc/applications/transfer/
       /**
        * Creates an Axelar deposit account for a cross chain transfer. Returns the deposit address.
        *
-       * @param {LegacyMap<string, object>} connections
        * @param {String} destChain
        * @param {String} destAddress
        * @param {String} denom
        * @returns {Promise<String>}
        */
-      bridgeToEVM (connections, destChain, destAddress, denom) {
-        return sendFromAgoricToEVM(connections, destChain, destAddress, denom)
+      async bridgeToEVM (destChain, destAddress, denom) {
+        const ret = await sendFromAgoricToEVM(connections, destChain, destAddress, denom)
+        console.log(ret)
+        return ret
       },
       /**
        * Create an Axelar deposit account for a cross chain transfer. Returns the deposit address.
        *
-       * @param {LegacyMap<string, object>} connections
        * @param {String} srcChain
        * @param {String} denom
        * @returns {Promise<String>}
        */
-      bridgeFromEVM (connections, srcChain, denom) {
-        return sendToAgoricFromEVM(connections, srcChain, denom)
+       async bridgeFromEVM (srcChain, denom) {
+        return await sendToAgoricFromEVM(connections, srcChain, denom)
       },
       /**
        * Create an EVM deposit account for EVM to EVM bridging. Returns the deposit address.
        *
-       * @param {LegacyMap<string, object>} connections
+
        * @param {String} srcChain
        * @param {String} destChain
        * @param {String} destAddress
        * @param {String} denom
        * @returns {Promise<String>}
        */
-      bridgeToEVMFromEVM (connections, srcChain, destChain, destAddress, denom) {
-        return sendToEVMFromEVM(connections, srcChain, destChain, destAddress, denom)
+      async bridgeToEVMFromEVM (srcChain, destChain, destAddress, denom) {
+        return await sendToEVMFromEVM(connections, srcChain, destChain, destAddress, denom)
       },
       /**
        * IBC transfer amount specified from the ICA controller account held on Axelar to the Agoric account
        * that calls the message.
        *
-       * @param {LegacyMap<string, object>} connections
        * @param {String} denom
        * @param {String} amount
        * @param {String} agoricAddress
        * @returns {Promise<String>}
        */
-      transferFromICAAccount (connections, denom, amount, agoricAddress) {
-        return transferFromICAAccount(connections, denom, amount, agoricAddress)
+      async transferFromICAAccount (denom, amount, agoricAddress) {
+        return await transferFromICAAccount(connections, denom, amount, agoricAddress)
       }
     });
 };
@@ -142,9 +143,11 @@ const sendFromAgoricToEVM = async (connections, destChain, destAddress, denom) =
       asset: denom,
     })
 
-    const msg = await E(ica).makeMsg({type: "/axelar.axelarnet.v1beta1.LinkRequest", value: tx})
+    const txBytes = LinkRequest.encode(tx).finish()
 
-    const packet = await E(ica).makeICAPacket([msg]);
+    const msg = await E(ica.publicFacet).makeMsg({typeUrl: "/axelar.axelarnet.v1beta1.LinkRequest", value: txBytes})
+
+    const packet = await E(ica.publicFacet).makeICAPacket([msg]);
     
     const resp = await icaConnection.send(JSON.stringify(packet))
 
@@ -183,7 +186,7 @@ const sendToAgoricFromEVM = async (connections, srcChain, denom) => {
       asset: denom,
     })
   
-    const msg = await E(ica).makeMsg({type: "/axelar.evm.v1beta1.LinkRequest", value: tx})
+    const msg = await E(ica).makeMsg({typeUrl: "/axelar.evm.v1beta1.LinkRequest", value: tx})
 
     const packet = await E(ica).makeICAPacket([msg]);
     
@@ -225,7 +228,7 @@ const sendToAgoricFromEVM = async (connections, srcChain, denom) => {
     asset: denom,
   })
 
-  const msg = await E(ica).makeMsg({type: "/axelar.evm.v1beta1.LinkRequest", value: tx})
+  const msg = await E(ica).makeMsg({typeUrl: "/axelar.evm.v1beta1.LinkRequest", value: tx})
 
   const packet = await E(ica).makeICAPacket([msg]);
   
@@ -261,7 +264,7 @@ const sendToAgoricFromEVM = async (connections, srcChain, denom) => {
     receiver: agoricAddress,
   })
 
-  const msg = await E(ica).makeMsg({type: "/ibc.applications.transfer.v1.MsgTransfer", value: tx})
+  const msg = await E(ica).makeMsg({typeUrl: "/ibc.applications.transfer.v1.MsgTransfer", value: tx})
 
   const packet = await E(ica).makeICAPacket([msg]);
   

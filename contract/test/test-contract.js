@@ -41,7 +41,7 @@ const setupAxelarContract = async () => {
 
   // setup connections
   const controllerConnectionId = "connection-0"
-  const hostConnectionId = "connection-0"
+  const hostConnectionId = "connection-1"
 
   // get your agoric address
   const address = await E(myAddressNameAdmin).getMyAddress()
@@ -66,7 +66,9 @@ const testAxelar = async (t, publicFacet) => {
   const closed = makePromiseKit();
 
   // Create first port that packet will be sent to
-  const port = await protocol.bind('/loopback/foo');
+  const port = await protocol.bind('/ibc-hop/connection-0/ibc-port/icahost/ordered');
+  // Create and send packet to first port utilizing port 2
+  const port2 = await protocol.bind('/ibc-hop/connection-1/ibc-port/icahost/ordered');
 
   /**
    * Create the listener for the test port
@@ -79,7 +81,6 @@ const testAxelar = async (t, publicFacet) => {
         async onReceive(c, packet, _connectionHandler) {
           // Check that recieved packet is the packet we created above
           console.log("Received Packet on Port 1:", packet);
-          t.is(`${packet}`, `${sendPacket}`, 'expected ping');
           return 'pingack';
         },
       });
@@ -90,31 +91,18 @@ const testAxelar = async (t, publicFacet) => {
   // run the setup axelar process to receive the Axelar action object
   const axelar = await E(publicFacet).setupAxelar(zoe, myAddressNameAdmin, address, port, controllerConnectionId, hostConnectionId)
 
-  // Create and send packet to first port utilizing port 2
-  const port2 = await protocol.bind('/loopback/bar');
-  await port2.connect(
-    port.getLocalAddress(),
-    Far('opener', {
-      async onOpen(c, localAddr, remoteAddr, _connectionHandler) {
-        t.is(localAddr, '/loopback/bar/nonce/1');
-        t.is(remoteAddr, '/loopback/foo/nonce/2');
-        const pingack = await E(publicFacet).sendICAPacket(sendPacket, c);;
-        t.is(pingack, 'pingack', 'expected pingack');
-        closed.resolve();
-      },
-    }),
-  );
-
-  await closed.promise;
+  const pingack = await E(axelar).bridgeToEVM("Ethereum", "axelar1234567", "ubld");
+  t.is(pingack, 'pingack', 'expected pingack');
+  console.log(pingack)
 
   await port.removeListener(listener);
   t.is("test", "test")
+
+  return
 };
 
 test('Axelar Contract', async (t) => {
   const mod = await import(contractPath);
   const { publicFacet } = await mod.start();
   await testAxelar(t, publicFacet);
-
-  await closed.promise;
 });
