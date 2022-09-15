@@ -80,8 +80,9 @@ const testAxelar = async (t, publicFacet) => {
       return harden({
         async onReceive(c, packet, _connectionHandler) {
           // Check that recieved packet is the packet we created above
-          console.log("Received Packet on Port 1:", packet);
-          return 'pingack';
+          const json = await JSON.parse(packet);
+          console.log("Received Packet on Port 1:", json);
+          return 'AQ==';
         },
       });
     },
@@ -89,14 +90,24 @@ const testAxelar = async (t, publicFacet) => {
   await port.addListener(listener);
 
   // run the setup axelar process to receive the Axelar action object
-  const axelar = await E(publicFacet).setupAxelar(zoe, myAddressNameAdmin, address, port, controllerConnectionId, hostConnectionId)
+  const axelar = await E(publicFacet).setupAxelar(zoe, myAddressNameAdmin, address, port2, controllerConnectionId, hostConnectionId)
 
-  const pingack = await E(axelar).bridgeToEVM("Ethereum", "axelar1234567", "ubld");
-  t.is(pingack, 'pingack', 'expected pingack');
-  console.log(pingack)
+  var pingack = await E(axelar).bridgeToEVM("Avalanche", "avax1brulqthe045psg4r1wygzlx7yhc2e9h2n0hpjp", "ubld");
+  t.is(pingack, 'AQ==', 'expected success bytes');
+
+  pingack = await E(axelar).bridgeFromEVM("Ethereum", "axelar1234567", "weth");
+  t.is(pingack, 'AQ==', 'expected success bytes');
+
+  pingack = await E(axelar).bridgeToEVMFromEVM("Ethereum", "Avalanche", "avax1brulqthe045psg4r1wygzlx7yhc2e9h2n0hpjp", "weth");
+  t.is(pingack, 'AQ==', 'expected success bytes');
+
+  pingack = await E(axelar).transferFromICAAccount("weth", "1", address);
+  t.is(pingack, 'AQ==', 'expected success bytes');
 
   await port.removeListener(listener);
   t.is("test", "test")
+
+  closed.promise
 
   return
 };

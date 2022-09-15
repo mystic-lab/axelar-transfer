@@ -24,7 +24,7 @@ export const marshalDenomTrace = (channel, denom) => {
  export const parseICAAddress = async (connection) => {
     const remote = await E(connection).getRemoteAddress()
     const version = remote.split("/")[6]
-    const versionJSON = JSON.parse(version)
+    const versionJSON = await JSON.parse(version)
     return versionJSON.address
 }
 

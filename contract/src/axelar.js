@@ -143,7 +143,7 @@ const sendFromAgoricToEVM = async (connections, destChain, destAddress, denom) =
       asset: denom,
     })
 
-    const txBytes = LinkRequest.encode(tx).finish()
+    const txBytes = await LinkRequest.encode(tx).finish()
 
     const msg = await E(ica.publicFacet).makeMsg({typeUrl: "/axelar.axelarnet.v1beta1.LinkRequest", value: txBytes})
 
@@ -185,10 +185,12 @@ const sendToAgoricFromEVM = async (connections, srcChain, denom) => {
       recipientChain: "Axelarnet",
       asset: denom,
     })
-  
-    const msg = await E(ica).makeMsg({typeUrl: "/axelar.evm.v1beta1.LinkRequest", value: tx})
 
-    const packet = await E(ica).makeICAPacket([msg]);
+    const txBytes = EVMLinkRequest.encode(tx).finish()
+  
+    const msg = await E(ica.publicFacet).makeMsg({typeUrl: "/axelar.evm.v1beta1.LinkRequest", value: txBytes})
+
+    const packet = await E(ica.publicFacet).makeICAPacket([msg]);
     
     const resp = await icaConnection.send(JSON.stringify(packet))
 
@@ -228,9 +230,11 @@ const sendToAgoricFromEVM = async (connections, srcChain, denom) => {
     asset: denom,
   })
 
-  const msg = await E(ica).makeMsg({typeUrl: "/axelar.evm.v1beta1.LinkRequest", value: tx})
+  const txBytes = EVMLinkRequest.encode(tx).finish()
 
-  const packet = await E(ica).makeICAPacket([msg]);
+  const msg = await E(ica.publicFacet).makeMsg({typeUrl: "/axelar.evm.v1beta1.LinkRequest", value: txBytes})
+
+  const packet = await E(ica.publicFacet).makeICAPacket([msg]);
   
   const resp = await icaConnection.send(JSON.stringify(packet))
 
@@ -253,8 +257,8 @@ const sendToAgoricFromEVM = async (connections, srcChain, denom) => {
    *
    * @type {Connection}
    */
-  const icaConnection = connections.get("icaConnection")
-  const ica = connections.get("ica")
+  const icaConnection = await connections.get("icaConnection")
+  const ica = await connections.get("ica")
   const myaddress = parseICAAddress(icaConnection)
 
   const tx = FungibleTokenPacketData.fromPartial({
@@ -264,9 +268,11 @@ const sendToAgoricFromEVM = async (connections, srcChain, denom) => {
     receiver: agoricAddress,
   })
 
-  const msg = await E(ica).makeMsg({typeUrl: "/ibc.applications.transfer.v1.MsgTransfer", value: tx})
+  const txBytes = FungibleTokenPacketData.encode(tx).finish()
 
-  const packet = await E(ica).makeICAPacket([msg]);
+  const msg = await E(ica.publicFacet).makeMsg({typeUrl: "/ibc.applications.transfer.v1.MsgTransfer", value: txBytes})
+
+  const packet = await E(ica.publicFacet).makeICAPacket([msg]);
   
   const resp = await icaConnection.send(JSON.stringify(packet))
 
