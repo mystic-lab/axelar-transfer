@@ -2,8 +2,6 @@
 
 This repo holds the Agoric smart contract for interacting with the Axelar cross-chain protocol through Agoric for cross-chain asset transfers.
 
-Install the [prerequisite smart contract](https://github.com/pitalco/interaccounts). Then follow the following instructions.
-
 ## Getting Started
 You will need to have Golang, NodeJS and Rust installed to get started.
 
@@ -38,7 +36,7 @@ make start-vald
 make start-rly
 ```
 
-## Deploying the Contract
+## Deploying the Interaccounts Contract
 
 In a seperate terminal, run the following command to start the local-solo. You will have to keep this terminal up running the solo
 ```sh
@@ -48,10 +46,25 @@ agoric open --repl
 agoric start local-solo 7000 --reset
 ```
 
-Once the repl opens, lets deploy the contract to Zoe so we can use it from our repl and our other contracts. Move back to an open terminal and run the following commands
+Once the repl opens, lets deploy the dependency contract to Zoe so we can use it for out Axelar contract. Move back to an open terminal and run the following commands
 ```sh
+cd ~
+git clone https://github.com/pitalco/interaccounts
 # Make sure you are in the base contract directory
+cd interaccounts
+cd ./contract
+
+agoric deploy ./deploy.js
+```
+
+## Deploying the Axelar Contract
+
+Now lets deploy the Axelar contract
+```sh
+# Make sure you are in the axelar contract directory
 cd ~/axelar-transfer/contract
 
 agoric deploy ./deploy.js
 ```
+
+## Using the Axelar Contract Object
