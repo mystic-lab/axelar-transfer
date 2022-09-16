@@ -7,28 +7,34 @@ Install the [prerequisite smart contract](https://github.com/pitalco/interaccoun
 ## Getting Started
 You will need to have Golang, NodeJS and Rust installed to get started.
 
-## Installation
+## Installation & Setup
 
 ```sh
 git clone https://github.com/pitalco/axelar-transfer
 
-cd interaccounts
+cd axelar-transfer
 
 # Install all required software. Agoric, Axelar, and Hermes Relayer
 make install
 
-# Start a local Agoric chain
-make start
-```
-
-
-Keep an eye in agoric.log file. Once Agoric starts up, initialize all the connections and the Hermes relayer
-```sh
+# Initialize everything needed
 make init
-```
 
-Once the process above completes, start the Hermes Relayer to relay transactions across chains. hermes.log tracks all the logs for Hermes
-```sh
+# Start a local Agoric chain and local Axelar chain
+make start
+
+# Wait for the chains to start up by checking logs. When producing blocks run this IN A NEW TERMINAL to start axelar local evm mock chains.
+cd ~/axelar-transfer/axelar-local-gmp-examples
+npm run build
+node scripts/createLocal
+
+# then in the original terminal run this to start up the Axelar tofnd process
+make start-tofnd
+
+# Finally start the vald Axelar process
+make start-vald
+
+# Then start hermes relayer. Will log everything in hermes.log file
 make start-rly
 ```
 
@@ -36,9 +42,10 @@ make start-rly
 
 In a seperate terminal, run the following command to start the local-solo. You will have to keep this terminal up running the solo
 ```sh
-agoric start local-solo --reset
-# once local-solo starts up, run
+# print out the repl address
 agoric open --repl
+# start the repl/ag-solo
+agoric start local-solo 7000 --reset
 ```
 
 Once the repl opens, lets deploy the contract to Zoe so we can use it from our repl and our other contracts. Move back to an open terminal and run the following commands

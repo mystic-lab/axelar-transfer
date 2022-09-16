@@ -10,7 +10,7 @@ install:
 		@echo "---> Installing axelar"
 		@bash ./network/axelar/axelar.sh
 		@echo "---> Installing Hermes relayer"
-		@bash ./network/relayer/install.sh
+		@bash ./network/hermes/install.sh
 		@echo "---> Installing Agoric SDK"
 		@bash ./network/agoric/agoric.sh
 
@@ -119,14 +119,11 @@ proto-update-deps:
 init:
 	@echo "Initializing blockchains..."
 	bash ./network/init.sh
-	@echo "Initializing relayer..." 
-	./network/hermes/restore-keys.sh
-	./network/hermes/rly-setup.sh
-	./network/hermes/create-conn.sh
 
 start: 
 	@echo "Starting up networks"
 	./network/start.sh
+	./network/agoric/start.sh
 
 start-tofnd: 
 	@echo "Starting up networks"
@@ -137,13 +134,16 @@ start-vald:
 	./network/vald.sh
 
 start-rly:
+	@echo "Initializing relayer..." 
+	./network/hermes/restore-keys.sh
+	./network/hermes/rly-setup.sh
+	./network/hermes/create-conn.sh
+	@echo "Starting relayer..." 
 	./network/hermes/start.sh
 
 kill-dev:
 	@echo "Killing all agoric ports"
 	./network/kill.sh
-	@echo "Killing Axelar"
-	killall axelard
 
 test-link:
 	@echo "running link test"

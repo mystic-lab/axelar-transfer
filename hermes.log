@@ -1,0 +1,71 @@
+2022-09-16T23:04:52.684865Z  INFO ThreadId(01) starting REST API server listening at http://127.0.0.1:3000
+2022-09-16T23:04:52.695313Z ERROR ThreadId(16) /status endpoint from chain id 'ibc-0' reports network identifier to be 'agoric': this is usually a sign of misconfiguration, check your config.toml
+2022-09-16T23:04:52.700826Z  INFO ThreadId(01) chain is healthy chain=ibc-0
+2022-09-16T23:04:52.708373Z  INFO ThreadId(01) chain is healthy chain=agoric
+2022-09-16T23:04:52.751251Z  INFO ThreadId(01) chain is healthy chain=axelar
+2022-09-16T23:04:52.751458Z  INFO ThreadId(01) scan.chain{chain=ibc-0}: scanning chain...
+2022-09-16T23:04:52.751632Z  INFO ThreadId(01) scan.chain{chain=ibc-0}: scanning chain for all clients, connections and channels
+2022-09-16T23:04:52.751643Z  INFO ThreadId(01) scan.chain{chain=ibc-0}: scanning all clients...
+2022-09-16T23:04:52.841280Z  INFO ThreadId(01) scan.chain{chain=ibc-0}:scan.client{client=07-tendermint-0}: scanning client...
+2022-09-16T23:04:52.879054Z  INFO ThreadId(01) scan.chain{chain=ibc-0}:scan.client{client=07-tendermint-0}:scan.connection{connection=connection-0}: scanning connection...
+2022-09-16T23:04:52.883932Z  WARN ThreadId(01) scan.chain{chain=ibc-0}:scan.client{client=07-tendermint-0}:scan.connection{connection=connection-0}: connection is not open, skipping scan of channels over this connection
+2022-09-16T23:04:52.884451Z  INFO ThreadId(01) scan.chain{chain=ibc-0}:scan.client{client=07-tendermint-1}: scanning client...
+2022-09-16T23:04:52.891946Z  INFO ThreadId(01) scan.chain{chain=ibc-0}:scan.client{client=07-tendermint-1}:scan.connection{connection=connection-1}: scanning connection...
+2022-09-16T23:04:52.912068Z  INFO ThreadId(01) scan.chain{chain=agoric}: scanning chain...
+2022-09-16T23:04:52.912254Z  INFO ThreadId(01) scan.chain{chain=agoric}: scanning chain for all clients, connections and channels
+2022-09-16T23:04:52.912273Z  INFO ThreadId(01) scan.chain{chain=agoric}: scanning all clients...
+2022-09-16T23:04:52.914460Z  INFO ThreadId(01) scan.chain{chain=agoric}:scan.client{client=07-tendermint-0}: scanning client...
+2022-09-16T23:04:52.918238Z  INFO ThreadId(01) scan.chain{chain=agoric}:scan.client{client=07-tendermint-0}:scan.connection{connection=connection-0}: scanning connection...
+2022-09-16T23:04:52.918300Z  WARN ThreadId(01) scan.chain{chain=agoric}:scan.client{client=07-tendermint-0}:scan.connection{connection=connection-0}: connection is not open, skipping scan of channels over this connection
+2022-09-16T23:04:52.918335Z  INFO ThreadId(01) scan.chain{chain=agoric}:scan.client{client=07-tendermint-1}: scanning client...
+2022-09-16T23:04:52.922672Z  INFO ThreadId(01) scan.chain{chain=agoric}:scan.client{client=07-tendermint-1}:scan.connection{connection=connection-1}: scanning connection...
+2022-09-16T23:04:52.924732Z  INFO ThreadId(01) scan.chain{chain=axelar}: scanning chain...
+2022-09-16T23:04:52.924830Z  INFO ThreadId(01) scan.chain{chain=axelar}: scanning chain for all clients, connections and channels
+2022-09-16T23:04:52.924840Z  INFO ThreadId(01) scan.chain{chain=axelar}: scanning all clients...
+2022-09-16T23:04:52.932348Z  INFO ThreadId(01) scan.chain{chain=axelar}:scan.client{client=07-tendermint-0}: scanning client...
+2022-09-16T23:04:52.934510Z  INFO ThreadId(01) scan.chain{chain=axelar}:scan.client{client=07-tendermint-1}: scanning client...
+2022-09-16T23:04:52.937008Z  INFO ThreadId(01) scan.chain{chain=axelar}:scan.client{client=07-tendermint-1}:scan.connection{connection=connection-0}: scanning connection...
+2022-09-16T23:04:52.941134Z  INFO ThreadId(01) Scanned chains:
+2022-09-16T23:04:52.941155Z  INFO ThreadId(01) # Chain: ibc-0
+  - Client: 07-tendermint-0
+    * Connection: connection-0
+      | State: INIT
+      | Counterparty state: <none>
+  - Client: 07-tendermint-1
+    * Connection: connection-1
+      | State: OPEN
+      | Counterparty state: OPEN
+# Chain: agoric
+  - Client: 07-tendermint-0
+    * Connection: connection-0
+      | State: INIT
+      | Counterparty state: <none>
+  - Client: 07-tendermint-1
+    * Connection: connection-1
+      | State: OPEN
+      | Counterparty state: OPEN
+# Chain: axelar
+  - Client: 07-tendermint-0
+  - Client: 07-tendermint-1
+    * Connection: connection-0
+      | State: OPEN
+      | Counterparty state: OPEN
+
+2022-09-16T23:04:52.942802Z  INFO ThreadId(01) connection is Init, state on destination chain is Uninitialized chain=ibc-0 connection=connection-0 counterparty_chain=axelar
+2022-09-16T23:04:52.942988Z  INFO ThreadId(01) no connection workers were spawn chain=ibc-0 connection=connection-0
+2022-09-16T23:04:52.943016Z  INFO ThreadId(01) connection is Open, state on destination chain is Open chain=ibc-0 connection=connection-1 counterparty_chain=axelar
+2022-09-16T23:04:52.943023Z  INFO ThreadId(01) connection is already open, not spawning Connection worker chain=ibc-0 connection=connection-1
+2022-09-16T23:04:52.943028Z  INFO ThreadId(01) no connection workers were spawn chain=ibc-0 connection=connection-1
+2022-09-16T23:04:52.943629Z  INFO ThreadId(01) spawning Wallet worker: wallet::ibc-0
+2022-09-16T23:04:52.944139Z ERROR ThreadId(20) wallet{chain=ibc-0}: task aborting after encountering fatal error: failed to get key in use by the relayer: signature key not found: testkey: cannot find key file at '/root/.hermes/keys/ibc-0/keyring-test/testkey.json'
+2022-09-16T23:04:52.944841Z  INFO ThreadId(01) connection is Init, state on destination chain is Uninitialized chain=agoric connection=connection-0 counterparty_chain=axelar
+2022-09-16T23:04:52.944866Z  INFO ThreadId(01) no connection workers were spawn chain=agoric connection=connection-0
+2022-09-16T23:04:52.944890Z  INFO ThreadId(01) connection is Open, state on destination chain is Open chain=agoric connection=connection-1 counterparty_chain=axelar
+2022-09-16T23:04:52.944933Z  INFO ThreadId(01) connection is already open, not spawning Connection worker chain=agoric connection=connection-1
+2022-09-16T23:04:52.944943Z  INFO ThreadId(01) no connection workers were spawn chain=agoric connection=connection-1
+2022-09-16T23:04:52.945107Z  INFO ThreadId(01) spawning Wallet worker: wallet::agoric
+2022-09-16T23:04:52.945129Z  INFO ThreadId(01) connection is Open, state on destination chain is Open chain=axelar connection=connection-0 counterparty_chain=agoric
+2022-09-16T23:04:52.945135Z  INFO ThreadId(01) connection is already open, not spawning Connection worker chain=axelar connection=connection-0
+2022-09-16T23:04:52.945140Z  INFO ThreadId(01) no connection workers were spawn chain=axelar connection=connection-0
+2022-09-16T23:04:52.945209Z  INFO ThreadId(01) spawning Wallet worker: wallet::axelar
+2022-09-16T23:04:52.958247Z  INFO ThreadId(01) Hermes has started

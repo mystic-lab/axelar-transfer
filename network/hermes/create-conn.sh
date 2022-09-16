@@ -6,6 +6,6 @@ set -e
 
 ### Configure the clients and connection
 echo "Initiating connection handshake..."
-$HERMES_BINARY -c $CONFIG_DIR create connection agoric theta-testnet-001
+hermes --config ./network/hermes/config.toml create connection --a-chain agoric --b-chain axelar
 
 sleep 2

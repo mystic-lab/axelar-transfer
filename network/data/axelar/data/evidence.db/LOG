@@ -1,6 +1,6 @@
-=============== Sep 10, 2022 (CDT) ===============
-16:05:23.783149 log@legend F·NumFile S·FileSize N·Entry C·BadEntry B·BadBlock Ke·KeyError D·DroppedEntry L·Level Q·SeqNum T·TimeElapsed
-16:05:24.027342 db@open opening
-16:05:24.029124 version@stat F·[] S·0B[] Sc·[]
-16:05:24.093932 db@janitor F·2 G·0
-16:05:24.094090 db@open done T·66.5945ms
+=============== Sep 16, 2022 (CDT) ===============
+17:54:11.050326 log@legend F·NumFile S·FileSize N·Entry C·BadEntry B·BadBlock Ke·KeyError D·DroppedEntry L·Level Q·SeqNum T·TimeElapsed
+17:54:11.514857 db@open opening
+17:54:11.517031 version@stat F·[] S·0B[] Sc·[]
+17:54:11.783014 db@janitor F·2 G·0
+17:54:11.783206 db@open done T·268.2728ms
