@@ -1,18 +1,20 @@
-{"timestamp":"2022-09-16T22:54:33.550285Z","level":"INFO","message":"START: decrypt kvstore","spans":[{"name":"main"}]}
-{"timestamp":"2022-09-16T22:54:34.059891Z","level":"INFO","message":"DONE: decrypt kvstore","spans":[{"name":"main"}]}
-{"timestamp":"2022-09-16T22:54:34.059931Z","level":"INFO","message":"kv_manager found existing db [./network/data/.tofnd/kvstore/kv]","spans":[{"name":"main"}]}
-{"timestamp":"2022-09-16T22:54:34.060189Z","level":"INFO","message":"tofnd listen addr 0.0.0.0:50051, use ctrl+c to shutdown","spans":[{"name":"main"}]}
-{"timestamp":"2022-09-16T22:55:48.377627Z","level":"DEBUG","message":"[dummyID] key presence check for multisig always return Present"}
-{"timestamp":"2022-09-16T22:55:48.377653Z","level":"INFO","message":"Key presence check completed succesfully"}
-{"timestamp":"2022-09-16T22:57:21.309004Z","level":"DEBUG","message":"[dummyID] key presence check for multisig always return Present"}
-{"timestamp":"2022-09-16T22:57:21.309051Z","level":"INFO","message":"Key presence check completed succesfully"}
-{"timestamp":"2022-09-16T22:58:56.113938Z","level":"DEBUG","message":"[dummyID] key presence check for multisig always return Present"}
-{"timestamp":"2022-09-16T22:58:56.114003Z","level":"INFO","message":"Key presence check completed succesfully"}
-{"timestamp":"2022-09-16T23:00:31.992551Z","level":"DEBUG","message":"[dummyID] key presence check for multisig always return Present"}
-{"timestamp":"2022-09-16T23:00:31.992577Z","level":"INFO","message":"Key presence check completed succesfully"}
-{"timestamp":"2022-09-16T23:02:04.755606Z","level":"DEBUG","message":"[dummyID] key presence check for multisig always return Present"}
-{"timestamp":"2022-09-16T23:02:04.755638Z","level":"INFO","message":"Key presence check completed succesfully"}
-{"timestamp":"2022-09-16T23:03:39.262792Z","level":"DEBUG","message":"[dummyID] key presence check for multisig always return Present"}
-{"timestamp":"2022-09-16T23:03:39.262843Z","level":"INFO","message":"Key presence check completed succesfully"}
-{"timestamp":"2022-09-16T23:05:12.226033Z","level":"DEBUG","message":"[dummyID] key presence check for multisig always return Present"}
-{"timestamp":"2022-09-16T23:05:12.226070Z","level":"INFO","message":"Key presence check completed succesfully"}
+{"timestamp":"2022-09-17T19:12:07.641263Z","level":"INFO","message":"START: decrypt kvstore","spans":[{"name":"main"}]}
+{"timestamp":"2022-09-17T19:12:08.058293Z","level":"INFO","message":"DONE: decrypt kvstore","spans":[{"name":"main"}]}
+{"timestamp":"2022-09-17T19:12:08.058327Z","level":"INFO","message":"kv_manager found existing db [./network/data/.tofnd/kvstore/kv]","spans":[{"name":"main"}]}
+{"timestamp":"2022-09-17T19:12:08.058469Z","level":"INFO","message":"tofnd listen addr 0.0.0.0:50051, use ctrl+c to shutdown","spans":[{"name":"main"}]}
+{"timestamp":"2022-09-17T19:13:11.870504Z","level":"DEBUG","message":"[dummyID] key presence check for multisig always return Present"}
+{"timestamp":"2022-09-17T19:13:11.870559Z","level":"INFO","message":"Key presence check completed succesfully"}
+{"timestamp":"2022-09-17T19:15:08.601623Z","level":"DEBUG","message":"[dummyID] key presence check for multisig always return Present"}
+{"timestamp":"2022-09-17T19:15:08.601650Z","level":"INFO","message":"Key presence check completed succesfully"}
+{"timestamp":"2022-09-17T19:16:50.815154Z","level":"DEBUG","message":"[dummyID] key presence check for multisig always return Present"}
+{"timestamp":"2022-09-17T19:16:50.815189Z","level":"INFO","message":"Key presence check completed succesfully"}
+{"timestamp":"2022-09-17T19:18:26.031814Z","level":"DEBUG","message":"[dummyID] key presence check for multisig always return Present"}
+{"timestamp":"2022-09-17T19:18:26.031901Z","level":"INFO","message":"Key presence check completed succesfully"}
+{"timestamp":"2022-09-17T19:20:02.760653Z","level":"DEBUG","message":"[dummyID] key presence check for multisig always return Present"}
+{"timestamp":"2022-09-17T19:20:02.760700Z","level":"INFO","message":"Key presence check completed succesfully"}
+{"timestamp":"2022-09-17T19:21:48.798009Z","level":"DEBUG","message":"[dummyID] key presence check for multisig always return Present"}
+{"timestamp":"2022-09-17T19:21:48.798103Z","level":"INFO","message":"Key presence check completed succesfully"}
+{"timestamp":"2022-09-17T19:24:38.630605Z","level":"DEBUG","message":"[dummyID] key presence check for multisig always return Present"}
+{"timestamp":"2022-09-17T19:24:38.630704Z","level":"INFO","message":"Key presence check completed succesfully"}
+{"timestamp":"2022-09-17T19:26:39.022939Z","level":"DEBUG","message":"[dummyID] key presence check for multisig always return Present"}
+{"timestamp":"2022-09-17T19:26:39.023167Z","level":"INFO","message":"Key presence check completed succesfully"}

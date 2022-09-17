@@ -71,7 +71,6 @@ import { FungibleTokenPacketData } from 'cosmjs-types/ibc/applications/transfer/
        */
       async bridgeToEVM (destChain, destAddress, denom) {
         const ret = await sendFromAgoricToEVM(connections, destChain, destAddress, denom)
-        console.log(ret)
         return ret
       },
       /**

@@ -18,15 +18,24 @@ make install
 # Initialize everything needed
 make init
 
-# Start a local Agoric chain and local Axelar chain
+# Start a local Agoric chain. Wait for the chain to start spitting out blocks. Keep running and go to a new terminal.
+agoric start local-chain --reset
+
+# print out the repl address (do not clear this, keep this present)
+agoric open --repl
+
+# start the repl/ag-solo. Keep running
+agoric start local-solo --reset
+
+# In another terminal start a local Axelar chain. Will log to log file in Axelar directory
 make start
 
-# Wait for the chains to start up by checking logs. When producing blocks run this IN A NEW TERMINAL to start axelar local evm mock chains.
+# Wait for the chains to start up by checking logs. When producing blocks run this IN ANOTHER NEW TERMINAL to start axelar local evm mock chains. Keep running
 cd ~/axelar-transfer/axelar-local-gmp-examples
 npm run build
 node scripts/createLocal
 
-# then in the original terminal run this to start up the Axelar tofnd process
+# then in a free terminal run this to start up the Axelar tofnd process
 make start-tofnd
 
 # Finally start the vald Axelar process
@@ -38,21 +47,10 @@ make start-rly
 
 ## Deploying the Interaccounts Contract
 
-In a seperate terminal, run the following command to start the local-solo. You will have to keep this terminal up running the solo
+Lets deploy the dependency contract to Zoe so we can use it for our Axelar contract. Move back to an open terminal and run the following commands
 ```sh
-# print out the repl address
-agoric open --repl
-# start the repl/ag-solo
-agoric start local-solo 7000 --reset
-```
-
-Once the repl opens, lets deploy the dependency contract to Zoe so we can use it for out Axelar contract. Move back to an open terminal and run the following commands
-```sh
-cd ~
-git clone https://github.com/pitalco/interaccounts
-# Make sure you are in the base contract directory
-cd interaccounts
-cd ./contract
+# Make sure you are in the linked interaccounts base directory
+cd ~/axelar-transfer/interaccounts/contract
 
 agoric deploy ./deploy.js
 ```
@@ -68,3 +66,5 @@ agoric deploy ./deploy.js
 ```
 
 ## Using the Axelar Contract Object
+
+Open up the repl link from the `agoric open` command above.

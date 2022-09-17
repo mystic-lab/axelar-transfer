@@ -121,9 +121,9 @@ init:
 	bash ./network/init.sh
 
 start: 
-	@echo "Starting up networks"
+	@echo "Starting up Axelar"
 	./network/start.sh
-	./network/agoric/start.sh
+#	./network/agoric/start.sh
 
 start-tofnd: 
 	@echo "Starting up networks"
@@ -146,5 +146,9 @@ kill-dev:
 	./network/kill.sh
 
 test-link:
-	@echo "running link test"
+	@echo "Running link test"
 	./network/axelar/test-link.sh
+
+start-solo:
+	@echo "Starting Agoric solo"
+	./network/agoric/solo.sh
