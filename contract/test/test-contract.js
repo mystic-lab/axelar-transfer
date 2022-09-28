@@ -134,7 +134,6 @@ const testAxelar = async (t) => {
   t.is(pingack, 'AQ==', 'expected success bytes');
 
   await port.removeListener(listener);
-  t.is('test', 'test');
 
   closed.promise;
 };
