@@ -1,4 +1,5 @@
 // @ts-check
+/* global harden */
 import { E } from '@endo/eventual-send';
 import { makeWebSocketHandler } from './lib-http.js';
 
@@ -7,6 +8,7 @@ const spawnHandler = (
   _invitationMaker,
 ) =>
   makeWebSocketHandler(http, (send, _meta) =>
+    // @ts-ignore
     harden({
       async onMessage(obj) {
         switch (obj.type) {

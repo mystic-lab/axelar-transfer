@@ -1,7 +1,5 @@
 // @ts-check
 
-/* global process */
-
 // Agoric Dapp api deployment script
 
 import fs from 'fs';

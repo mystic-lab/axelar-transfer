@@ -4,8 +4,8 @@
   "private": true,
   "useWorkspaces": true,
   "workspaces": [
-    "api",
     "contract",
+    "api",
     "_agstate/agoric-servers",
     "ui"
   ],
