@@ -1,0 +1,19 @@
+version: "2.2"
+services:
+  ag-solo:
+    image: agoric/agoric-sdk:${SDK_TAG:-20220921004853-bc883b}
+    ports:
+      - "${HOST_PORT:-8000}:${PORT:-8000}"
+    volumes:
+      - "ag-solo-state:/state"
+      - "$HOME/.agoric:/root/.agoric"
+    environment:
+      - "AG_SOLO_BASEDIR=/state/${SOLO_HOME:-20220921004853-bc883b}"
+    entrypoint: ag-solo
+    command:
+      - setup
+      - --webhost=0.0.0.0
+      - --webport=${PORT:-8000}
+      - --netconfig=${NETCONFIG_URL:-https://devnet.agoric.net/network-config}
+volumes:
+  ag-solo-state:

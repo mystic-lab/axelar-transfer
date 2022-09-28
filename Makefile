@@ -142,7 +142,7 @@ start-rly:
 	./network/hermes/start.sh
 
 kill-dev:
-	@echo "Killing all agoric ports"
+	@echo "Killing all processes"
 	./network/kill.sh
 
 test-link:

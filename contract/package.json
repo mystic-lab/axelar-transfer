@@ -31,6 +31,7 @@
     "@agoric/store": "dev",
     "@agoric/swingset-vat": "dev",
     "@agoric/zoe": "dev",
+    "@agoric/vats": "dev",
     "@cosmjs/encoding": "^0.28.4",
     "@endo/base64": "^0.2.25",
     "@endo/bundle-source": "^2.2.0",
@@ -39,7 +40,8 @@
     "@endo/marshal": "^0.6.7",
     "@endo/promise-kit": "^0.2.42",
     "cosmjs-types": "agoric-labs/cosmjs-types#Agoric-built",
-    "@axelar-network/axelarjs-types": "^0.24.0"
+    "@axelar-network/axelarjs-types": "^0.24.0",
+    "crypto": "^1.0.1"
   },
   "ava": {
     "files": [

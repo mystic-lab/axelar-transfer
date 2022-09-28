@@ -24,7 +24,7 @@ agoric start local-chain --reset
 # print out the repl address (do not clear this, keep this present)
 agoric open --repl
 
-# start the repl/ag-solo. Keep running
+# start the repl/ag-solo. Wait for the wallet to fully launch!!!! Keep running in terminal.
 agoric start local-solo --reset
 
 # In another terminal start a local Axelar chain. Will log to log file in Axelar directory
@@ -55,6 +55,12 @@ cd ~/axelar-transfer/interaccounts/contract
 agoric deploy ./deploy.js
 ```
 
+Lets save the installation on our name board. In the repl, run:
+```javascript
+installation = E(home.board).getValue(Installation_ID)
+E(home.myAddressNameAdmin).default("interaccounts", installation)
+```
+
 ## Deploying the Axelar Contract
 
 Now lets deploy the Axelar contract
@@ -67,4 +73,19 @@ agoric deploy ./deploy.js
 
 ## Using the Axelar Contract Object
 
-Open up the repl link from the `agoric open` command above.
+Run the following in the Agoric repl. The returned object is how we will interact with Axelar.
+```javascript
+// Get the installation for Axelar
+installation = E(home.board).getValue(Installation_ID)
+
+// Start the Axelar instance
+instance = E(home.zoe).startInstance(installation)
+
+// Lets initialize Axelar and get the Axelar facet
+const axelar = E(instance.publicFacet).setupAxelar(zoe, myAddressNameAdmin, address, port2, controllerConnectionId, hostConnectionId)
+
+// Lets create a deposit address on Axelar to bridge to Avalanche
+E(axelar).bridgeToEVM("Avalanche", "avax1brulqthe045psg4r1wygzlx7yhc2e9h2n0hpjp", "ubld");
+```
+
+Send the assets to the deposit address on `Axelar` using the Pegasus contract, and let Axelar handle the rest!

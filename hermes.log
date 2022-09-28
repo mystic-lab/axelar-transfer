@@ -1,30 +1,18 @@
-2022-09-17T19:17:53.174168Z  INFO ThreadId(01) starting REST API server listening at http://127.0.0.1:3000
-2022-09-17T19:17:53.181533Z ERROR ThreadId(16) /status endpoint from chain id 'ibc-0' reports network identifier to be 'agoric': this is usually a sign of misconfiguration, check your config.toml
-2022-09-17T19:17:53.187903Z  INFO ThreadId(01) chain is healthy chain=ibc-0
-2022-09-17T19:17:53.195370Z  INFO ThreadId(01) chain is healthy chain=agoric
-2022-09-17T19:17:53.205702Z  INFO ThreadId(01) chain is healthy chain=axelar
-2022-09-17T19:17:53.205929Z  INFO ThreadId(01) scan.chain{chain=ibc-0}: scanning chain...
-2022-09-17T19:17:53.206148Z  INFO ThreadId(01) scan.chain{chain=ibc-0}: scanning chain for all clients, connections and channels
-2022-09-17T19:17:53.206160Z  INFO ThreadId(01) scan.chain{chain=ibc-0}: scanning all clients...
-2022-09-17T19:17:53.208289Z  INFO ThreadId(01) scan.chain{chain=ibc-0}:scan.client{client=07-tendermint-0}: scanning client...
-2022-09-17T19:17:53.211728Z  INFO ThreadId(01) scan.chain{chain=ibc-0}:scan.client{client=07-tendermint-0}:scan.connection{connection=connection-0}: scanning connection...
-2022-09-17T19:17:53.217230Z  INFO ThreadId(01) scan.chain{chain=agoric}: scanning chain...
-2022-09-17T19:17:53.217306Z  INFO ThreadId(01) scan.chain{chain=agoric}: scanning chain for all clients, connections and channels
-2022-09-17T19:17:53.217312Z  INFO ThreadId(01) scan.chain{chain=agoric}: scanning all clients...
-2022-09-17T19:17:53.218583Z  INFO ThreadId(01) scan.chain{chain=agoric}:scan.client{client=07-tendermint-0}: scanning client...
-2022-09-17T19:17:53.221012Z  INFO ThreadId(01) scan.chain{chain=agoric}:scan.client{client=07-tendermint-0}:scan.connection{connection=connection-0}: scanning connection...
-2022-09-17T19:17:53.222047Z  INFO ThreadId(01) scan.chain{chain=axelar}: scanning chain...
-2022-09-17T19:17:53.222097Z  INFO ThreadId(01) scan.chain{chain=axelar}: scanning chain for all clients, connections and channels
-2022-09-17T19:17:53.222103Z  INFO ThreadId(01) scan.chain{chain=axelar}: scanning all clients...
-2022-09-17T19:17:53.223717Z  INFO ThreadId(01) scan.chain{chain=axelar}:scan.client{client=07-tendermint-0}: scanning client...
-2022-09-17T19:17:53.225166Z  INFO ThreadId(01) scan.chain{chain=axelar}:scan.client{client=07-tendermint-0}:scan.connection{connection=connection-0}: scanning connection...
-2022-09-17T19:17:53.227553Z  INFO ThreadId(01) Scanned chains:
-2022-09-17T19:17:53.227569Z  INFO ThreadId(01) # Chain: ibc-0
-  - Client: 07-tendermint-0
-    * Connection: connection-0
-      | State: OPEN
-      | Counterparty state: OPEN
-# Chain: agoric
+2022-09-28T03:07:39.724470Z  INFO ThreadId(01) starting REST API server listening at http://127.0.0.1:3000
+2022-09-28T03:07:39.822073Z  INFO ThreadId(01) chain is healthy chain=agoric
+2022-09-28T03:07:39.870416Z  INFO ThreadId(01) chain is healthy chain=axelar
+2022-09-28T03:07:39.870499Z  INFO ThreadId(01) scan.chain{chain=agoric}: scanning chain...
+2022-09-28T03:07:39.870551Z  INFO ThreadId(01) scan.chain{chain=agoric}: scanning chain for all clients, connections and channels
+2022-09-28T03:07:39.870579Z  INFO ThreadId(01) scan.chain{chain=agoric}: scanning all clients...
+2022-09-28T03:07:39.872429Z  INFO ThreadId(01) scan.chain{chain=agoric}:scan.client{client=07-tendermint-0}: scanning client...
+2022-09-28T03:07:39.980687Z  INFO ThreadId(01) scan.chain{chain=agoric}:scan.client{client=07-tendermint-0}:scan.connection{connection=connection-0}: scanning connection...
+2022-09-28T03:07:39.989333Z  INFO ThreadId(01) scan.chain{chain=axelar}: scanning chain...
+2022-09-28T03:07:39.989502Z  INFO ThreadId(01) scan.chain{chain=axelar}: scanning chain for all clients, connections and channels
+2022-09-28T03:07:39.989525Z  INFO ThreadId(01) scan.chain{chain=axelar}: scanning all clients...
+2022-09-28T03:07:39.992479Z  INFO ThreadId(01) scan.chain{chain=axelar}:scan.client{client=07-tendermint-0}: scanning client...
+2022-09-28T03:07:39.995008Z  INFO ThreadId(01) scan.chain{chain=axelar}:scan.client{client=07-tendermint-0}:scan.connection{connection=connection-0}: scanning connection...
+2022-09-28T03:07:40.035865Z  INFO ThreadId(01) Scanned chains:
+2022-09-28T03:07:40.035913Z  INFO ThreadId(01) # Chain: agoric
   - Client: 07-tendermint-0
     * Connection: connection-0
       | State: OPEN
@@ -35,28 +23,13 @@
       | State: OPEN
       | Counterparty state: OPEN
 
-2022-09-17T19:17:53.227931Z  INFO ThreadId(01) connection is Open, state on destination chain is Open chain=ibc-0 connection=connection-0 counterparty_chain=axelar
-2022-09-17T19:17:53.227976Z  INFO ThreadId(01) connection is already open, not spawning Connection worker chain=ibc-0 connection=connection-0
-2022-09-17T19:17:53.228124Z  INFO ThreadId(01) no connection workers were spawn chain=ibc-0 connection=connection-0
-2022-09-17T19:17:53.228620Z  INFO ThreadId(01) spawning Wallet worker: wallet::ibc-0
-2022-09-17T19:17:53.228639Z  INFO ThreadId(01) connection is Open, state on destination chain is Open chain=agoric connection=connection-0 counterparty_chain=axelar
-2022-09-17T19:17:53.228645Z  INFO ThreadId(01) connection is already open, not spawning Connection worker chain=agoric connection=connection-0
-2022-09-17T19:17:53.228650Z  INFO ThreadId(01) no connection workers were spawn chain=agoric connection=connection-0
-2022-09-17T19:17:53.228774Z  INFO ThreadId(01) spawning Wallet worker: wallet::agoric
-2022-09-17T19:17:53.229178Z  INFO ThreadId(01) connection is Open, state on destination chain is Open chain=axelar connection=connection-0 counterparty_chain=agoric
-2022-09-17T19:17:53.229190Z  INFO ThreadId(01) connection is already open, not spawning Connection worker chain=axelar connection=connection-0
-2022-09-17T19:17:53.229204Z  INFO ThreadId(01) no connection workers were spawn chain=axelar connection=connection-0
-2022-09-17T19:17:53.229085Z ERROR ThreadId(20) wallet{chain=ibc-0}: task aborting after encountering fatal error: failed to get key in use by the relayer: signature key not found: testkey: cannot find key file at '/root/.hermes/keys/ibc-0/keyring-test/testkey.json'
-2022-09-17T19:17:53.229248Z  INFO ThreadId(01) spawning Wallet worker: wallet::axelar
-2022-09-17T19:17:53.245131Z  INFO ThreadId(01) Hermes has started
-2022-09-17T19:28:20.235218Z ERROR ThreadId(23) [ibc-0] failed to collect events: WebSocket driver failed: web socket error: failed to read from WebSocket connection: WebSocket protocol error: Connection reset without closing handshake
-2022-09-17T19:28:20.236037Z ERROR ThreadId(24) [agoric] failed to collect events: WebSocket driver failed: web socket error: failed to read from WebSocket connection: WebSocket protocol error: Connection reset without closing handshake
-2022-09-17T19:28:22.438140Z ERROR ThreadId(25) [axelar] failed to collect events: RPC error: response error
-2022-09-17T19:28:22.444794Z  INFO ThreadId(25) [axelar] successfully reconnected to WebSocket endpoint ws://localhost:16657/websocket
-2022-09-17T19:28:22.589536Z ERROR ThreadId(25) [axelar] failed to collect events: WebSocket driver failed: web socket error: failed to read from WebSocket connection: WebSocket protocol error: Connection reset without closing handshake
-2022-09-17T19:28:23.898256Z  WARN ThreadId(22) wallet{chain=axelar}: task encountered ignorable error: failed to query balance for the account: error in underlying transport when making gRPC call: transport error
-2022-09-17T19:28:23.898256Z  WARN ThreadId(21) wallet{chain=agoric}: task encountered ignorable error: failed to query balance for the account: error in underlying transport when making gRPC call: transport error
-2022-09-17T19:28:28.899740Z  WARN ThreadId(21) wallet{chain=agoric}: task encountered ignorable error: failed to query balance for the account: error in underlying transport when making gRPC call: transport error
-2022-09-17T19:28:28.899848Z  WARN ThreadId(22) wallet{chain=axelar}: task encountered ignorable error: failed to query balance for the account: error in underlying transport when making gRPC call: transport error
-2022-09-17T19:28:33.901574Z  WARN ThreadId(21) wallet{chain=agoric}: task encountered ignorable error: failed to query balance for the account: error in underlying transport when making gRPC call: transport error
-2022-09-17T19:28:33.901706Z  WARN ThreadId(22) wallet{chain=axelar}: task encountered ignorable error: failed to query balance for the account: error in underlying transport when making gRPC call: transport error
+2022-09-28T03:07:40.036029Z  INFO ThreadId(01) connection is Open, state on destination chain is Open chain=agoric connection=connection-0 counterparty_chain=axelar
+2022-09-28T03:07:40.036056Z  INFO ThreadId(01) connection is already open, not spawning Connection worker chain=agoric connection=connection-0
+2022-09-28T03:07:40.036087Z  INFO ThreadId(01) no connection workers were spawn chain=agoric connection=connection-0
+2022-09-28T03:07:40.036316Z  INFO ThreadId(01) spawning Wallet worker: wallet::agoric
+2022-09-28T03:07:40.036405Z  INFO ThreadId(01) connection is Open, state on destination chain is Open chain=axelar connection=connection-0 counterparty_chain=agoric
+2022-09-28T03:07:40.036426Z  INFO ThreadId(01) connection is already open, not spawning Connection worker chain=axelar connection=connection-0
+2022-09-28T03:07:40.036438Z  INFO ThreadId(01) no connection workers were spawn chain=axelar connection=connection-0
+2022-09-28T03:07:40.036752Z  INFO ThreadId(01) spawning Wallet worker: wallet::axelar
+2022-09-28T03:07:40.055408Z  INFO ThreadId(01) Hermes has started
+2022-09-28T04:05:11.345995Z ERROR ThreadId(22) [axelar] failed to collect events: RPC error: response error
