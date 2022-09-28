@@ -1,7 +1,7 @@
 // @ts-check
 import { E } from '@endo/eventual-send';
 import { Far } from '@endo/marshal';
-import makeWeakMap from '@agoric/store';
+import { makeScalarBigMapStore } from '@agoric/vat-data';
 import { LinkRequest } from '@axelar-network/axelarjs-types/axelar/axelarnet/v1beta1/tx.js'
 import { LinkRequest as EVMLinkRequest } from '@axelar-network/axelarjs-types/axelar/evm/v1beta1/tx.js'
 import { parseICAAddress } from './utils.js';
@@ -15,17 +15,16 @@ import { FungibleTokenPacketData } from 'cosmjs-types/ibc/applications/transfer/
  * 
  * @param {ZoeService} zoe
  * @param {NameAdmin} nameAdmin
- * @param {string} account
  * @param {Port} port
  * @param {string} controllerConnectionId
  * @param {string} hostConnectionId
  * @returns {Promise<AxelarResponse>}
  */
- export const setupAxelar = async (zoe, nameAdmin, account, port, controllerConnectionId, hostConnectionId) => {
+ export const setupAxelar = async (zoe, nameAdmin, port, controllerConnectionId, hostConnectionId) => {
     const nameHub = E(nameAdmin).readonly()
 
     // create a store for axelar
-    const connections = makeWeakMap('axelar');
+    const connections = makeScalarBigMapStore('axelar');
 
     // grab the interaccount installation from name hub
     /** @type {Installation} */
@@ -199,7 +198,7 @@ const sendToAgoricFromEVM = async (connections, srcChain, denom) => {
 /**
  * Sends a token from an EVM chain supported by Axelar to Another EVM chain supported by Axelar.
  *
- * @param {LegacyMap<string, object>} connections
+ * @param {Object} connections
  * @param {String} srcChain
  * @param {String} destChain
  * @param {String} destAddress
@@ -207,11 +206,7 @@ const sendToAgoricFromEVM = async (connections, srcChain, denom) => {
  * @returns {Promise<String>}
  */
  const sendToEVMFromEVM = async (connections, srcChain, destChain, destAddress, denom) => {
-  /**
-   * Get the ica connection object and ica public facet from state
-   *
-   * @type {Connection}
-   */
+  
   const icaConnection = connections.get("icaConnection")
   const ica = connections.get("ica")
   const myaddress = parseICAAddress(icaConnection)

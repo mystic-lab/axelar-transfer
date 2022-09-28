@@ -25,12 +25,13 @@
     "eslint-plugin-react": "^7.28.0",
     "eslint-plugin-react-hooks": "^4.3.0",
     "prettier": "^2.5.1",
-    "@agoric/solo": "beta",
-    "@agoric/cosmic-swingset": "beta",
+    "@agoric/solo": "dev",
+    "@agoric/cosmic-swingset": "dev",
     "@cosmjs/proto-signing": "^0.28.13",
     "@cosmjs/tendermint-rpc": "^0.28.13",
     "patch-package": "latest",
-    "postinstall-postinstall": "latest"
+    "postinstall-postinstall": "latest",
+    "protobufjs": "^6.11.3"
   },
   "resolutions": {
     "**/protobufjs": "agoric-labs/protobuf.js#Agoric-built",
@@ -46,7 +47,7 @@
     "postinstall": "patch-package"
   },
   "dependencies": {
-    "agoric": "beta"
+    "agoric": "dev"
   },
   "ava": {
     "files": [

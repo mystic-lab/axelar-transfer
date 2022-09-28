@@ -1,6 +1,6 @@
 # Axelar Transfer Contract
 
-This repo holds the Agoric smart contract for interacting with the Axelar cross-chain protocol through Agoric for cross-chain asset transfers.
+This repo holds the Agoric smart contract for interacting with the Axelar cross-chain protocol through Agoric for cross-chain asset transfers and cross-chain messaging (once supported) for EVM chains supported by Axelar.
 
 ## Getting Started
 You will need to have Golang, NodeJS and Rust installed to get started.

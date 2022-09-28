@@ -56,9 +56,13 @@ const setupAxelarContract = async () => {
 
 }
 
-const testAxelar = async (t, publicFacet) => {
+const testAxelar = async (t) => {
 
   const {zoe, myAddressNameAdmin, address, controllerConnectionId, hostConnectionId} = await setupAxelarContract()
+
+  const bundle = await bundleSource(`../contract/src/contract.js`);
+  const installation = await E(zoe).install(bundle);
+  const instance = await E(zoe).startInstance(installation);
 
   // Create a network protocol to be used for testing
   const protocol = makeNetworkProtocol(makeLoopbackProtocolHandler());
@@ -90,7 +94,7 @@ const testAxelar = async (t, publicFacet) => {
   await port.addListener(listener);
 
   // run the setup axelar process to receive the Axelar action object
-  const axelar = await E(publicFacet).setupAxelar(zoe, myAddressNameAdmin, address, port2, controllerConnectionId, hostConnectionId)
+  const axelar = await E(instance.publicFacet).setupAxelar(zoe, myAddressNameAdmin, address, port2, controllerConnectionId, hostConnectionId)
 
   var pingack = await E(axelar).bridgeToEVM("Avalanche", "avax1brulqthe045psg4r1wygzlx7yhc2e9h2n0hpjp", "ubld");
   t.is(pingack, 'AQ==', 'expected success bytes');
@@ -113,7 +117,5 @@ const testAxelar = async (t, publicFacet) => {
 };
 
 test('Axelar Contract', async (t) => {
-  const mod = await import(contractPath);
-  const { publicFacet } = await mod.start();
-  await testAxelar(t, publicFacet);
+  await testAxelar(t);
 });
