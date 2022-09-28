@@ -17,7 +17,6 @@ import bundleSource from '@endo/bundle-source';
 /**
  * @typedef {Object} DeployPowers The special powers that agoric deploy gives us
  * @property {(path: string) => string} pathResolve
- *
  * @typedef {Object} Board
  * @property {(id: string) => any} getValue
  * @property {(value: any) => string} getId

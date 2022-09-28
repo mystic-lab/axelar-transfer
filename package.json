@@ -30,8 +30,7 @@
     "@cosmjs/proto-signing": "^0.28.13",
     "@cosmjs/tendermint-rpc": "^0.28.13",
     "patch-package": "latest",
-    "postinstall-postinstall": "latest",
-    "protobufjs": "^6.11.3"
+    "postinstall-postinstall": "latest"
   },
   "resolutions": {
     "**/protobufjs": "agoric-labs/protobuf.js#Agoric-built",

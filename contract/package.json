@@ -32,6 +32,7 @@
     "@agoric/swingset-vat": "dev",
     "@agoric/zoe": "dev",
     "@agoric/vats": "dev",
+    "@agoric/pegasus": "dev",
     "@agoric/vat-data": "dev",
     "@cosmjs/encoding": "^0.28.4",
     "@endo/base64": "^0.2.25",

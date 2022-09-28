@@ -6584,7 +6584,7 @@ prop-types@^15.8.1:
     object-assign "^4.1.1"
     react-is "^16.13.1"
 
-protobufjs@^6.11.3, protobufjs@^6.8.8, protobufjs@^7.0.0, protobufjs@agoric-labs/protobuf.js#Agoric-built, protobufjs@~6.11.3:
+protobufjs@^6.8.8, protobufjs@^7.0.0, protobufjs@agoric-labs/protobuf.js#Agoric-built, protobufjs@~6.11.3:
   version "6.11.3"
   resolved "https://codeload.github.com/agoric-labs/protobuf.js/tar.gz/014f714a0b9231ccddb1b24e2877522042d13a95"
   dependencies:

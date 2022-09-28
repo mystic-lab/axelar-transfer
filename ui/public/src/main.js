@@ -23,13 +23,13 @@ export default async function main() {
   let walletP;
   const offers = new Set();
 
-  const $mintFungible = /** @type {HTMLInputElement} */ (document.getElementById(
-    'mintFungible',
-  ));
+  const $mintFungible = /** @type {HTMLInputElement} */ (
+    document.getElementById('mintFungible')
+  );
 
-  const $walletStatus = /** @type {HTMLInputElement} */ (document.getElementById(
-    'wallet-status',
-  ));
+  const $walletStatus = /** @type {HTMLInputElement} */ (
+    document.getElementById('wallet-status')
+  );
 
   const maybeEnableButtons = () => {
     if (!apiSend || !zoeInvitationDepositFacetId) {

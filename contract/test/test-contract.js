@@ -23,44 +23,49 @@ const dirname = path.dirname(filename);
 const contractPath = `${dirname}/../src/contract.js`;
 
 const setupAxelarContract = async () => {
-
   const { zoeService } = makeZoeKit(makeFakeVatAdmin().admin);
   const feePurse = E(zoeService).makeFeePurse();
   const zoe = E(zoeService).bindDefaultFeePurse(feePurse);
-  var myAddressNameAdmin = makeFakeMyAddressNameAdmin();
+  const myAddressNameAdmin = makeFakeMyAddressNameAdmin();
 
   // install the pegasus bundle and start pegasus instance
   const installationP = await E(zoe).install(pegasusBundle);
-  await E(myAddressNameAdmin).default("pegasus", installationP)
+  await E(myAddressNameAdmin).default('pegasus', installationP);
 
   // install the interaccounts bundle and start interaccounts instance
-  const icaBundle = await bundleSource(`../interaccounts/contract/src/contract.js`);
+  const icaBundle = await bundleSource(
+    `../interaccounts/contract/src/contract.js`,
+  );
   const installationIca = await E(zoe).install(icaBundle);
   // set the lookup for ica interaccounts
-  await E(myAddressNameAdmin).default("interaccounts", installationIca)
+  await E(myAddressNameAdmin).default('interaccounts', installationIca);
 
   // setup connections
-  const controllerConnectionId = "connection-0"
-  const hostConnectionId = "connection-1"
+  const controllerConnectionId = 'connection-0';
+  const hostConnectionId = 'connection-1';
 
   // get your agoric address
-  const address = await E(myAddressNameAdmin).getMyAddress()
+  const address = await E(myAddressNameAdmin).getMyAddress();
 
   return {
     zoe,
     myAddressNameAdmin,
     address,
     controllerConnectionId,
-    hostConnectionId
-  }
-
-}
+    hostConnectionId,
+  };
+};
 
 const testAxelar = async (t) => {
+  const {
+    zoe,
+    myAddressNameAdmin,
+    address,
+    controllerConnectionId,
+    hostConnectionId,
+  } = await setupAxelarContract();
 
-  const {zoe, myAddressNameAdmin, address, controllerConnectionId, hostConnectionId} = await setupAxelarContract()
-
-  const bundle = await bundleSource(`../contract/src/contract.js`);
+  const bundle = await bundleSource(contractPath);
   const installation = await E(zoe).install(bundle);
   const instance = await E(zoe).startInstance(installation);
 
@@ -70,9 +75,13 @@ const testAxelar = async (t) => {
   const closed = makePromiseKit();
 
   // Create first port that packet will be sent to
-  const port = await protocol.bind('/ibc-hop/connection-0/ibc-port/icahost/ordered');
+  const port = await protocol.bind(
+    '/ibc-hop/connection-0/ibc-port/icahost/ordered',
+  );
   // Create and send packet to first port utilizing port 2
-  const port2 = await protocol.bind('/ibc-hop/connection-1/ibc-port/icahost/ordered');
+  const port2 = await protocol.bind(
+    '/ibc-hop/connection-1/ibc-port/icahost/ordered',
+  );
 
   /**
    * Create the listener for the test port
@@ -85,7 +94,7 @@ const testAxelar = async (t) => {
         async onReceive(c, packet, _connectionHandler) {
           // Check that recieved packet is the packet we created above
           const json = await JSON.parse(packet);
-          console.log("Received Packet on Port 1:", json);
+          console.log('Received Packet on Port 1:', json);
           return 'AQ==';
         },
       });
@@ -94,26 +103,40 @@ const testAxelar = async (t) => {
   await port.addListener(listener);
 
   // run the setup axelar process to receive the Axelar action object
-  const axelar = await E(instance.publicFacet).setupAxelar(zoe, myAddressNameAdmin, address, port2, controllerConnectionId, hostConnectionId)
+  const axelar = await E(instance.publicFacet).setupAxelar(
+    zoe,
+    myAddressNameAdmin,
+    address,
+    port2,
+    controllerConnectionId,
+    hostConnectionId,
+  );
 
-  var pingack = await E(axelar).bridgeToEVM("Avalanche", "avax1brulqthe045psg4r1wygzlx7yhc2e9h2n0hpjp", "ubld");
+  let pingack = await E(axelar).bridgeToEVM(
+    'Avalanche',
+    'avax1brulqthe045psg4r1wygzlx7yhc2e9h2n0hpjp',
+    'ubld',
+  );
   t.is(pingack, 'AQ==', 'expected success bytes');
 
-  pingack = await E(axelar).bridgeFromEVM("Ethereum", "axelar1234567", "weth");
+  pingack = await E(axelar).bridgeFromEVM('Ethereum', 'axelar1234567', 'weth');
   t.is(pingack, 'AQ==', 'expected success bytes');
 
-  pingack = await E(axelar).bridgeToEVMFromEVM("Ethereum", "Avalanche", "avax1brulqthe045psg4r1wygzlx7yhc2e9h2n0hpjp", "weth");
+  pingack = await E(axelar).bridgeToEVMFromEVM(
+    'Ethereum',
+    'Avalanche',
+    'avax1brulqthe045psg4r1wygzlx7yhc2e9h2n0hpjp',
+    'weth',
+  );
   t.is(pingack, 'AQ==', 'expected success bytes');
 
-  pingack = await E(axelar).transferFromICAAccount("weth", "1", address);
+  pingack = await E(axelar).transferFromICAAccount('weth', '1', address);
   t.is(pingack, 'AQ==', 'expected success bytes');
 
   await port.removeListener(listener);
-  t.is("test", "test")
+  t.is('test', 'test');
 
-  closed.promise
-
-  return
+  closed.promise;
 };
 
 test('Axelar Contract', async (t) => {

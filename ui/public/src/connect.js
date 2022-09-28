@@ -3,12 +3,12 @@
 import { rpc } from '../lib/socket.js';
 import { activateSocket as startApi } from '../lib/api-client.js';
 
-const $messages = /** @type {HTMLDivElement} */ (document.getElementById(
-  `messages`,
-));
-const $debug = /** @type {HTMLInputElement} */ (document.getElementById(
-  'debug',
-));
+const $messages = /** @type {HTMLDivElement} */ (
+  document.getElementById(`messages`)
+);
+const $debug = /** @type {HTMLInputElement} */ (
+  document.getElementById('debug')
+);
 
 function debugChange() {
   // console.log('checked', $debug.checked);
@@ -50,9 +50,9 @@ function linesToHTML(lines) {
  */
 export const connect = (endpointPath, recv, query = '') => {
   const statusId = endpointPath === 'wallet' ? 'wallet-status' : `api-status`;
-  const $status = /** @type {HTMLSpanElement} */ (document.getElementById(
-    statusId,
-  ));
+  const $status = /** @type {HTMLSpanElement} */ (
+    document.getElementById(statusId)
+  );
   $status.innerHTML = 'Connecting...';
 
   const endpoint =

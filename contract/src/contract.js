@@ -1,10 +1,9 @@
 // @ts-check
 import '@agoric/zoe/exported.js';
+import { Far } from '@endo/marshal';
 import { setupAxelar } from './axelar.js';
 import '@agoric/vats/exported.js';
 import '@agoric/swingset-vat/src/vats/network/types.js';
-import '@agoric/zoe/exported.js';
-import { Far } from '@endo/marshal';
 
 /**
  * This is a contract to interact with Axelar and bridge tokens from Agoric to EVM's
@@ -23,10 +22,30 @@ const start = async () => {
      * This is a contract to interact with Axelar and bridge tokens from Agoric to EVM's
      * with Axelar to any supported chains using ICS-27 through the Interaccounts Contract.
      *
+     * @param {ZoeService} zoe
+     * @param {NameAdmin} nameHub
+     * @param {Port} port
+     * @param {string} controllerConnectionId
+     * @param {string} hostConnectionId
      */
-    setupAxelar: async (/** @type {ZoeService} */ zoe, /** @type {NameAdmin} */ nameHub, /** @type {string} */ account, /** @type {Port} */ port, /** @type {string} */ controllerConnectionId, /** @type {string} */ hostConnectionId) => await setupAxelar(zoe, nameHub, account, port, controllerConnectionId, hostConnectionId),
+    setupAxelar: async (
+      zoe,
+      nameHub,
+      port,
+      controllerConnectionId,
+      hostConnectionId,
+    ) => {
+      const ret = await setupAxelar(
+        zoe,
+        nameHub,
+        port,
+        controllerConnectionId,
+        hostConnectionId,
+      );
+      return ret;
+    },
   });
-  
+
   return harden({ creatorFacet, publicFacet });
 };
 
