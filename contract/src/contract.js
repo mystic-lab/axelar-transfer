@@ -4,7 +4,6 @@ import '@agoric/zoe/exported.js';
 import { Far } from '@endo/marshal';
 import { setupAxelar } from './axelar.js';
 import '@agoric/vats/exported.js';
-import '@agoric/swingset-vat/src/vats/network/types.js';
 
 /**
  * This is a contract to interact with Axelar and bridge tokens from Agoric to EVM's

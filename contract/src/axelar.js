@@ -1,7 +1,7 @@
 // @ts-check
 import { E } from '@endo/eventual-send';
 import { Far } from '@endo/marshal';
-import { makeScalarBigMapStore } from '@agoric/vat-data';
+import makeWeakMap from '@agoric/store';
 import { LinkRequest } from '@axelar-network/axelarjs-types/axelar/axelarnet/v1beta1/tx.js';
 import { LinkRequest as EVMLinkRequest } from '@axelar-network/axelarjs-types/axelar/evm/v1beta1/tx.js';
 import { BaseAccount } from 'cosmjs-types/cosmos/auth/v1beta1/auth.js';
@@ -220,7 +220,7 @@ export const setupAxelar = async (
   const nameHub = E(nameAdmin).readonly();
 
   // create a store for axelar
-  const connections = makeScalarBigMapStore('axelar');
+  const connections = makeWeakMap('axelar');
 
   // grab the interaccount installation from name hub
   /** @type {Installation} */

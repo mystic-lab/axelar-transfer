@@ -14,7 +14,7 @@
     "lint-check-jessie": "eslint -c '.eslintrc-jessie.js' '**/*.{js,jsx}'"
   },
   "devDependencies": {
-    "ava": "^4.3.1",
+    "ava": "^3.13.0",
     "eslint": "^7.32.0",
     "eslint-config-airbnb-base": "^14.2.0",
     "eslint-config-jessie": "^0.0.6",
@@ -24,16 +24,16 @@
     "prettier": "^2.7.1"
   },
   "dependencies": {
-    "@agoric/assert": "beta",
+    "@agoric/assert": "dev",
     "@agoric/babel-standalone": "^7.17.7",
-    "@agoric/ertp": "beta",
-    "@agoric/notifier": "beta",
-    "@agoric/store": "beta",
-    "@agoric/swingset-vat": "beta",
-    "@agoric/zoe": "beta",
-    "@agoric/vats": "beta",
-    "@agoric/pegasus": "beta",
-    "@agoric/vat-data": "beta",
+    "@agoric/ertp": "dev",
+    "@agoric/notifier": "dev",
+    "@agoric/store": "dev",
+    "@agoric/swingset-vat": "dev",
+    "@agoric/zoe": "dev",
+    "@agoric/vats": "dev",
+    "@agoric/pegasus": "dev",
+    "@agoric/vat-data": "dev",
     "@cosmjs/encoding": "^0.28.4",
     "@endo/base64": "^0.2.25",
     "@endo/bundle-source": "^2.1.1",
@@ -47,8 +47,7 @@
     "crypto": "^1.0.1"
   },
   "resolutions": {
-    "**/protobufjs": "agoric-labs/protobuf.js#Agoric-built",
-    "**/cosmjs-types": "agoric-labs/cosmjs-types#Agoric-built"
+    "**/protobufjs": "agoric-labs/protobuf.js#Agoric-built"
   },
   "ava": {
     "files": [
