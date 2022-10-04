@@ -30,13 +30,11 @@
     "@cosmjs/proto-signing": "^0.28.13",
     "@cosmjs/tendermint-rpc": "^0.28.13",
     "patch-package": "latest",
-    "postinstall-postinstall": "latest",
-    "protobufjs": "6.11.2"
+    "postinstall-postinstall": "latest"
   },
   "resolutions": {
     "**/protobufjs": "agoric-labs/protobuf.js#Agoric-built",
-    "**/cosmjs-types": "agoric-labs/cosmjs-types#Agoric-built",
-    "**/axelarjs-types": "pitalco/axelarjs-types"
+    "**/cosmjs-types": "agoric-labs/cosmjs-types#Agoric-built"
   },
   "scripts": {
     "preinstall": "node -e \"process.env.AGORIC_INSTALL && process.exit(0); console.warn('please use: agoric install . For details, see https://agoric.com/documentation/'); process.exit(1)\"",

@@ -217,7 +217,7 @@ export const setupAxelar = async (
   controllerConnectionId,
   hostConnectionId,
 ) => {
-  const nameHub = E(nameAdmin).readonly();
+  const nameHub = await E(nameAdmin).readonly();
 
   // create a store for axelar
   const connections = makeWeakMap('axelar');

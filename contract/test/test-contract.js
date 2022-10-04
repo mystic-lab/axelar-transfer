@@ -107,7 +107,6 @@ const testAxelar = async (t) => {
   const axelar = await E(instance.publicFacet).setupAxelar(
     zoe,
     myAddressNameAdmin,
-    address,
     port2,
     controllerConnectionId,
     hostConnectionId,
