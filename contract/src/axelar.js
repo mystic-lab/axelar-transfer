@@ -266,7 +266,7 @@ export const setupAxelar = async (
   // set the connection object for ica
   connections.init('icaConnection', connectionICA);
 
-  return Far('interaccounts', {
+  return Far('axelar', {
     /**
      * Creates an Axelar deposit account for a cross chain transfer. Returns the deposit address.
      *

@@ -587,3 +587,391 @@
 {"level":"debug","module":"vald","listener":"block notifier","time":"2022-10-11T10:54:53-05:00","message":"found latest block 209"}
 {"level":"debug","module":"vald","listener":"block results","time":"2022-10-11T10:54:53-05:00","message":"fetched result for block height 209"}
 {"level":"debug","module":"vald","publisher":"events","block_height":209,"time":"2022-10-11T10:54:53-05:00","message":"published all events for block"}
+{"level":"debug","module":"vald","listener":"block notifier","time":"2022-10-11T10:55:02-05:00","message":"found latest block 210"}
+{"level":"debug","module":"vald","listener":"block results","time":"2022-10-11T10:55:02-05:00","message":"fetched result for block height 210"}
+{"level":"debug","module":"vald","publisher":"events","block_height":210,"time":"2022-10-11T10:55:02-05:00","message":"published all events for block"}
+{"level":"debug","module":"vald","listener":"block notifier","time":"2022-10-11T10:55:10-05:00","message":"found latest block 211"}
+{"level":"debug","module":"vald","listener":"block results","time":"2022-10-11T10:55:10-05:00","message":"fetched result for block height 211"}
+{"level":"debug","module":"vald","publisher":"events","block_height":211,"time":"2022-10-11T10:55:10-05:00","message":"published all events for block"}
+{"level":"debug","module":"vald","listener":"block notifier","time":"2022-10-11T10:55:13-05:00","message":"found latest block 212"}
+{"level":"debug","module":"vald","listener":"block results","time":"2022-10-11T10:55:13-05:00","message":"fetched result for block height 212"}
+{"level":"debug","module":"vald","publisher":"events","block_height":212,"time":"2022-10-11T10:55:13-05:00","message":"published all events for block"}
+{"level":"debug","module":"vald","listener":"block notifier","time":"2022-10-11T10:55:16-05:00","message":"found latest block 213"}
+{"level":"debug","module":"vald","listener":"block results","time":"2022-10-11T10:55:16-05:00","message":"fetched result for block height 213"}
+{"level":"debug","module":"vald","publisher":"events","block_height":213,"time":"2022-10-11T10:55:16-05:00","message":"published all events for block"}
+{"level":"debug","module":"vald","listener":"block notifier","time":"2022-10-11T10:55:18-05:00","message":"found latest block 214"}
+{"level":"debug","module":"vald","listener":"block results","time":"2022-10-11T10:55:18-05:00","message":"fetched result for block height 214"}
+{"level":"debug","module":"vald","publisher":"events","block_height":214,"time":"2022-10-11T10:55:18-05:00","message":"published all events for block"}
+{"level":"debug","module":"vald","listener":"block notifier","time":"2022-10-11T10:55:21-05:00","message":"found latest block 215"}
+{"level":"debug","module":"vald","listener":"block results","time":"2022-10-11T10:55:21-05:00","message":"fetched result for block height 215"}
+{"level":"debug","module":"vald","publisher":"events","block_height":215,"time":"2022-10-11T10:55:21-05:00","message":"published all events for block"}
+{"level":"debug","module":"vald","listener":"block notifier","time":"2022-10-11T10:55:24-05:00","message":"found latest block 216"}
+{"level":"debug","module":"vald","listener":"block results","time":"2022-10-11T10:55:24-05:00","message":"fetched result for block height 216"}
+{"level":"debug","module":"vald","publisher":"events","block_height":216,"time":"2022-10-11T10:55:24-05:00","message":"published all events for block"}
+{"level":"debug","module":"vald","listener":"block notifier","time":"2022-10-11T10:55:27-05:00","message":"found latest block 217"}
+{"level":"debug","module":"vald","listener":"block results","time":"2022-10-11T10:55:27-05:00","message":"fetched result for block height 217"}
+{"level":"debug","module":"vald","publisher":"events","block_height":217,"time":"2022-10-11T10:55:27-05:00","message":"published all events for block"}
+{"level":"debug","module":"vald","listener":"block notifier","time":"2022-10-11T10:55:30-05:00","message":"found latest block 218"}
+{"level":"debug","module":"vald","listener":"block results","time":"2022-10-11T10:55:30-05:00","message":"fetched result for block height 218"}
+{"level":"debug","module":"vald","publisher":"events","block_height":218,"time":"2022-10-11T10:55:30-05:00","message":"published all events for block"}
+{"level":"debug","module":"vald","listener":"block notifier","time":"2022-10-11T10:55:33-05:00","message":"found latest block 219"}
+{"level":"debug","module":"vald","listener":"block results","time":"2022-10-11T10:55:33-05:00","message":"fetched result for block height 219"}
+{"level":"debug","module":"vald","publisher":"events","block_height":219,"time":"2022-10-11T10:55:33-05:00","message":"published all events for block"}
+{"level":"debug","module":"vald","listener":"block notifier","time":"2022-10-11T10:55:36-05:00","message":"found latest block 220"}
+{"level":"debug","module":"vald","listener":"block results","time":"2022-10-11T10:55:36-05:00","message":"fetched result for block height 220"}
+{"level":"debug","module":"vald","publisher":"events","block_height":220,"time":"2022-10-11T10:55:36-05:00","message":"published all events for block"}
+{"level":"debug","module":"vald","listener":"block notifier","time":"2022-10-11T10:55:39-05:00","message":"found latest block 221"}
+{"level":"debug","module":"vald","listener":"block results","time":"2022-10-11T10:55:39-05:00","message":"fetched result for block height 221"}
+{"level":"debug","module":"vald","publisher":"events","block_height":221,"time":"2022-10-11T10:55:39-05:00","message":"published all events for block"}
+{"level":"debug","module":"vald","listener":"block notifier","time":"2022-10-11T10:55:42-05:00","message":"found latest block 222"}
+{"level":"debug","module":"vald","listener":"block results","time":"2022-10-11T10:55:42-05:00","message":"fetched result for block height 222"}
+{"level":"debug","module":"vald","publisher":"events","block_height":222,"time":"2022-10-11T10:55:42-05:00","message":"published all events for block"}
+{"level":"debug","module":"vald","listener":"block notifier","time":"2022-10-11T10:55:45-05:00","message":"found latest block 223"}
+{"level":"debug","module":"vald","listener":"block results","time":"2022-10-11T10:55:45-05:00","message":"fetched result for block height 223"}
+{"level":"debug","module":"vald","publisher":"events","block_height":223,"time":"2022-10-11T10:55:45-05:00","message":"published all events for block"}
+{"level":"debug","module":"vald","listener":"block notifier","time":"2022-10-11T10:55:47-05:00","message":"found latest block 224"}
+{"level":"debug","module":"vald","listener":"block results","time":"2022-10-11T10:55:47-05:00","message":"fetched result for block height 224"}
+{"level":"debug","module":"vald","publisher":"events","block_height":224,"time":"2022-10-11T10:55:47-05:00","message":"published all events for block"}
+{"level":"debug","module":"vald","listener":"block notifier","time":"2022-10-11T10:55:50-05:00","message":"found latest block 225"}
+{"level":"debug","module":"vald","listener":"block results","time":"2022-10-11T10:55:50-05:00","message":"fetched result for block height 225"}
+{"level":"debug","module":"vald","publisher":"events","block_height":225,"time":"2022-10-11T10:55:50-05:00","message":"published all events for block"}
+{"level":"debug","module":"vald","listener":"block notifier","time":"2022-10-11T10:55:54-05:00","message":"found latest block 226"}
+{"level":"debug","module":"vald","listener":"block results","time":"2022-10-11T10:55:54-05:00","message":"fetched result for block height 226"}
+{"level":"debug","module":"vald","publisher":"events","block_height":226,"time":"2022-10-11T10:55:54-05:00","message":"published all events for block"}
+{"level":"debug","module":"vald","listener":"block notifier","time":"2022-10-11T10:55:56-05:00","message":"found latest block 227"}
+{"level":"debug","module":"vald","listener":"block results","time":"2022-10-11T10:55:56-05:00","message":"fetched result for block height 227"}
+{"level":"debug","module":"vald","publisher":"events","block_height":227,"time":"2022-10-11T10:55:56-05:00","message":"published all events for block"}
+{"level":"debug","module":"vald","listener":"block notifier","time":"2022-10-11T10:55:59-05:00","message":"found latest block 228"}
+{"level":"debug","module":"vald","listener":"block results","time":"2022-10-11T10:55:59-05:00","message":"fetched result for block height 228"}
+{"level":"debug","module":"vald","publisher":"events","block_height":228,"time":"2022-10-11T10:55:59-05:00","message":"published all events for block"}
+{"level":"debug","module":"vald","listener":"block notifier","time":"2022-10-11T10:56:02-05:00","message":"found latest block 229"}
+{"level":"debug","module":"vald","listener":"block results","time":"2022-10-11T10:56:02-05:00","message":"fetched result for block height 229"}
+{"level":"debug","module":"vald","publisher":"events","block_height":229,"time":"2022-10-11T10:56:02-05:00","message":"published all events for block"}
+{"level":"debug","module":"vald","listener":"block notifier","time":"2022-10-11T10:56:05-05:00","message":"found latest block 230"}
+{"level":"debug","module":"vald","listener":"block results","time":"2022-10-11T10:56:05-05:00","message":"fetched result for block height 230"}
+{"level":"debug","module":"vald","publisher":"events","block_height":230,"time":"2022-10-11T10:56:05-05:00","message":"published all events for block"}
+{"level":"debug","module":"vald","listener":"block notifier","time":"2022-10-11T10:56:08-05:00","message":"found latest block 231"}
+{"level":"debug","module":"vald","listener":"block results","time":"2022-10-11T10:56:08-05:00","message":"fetched result for block height 231"}
+{"level":"debug","module":"vald","publisher":"events","block_height":231,"time":"2022-10-11T10:56:08-05:00","message":"published all events for block"}
+{"level":"debug","module":"vald","listener":"block notifier","time":"2022-10-11T10:56:10-05:00","message":"found latest block 232"}
+{"level":"debug","module":"vald","listener":"block results","time":"2022-10-11T10:56:10-05:00","message":"fetched result for block height 232"}
+{"level":"debug","module":"vald","publisher":"events","block_height":232,"time":"2022-10-11T10:56:10-05:00","message":"published all events for block"}
+{"level":"debug","module":"vald","listener":"block notifier","time":"2022-10-11T10:56:14-05:00","message":"found latest block 233"}
+{"level":"debug","module":"vald","listener":"block results","time":"2022-10-11T10:56:14-05:00","message":"fetched result for block height 233"}
+{"level":"debug","module":"vald","publisher":"events","block_height":233,"time":"2022-10-11T10:56:14-05:00","message":"published all events for block"}
+{"level":"debug","module":"vald","listener":"block notifier","time":"2022-10-11T10:56:16-05:00","message":"found latest block 234"}
+{"level":"debug","module":"vald","listener":"block results","time":"2022-10-11T10:56:16-05:00","message":"fetched result for block height 234"}
+{"level":"debug","module":"vald","publisher":"events","block_height":234,"time":"2022-10-11T10:56:16-05:00","message":"published all events for block"}
+{"level":"debug","module":"vald","listener":"block notifier","time":"2022-10-11T10:56:18-05:00","message":"found latest block 235"}
+{"level":"debug","module":"vald","listener":"block results","time":"2022-10-11T10:56:18-05:00","message":"fetched result for block height 235"}
+{"level":"debug","module":"vald","publisher":"events","block_height":235,"time":"2022-10-11T10:56:18-05:00","message":"published all events for block"}
+{"level":"debug","module":"vald","listener":"block notifier","time":"2022-10-11T10:56:21-05:00","message":"found latest block 236"}
+{"level":"debug","module":"vald","listener":"block results","time":"2022-10-11T10:56:21-05:00","message":"fetched result for block height 236"}
+{"level":"debug","module":"vald","publisher":"events","block_height":236,"time":"2022-10-11T10:56:21-05:00","message":"published all events for block"}
+{"level":"debug","module":"vald","listener":"block notifier","time":"2022-10-11T10:56:23-05:00","message":"found latest block 237"}
+{"level":"debug","module":"vald","listener":"block results","time":"2022-10-11T10:56:24-05:00","message":"fetched result for block height 237"}
+{"level":"debug","module":"vald","publisher":"events","block_height":237,"time":"2022-10-11T10:56:24-05:00","message":"published all events for block"}
+{"level":"debug","module":"vald","listener":"block notifier","time":"2022-10-11T10:56:26-05:00","message":"found latest block 238"}
+{"level":"debug","module":"vald","listener":"block results","time":"2022-10-11T10:56:26-05:00","message":"fetched result for block height 238"}
+{"level":"debug","module":"vald","publisher":"events","block_height":238,"time":"2022-10-11T10:56:26-05:00","message":"published all events for block"}
+{"level":"debug","module":"vald","listener":"block notifier","time":"2022-10-11T10:56:33-05:00","message":"found latest block 239"}
+{"level":"debug","module":"vald","listener":"block results","time":"2022-10-11T10:56:33-05:00","message":"fetched result for block height 239"}
+{"level":"debug","module":"vald","publisher":"events","block_height":239,"time":"2022-10-11T10:56:33-05:00","message":"published all events for block"}
+{"level":"debug","module":"vald","listener":"block notifier","time":"2022-10-11T10:56:42-05:00","message":"found latest block 240"}
+{"level":"debug","module":"vald","listener":"block results","time":"2022-10-11T10:56:42-05:00","message":"fetched result for block height 240"}
+{"level":"debug","module":"vald","publisher":"events","block_height":240,"time":"2022-10-11T10:56:42-05:00","message":"published all events for block"}
+{"level":"debug","module":"vald","listener":"block notifier","time":"2022-10-11T10:56:45-05:00","message":"found latest block 241"}
+{"level":"debug","module":"vald","listener":"block results","time":"2022-10-11T10:56:45-05:00","message":"fetched result for block height 241"}
+{"level":"debug","module":"vald","publisher":"events","block_height":241,"time":"2022-10-11T10:56:45-05:00","message":"published all events for block"}
+{"level":"debug","module":"vald","listener":"block notifier","time":"2022-10-11T10:56:51-05:00","message":"found latest block 242"}
+{"level":"debug","module":"vald","listener":"block results","time":"2022-10-11T10:56:51-05:00","message":"fetched result for block height 242"}
+{"level":"debug","module":"vald","publisher":"events","block_height":242,"time":"2022-10-11T10:56:51-05:00","message":"published all events for block"}
+{"level":"debug","module":"vald","listener":"block notifier","time":"2022-10-11T10:56:54-05:00","message":"found latest block 243"}
+{"level":"debug","module":"vald","listener":"block results","time":"2022-10-11T10:56:54-05:00","message":"fetched result for block height 243"}
+{"level":"debug","module":"vald","publisher":"events","block_height":243,"time":"2022-10-11T10:56:54-05:00","message":"published all events for block"}
+{"level":"debug","module":"vald","listener":"block notifier","time":"2022-10-11T10:56:57-05:00","message":"found latest block 244"}
+{"level":"debug","module":"vald","listener":"block results","time":"2022-10-11T10:56:57-05:00","message":"fetched result for block height 244"}
+{"level":"debug","module":"vald","publisher":"events","block_height":244,"time":"2022-10-11T10:56:57-05:00","message":"published all events for block"}
+{"level":"debug","module":"vald","listener":"block notifier","time":"2022-10-11T10:56:59-05:00","message":"found latest block 245"}
+{"level":"debug","module":"vald","listener":"block results","time":"2022-10-11T10:56:59-05:00","message":"fetched result for block height 245"}
+{"level":"debug","module":"vald","publisher":"events","block_height":245,"time":"2022-10-11T10:56:59-05:00","message":"published all events for block"}
+{"level":"debug","module":"vald","listener":"block notifier","time":"2022-10-11T10:57:01-05:00","message":"found latest block 246"}
+{"level":"debug","module":"vald","listener":"block results","time":"2022-10-11T10:57:01-05:00","message":"fetched result for block height 246"}
+{"level":"debug","module":"vald","publisher":"events","block_height":246,"time":"2022-10-11T10:57:01-05:00","message":"published all events for block"}
+{"level":"debug","module":"vald","listener":"block notifier","time":"2022-10-11T10:57:05-05:00","message":"found latest block 247"}
+{"level":"debug","module":"vald","listener":"block results","time":"2022-10-11T10:57:05-05:00","message":"fetched result for block height 247"}
+{"level":"debug","module":"vald","publisher":"events","block_height":247,"time":"2022-10-11T10:57:05-05:00","message":"published all events for block"}
+{"level":"debug","module":"vald","listener":"block notifier","time":"2022-10-11T10:57:07-05:00","message":"found latest block 248"}
+{"level":"debug","module":"vald","listener":"block results","time":"2022-10-11T10:57:08-05:00","message":"fetched result for block height 248"}
+{"level":"debug","module":"vald","publisher":"events","block_height":248,"time":"2022-10-11T10:57:08-05:00","message":"published all events for block"}
+{"level":"debug","module":"vald","listener":"block notifier","time":"2022-10-11T10:57:11-05:00","message":"found latest block 249"}
+{"level":"debug","module":"vald","listener":"block results","time":"2022-10-11T10:57:11-05:00","message":"fetched result for block height 249"}
+{"level":"debug","module":"vald","publisher":"events","block_height":249,"time":"2022-10-11T10:57:11-05:00","message":"published all events for block"}
+{"level":"debug","module":"vald","listener":"block notifier","time":"2022-10-11T10:57:13-05:00","message":"found latest block 250"}
+{"level":"debug","module":"vald","listener":"block results","time":"2022-10-11T10:57:13-05:00","message":"fetched result for block height 250"}
+{"level":"debug","module":"vald","publisher":"events","block_height":250,"time":"2022-10-11T10:57:13-05:00","message":"published all events for block"}
+{"level":"info","module":"vald","listener":"tss","time":"2022-10-11T10:57:13-05:00","message":"operator axelarvaloper18hl5c9xn5dze2g50uaw0l2mr02ew57zkwxgw7w sending heartbeat acknowledging keys: []"}
+{"level":"debug","module":"vald","process":"batched broadcast","msg_count":1,"time":"2022-10-11T10:57:13-05:00","message":"queuing up messages"}
+{"level":"debug","module":"vald","process":"batched broadcast","batch_size":1,"time":"2022-10-11T10:57:13-05:00","message":"low traffic; no batch merging"}
+{"level":"debug","module":"vald","batch_size":1,"time":"2022-10-11T10:57:13-05:00","message":"starting to broadcast message batch"}
+{"level":"info","module":"vald","num_attempts":1,"time":"2022-10-11T10:57:13-05:00","message":"backing off (retry in 5s ): tx preparation failed: rpc error: code = InvalidArgument desc = signer is not a registered proxy: invalid request: invalid request"}
+{"level":"debug","module":"vald","listener":"block notifier","time":"2022-10-11T10:57:18-05:00","message":"found latest block 251"}
+{"level":"debug","module":"vald","listener":"block results","time":"2022-10-11T10:57:18-05:00","message":"fetched result for block height 251"}
+{"level":"debug","module":"vald","publisher":"events","block_height":251,"time":"2022-10-11T10:57:18-05:00","message":"published all events for block"}
+{"level":"debug","module":"vald","batch_size":1,"time":"2022-10-11T10:57:18-05:00","message":"starting to broadcast message batch"}
+{"level":"info","module":"vald","num_attempts":1,"num_attempts":2,"time":"2022-10-11T10:57:18-05:00","message":"backing off (retry in 8.460122936s ): tx preparation failed: rpc error: code = InvalidArgument desc = signer is not a registered proxy: invalid request: invalid request"}
+{"level":"debug","module":"vald","listener":"block notifier","time":"2022-10-11T10:57:22-05:00","message":"found latest block 252"}
+{"level":"debug","module":"vald","listener":"block results","time":"2022-10-11T10:57:22-05:00","message":"fetched result for block height 252"}
+{"level":"debug","module":"vald","publisher":"events","block_height":252,"time":"2022-10-11T10:57:22-05:00","message":"published all events for block"}
+{"level":"debug","module":"vald","batch_size":1,"time":"2022-10-11T10:57:27-05:00","message":"starting to broadcast message batch"}
+{"level":"info","module":"vald","num_attempts":1,"num_attempts":2,"num_attempts":3,"time":"2022-10-11T10:57:27-05:00","message":"backing off (retry in 8.01522681s ): tx preparation failed: rpc error: code = InvalidArgument desc = signer is not a registered proxy: invalid request: invalid request"}
+{"level":"debug","module":"vald","listener":"block notifier","time":"2022-10-11T10:57:32-05:00","message":"found latest block 253"}
+{"level":"debug","module":"vald","listener":"block results","time":"2022-10-11T10:57:32-05:00","message":"fetched result for block height 253"}
+{"level":"debug","module":"vald","publisher":"events","block_height":253,"time":"2022-10-11T10:57:32-05:00","message":"published all events for block"}
+{"level":"debug","module":"vald","batch_size":1,"time":"2022-10-11T10:57:35-05:00","message":"starting to broadcast message batch"}
+{"level":"error","module":"vald","time":"2022-10-11T10:57:35-05:00","message":"handler goroutine: failure to broadcast outgoing heartbeat msg: aborting after 3 retries: tx preparation failed: rpc error: code = InvalidArgument desc = signer is not a registered proxy: invalid request: invalid request"}
+{"level":"debug","module":"vald","listener":"block notifier","time":"2022-10-11T10:57:38-05:00","message":"found latest block 254"}
+{"level":"debug","module":"vald","listener":"block results","time":"2022-10-11T10:57:38-05:00","message":"fetched result for block height 254"}
+{"level":"debug","module":"vald","publisher":"events","block_height":254,"time":"2022-10-11T10:57:38-05:00","message":"published all events for block"}
+{"level":"debug","module":"vald","listener":"block notifier","time":"2022-10-11T10:57:41-05:00","message":"found latest block 255"}
+{"level":"debug","module":"vald","listener":"block results","time":"2022-10-11T10:57:41-05:00","message":"fetched result for block height 255"}
+{"level":"debug","module":"vald","publisher":"events","block_height":255,"time":"2022-10-11T10:57:41-05:00","message":"published all events for block"}
+{"level":"debug","module":"vald","listener":"block notifier","time":"2022-10-11T10:57:44-05:00","message":"found latest block 256"}
+{"level":"debug","module":"vald","listener":"block results","time":"2022-10-11T10:57:44-05:00","message":"fetched result for block height 256"}
+{"level":"debug","module":"vald","publisher":"events","block_height":256,"time":"2022-10-11T10:57:44-05:00","message":"published all events for block"}
+{"level":"debug","module":"vald","listener":"block notifier","time":"2022-10-11T10:57:48-05:00","message":"found latest block 257"}
+{"level":"debug","module":"vald","listener":"block results","time":"2022-10-11T10:57:48-05:00","message":"fetched result for block height 257"}
+{"level":"debug","module":"vald","publisher":"events","block_height":257,"time":"2022-10-11T10:57:48-05:00","message":"published all events for block"}
+{"level":"debug","module":"vald","listener":"block notifier","time":"2022-10-11T10:57:53-05:00","message":"found latest block 258"}
+{"level":"debug","module":"vald","listener":"block results","time":"2022-10-11T10:57:53-05:00","message":"fetched result for block height 258"}
+{"level":"debug","module":"vald","publisher":"events","block_height":258,"time":"2022-10-11T10:57:53-05:00","message":"published all events for block"}
+{"level":"debug","module":"vald","listener":"block notifier","time":"2022-10-11T10:57:56-05:00","message":"found latest block 259"}
+{"level":"debug","module":"vald","listener":"block results","time":"2022-10-11T10:57:56-05:00","message":"fetched result for block height 259"}
+{"level":"debug","module":"vald","publisher":"events","block_height":259,"time":"2022-10-11T10:57:56-05:00","message":"published all events for block"}
+{"level":"debug","module":"vald","listener":"block notifier","time":"2022-10-11T10:57:59-05:00","message":"found latest block 260"}
+{"level":"debug","module":"vald","listener":"block results","time":"2022-10-11T10:57:59-05:00","message":"fetched result for block height 260"}
+{"level":"debug","module":"vald","publisher":"events","block_height":260,"time":"2022-10-11T10:57:59-05:00","message":"published all events for block"}
+{"level":"debug","module":"vald","listener":"block notifier","time":"2022-10-11T10:58:02-05:00","message":"found latest block 261"}
+{"level":"debug","module":"vald","listener":"block results","time":"2022-10-11T10:58:02-05:00","message":"fetched result for block height 261"}
+{"level":"debug","module":"vald","publisher":"events","block_height":261,"time":"2022-10-11T10:58:02-05:00","message":"published all events for block"}
+{"level":"debug","module":"vald","listener":"block notifier","time":"2022-10-11T10:58:06-05:00","message":"found latest block 262"}
+{"level":"debug","module":"vald","listener":"block results","time":"2022-10-11T10:58:06-05:00","message":"fetched result for block height 262"}
+{"level":"debug","module":"vald","publisher":"events","block_height":262,"time":"2022-10-11T10:58:06-05:00","message":"published all events for block"}
+{"level":"debug","module":"vald","listener":"block notifier","time":"2022-10-11T10:58:10-05:00","message":"found latest block 263"}
+{"level":"debug","module":"vald","listener":"block results","time":"2022-10-11T10:58:10-05:00","message":"fetched result for block height 263"}
+{"level":"debug","module":"vald","publisher":"events","block_height":263,"time":"2022-10-11T10:58:10-05:00","message":"published all events for block"}
+{"level":"debug","module":"vald","listener":"block notifier","time":"2022-10-11T10:58:12-05:00","message":"found latest block 264"}
+{"level":"debug","module":"vald","listener":"block results","time":"2022-10-11T10:58:12-05:00","message":"fetched result for block height 264"}
+{"level":"debug","module":"vald","publisher":"events","block_height":264,"time":"2022-10-11T10:58:12-05:00","message":"published all events for block"}
+{"level":"debug","module":"vald","listener":"block notifier","time":"2022-10-11T10:58:15-05:00","message":"found latest block 265"}
+{"level":"debug","module":"vald","listener":"block results","time":"2022-10-11T10:58:15-05:00","message":"fetched result for block height 265"}
+{"level":"debug","module":"vald","publisher":"events","block_height":265,"time":"2022-10-11T10:58:15-05:00","message":"published all events for block"}
+{"level":"debug","module":"vald","listener":"block notifier","time":"2022-10-11T10:58:17-05:00","message":"found latest block 266"}
+{"level":"debug","module":"vald","listener":"block results","time":"2022-10-11T10:58:17-05:00","message":"fetched result for block height 266"}
+{"level":"debug","module":"vald","publisher":"events","block_height":266,"time":"2022-10-11T10:58:17-05:00","message":"published all events for block"}
+{"level":"debug","module":"vald","listener":"block notifier","time":"2022-10-11T10:58:20-05:00","message":"found latest block 267"}
+{"level":"debug","module":"vald","listener":"block results","time":"2022-10-11T10:58:20-05:00","message":"fetched result for block height 267"}
+{"level":"debug","module":"vald","publisher":"events","block_height":267,"time":"2022-10-11T10:58:20-05:00","message":"published all events for block"}
+{"level":"debug","module":"vald","listener":"block notifier","time":"2022-10-11T10:58:22-05:00","message":"found latest block 268"}
+{"level":"debug","module":"vald","listener":"block results","time":"2022-10-11T10:58:22-05:00","message":"fetched result for block height 268"}
+{"level":"debug","module":"vald","publisher":"events","block_height":268,"time":"2022-10-11T10:58:22-05:00","message":"published all events for block"}
+{"level":"debug","module":"vald","listener":"block notifier","time":"2022-10-11T10:58:26-05:00","message":"found latest block 269"}
+{"level":"debug","module":"vald","listener":"block results","time":"2022-10-11T10:58:26-05:00","message":"fetched result for block height 269"}
+{"level":"debug","module":"vald","publisher":"events","block_height":269,"time":"2022-10-11T10:58:26-05:00","message":"published all events for block"}
+{"level":"debug","module":"vald","listener":"block notifier","time":"2022-10-11T10:58:31-05:00","message":"found latest block 270"}
+{"level":"debug","module":"vald","listener":"block results","time":"2022-10-11T10:58:31-05:00","message":"fetched result for block height 270"}
+{"level":"debug","module":"vald","publisher":"events","block_height":270,"time":"2022-10-11T10:58:31-05:00","message":"published all events for block"}
+{"level":"debug","module":"vald","listener":"block notifier","time":"2022-10-11T10:58:35-05:00","message":"found latest block 271"}
+{"level":"debug","module":"vald","listener":"block results","time":"2022-10-11T10:58:35-05:00","message":"fetched result for block height 271"}
+{"level":"debug","module":"vald","publisher":"events","block_height":271,"time":"2022-10-11T10:58:35-05:00","message":"published all events for block"}
+{"level":"debug","module":"vald","listener":"block notifier","time":"2022-10-11T10:58:38-05:00","message":"found latest block 272"}
+{"level":"debug","module":"vald","listener":"block results","time":"2022-10-11T10:58:38-05:00","message":"fetched result for block height 272"}
+{"level":"debug","module":"vald","publisher":"events","block_height":272,"time":"2022-10-11T10:58:38-05:00","message":"published all events for block"}
+{"level":"debug","module":"vald","listener":"block notifier","time":"2022-10-11T10:59:05-05:00","message":"found latest block 273"}
+{"level":"debug","module":"vald","listener":"block results","time":"2022-10-11T10:59:05-05:00","message":"fetched result for block height 273"}
+{"level":"debug","module":"vald","publisher":"events","block_height":273,"time":"2022-10-11T10:59:05-05:00","message":"published all events for block"}
+{"level":"debug","module":"vald","listener":"block notifier","time":"2022-10-11T10:59:33-05:00","message":"found latest block 274"}
+{"level":"debug","module":"vald","listener":"block results","time":"2022-10-11T10:59:33-05:00","message":"fetched result for block height 274"}
+{"level":"debug","module":"vald","publisher":"events","block_height":274,"time":"2022-10-11T10:59:33-05:00","message":"published all events for block"}
+{"level":"debug","module":"vald","listener":"block notifier","time":"2022-10-11T10:59:50-05:00","message":"found latest block 275"}
+{"level":"debug","module":"vald","listener":"block results","time":"2022-10-11T10:59:50-05:00","message":"fetched result for block height 275"}
+{"level":"debug","module":"vald","publisher":"events","block_height":275,"time":"2022-10-11T10:59:50-05:00","message":"published all events for block"}
+{"level":"debug","module":"vald","listener":"block notifier","time":"2022-10-11T10:59:55-05:00","message":"found latest block 276"}
+{"level":"debug","module":"vald","listener":"block results","time":"2022-10-11T10:59:55-05:00","message":"fetched result for block height 276"}
+{"level":"debug","module":"vald","publisher":"events","block_height":276,"time":"2022-10-11T10:59:55-05:00","message":"published all events for block"}
+{"level":"debug","module":"vald","listener":"block notifier","time":"2022-10-11T11:00:00-05:00","message":"found latest block 277"}
+{"level":"debug","module":"vald","listener":"block results","time":"2022-10-11T11:00:00-05:00","message":"fetched result for block height 277"}
+{"level":"debug","module":"vald","publisher":"events","block_height":277,"time":"2022-10-11T11:00:00-05:00","message":"published all events for block"}
+{"level":"debug","module":"vald","listener":"block notifier","time":"2022-10-11T11:00:09-05:00","message":"found latest block 278"}
+{"level":"debug","module":"vald","listener":"block results","time":"2022-10-11T11:00:09-05:00","message":"fetched result for block height 278"}
+{"level":"debug","module":"vald","publisher":"events","block_height":278,"time":"2022-10-11T11:00:09-05:00","message":"published all events for block"}
+{"level":"debug","module":"vald","listener":"block notifier","time":"2022-10-11T11:00:12-05:00","message":"found latest block 279"}
+{"level":"debug","module":"vald","listener":"block results","time":"2022-10-11T11:00:12-05:00","message":"fetched result for block height 279"}
+{"level":"debug","module":"vald","publisher":"events","block_height":279,"time":"2022-10-11T11:00:12-05:00","message":"published all events for block"}
+{"level":"debug","module":"vald","listener":"block notifier","time":"2022-10-11T11:00:16-05:00","message":"found latest block 280"}
+{"level":"debug","module":"vald","listener":"block results","time":"2022-10-11T11:00:16-05:00","message":"fetched result for block height 280"}
+{"level":"debug","module":"vald","publisher":"events","block_height":280,"time":"2022-10-11T11:00:16-05:00","message":"published all events for block"}
+{"level":"debug","module":"vald","listener":"block notifier","time":"2022-10-11T11:00:19-05:00","message":"found latest block 281"}
+{"level":"debug","module":"vald","listener":"block results","time":"2022-10-11T11:00:19-05:00","message":"fetched result for block height 281"}
+{"level":"debug","module":"vald","publisher":"events","block_height":281,"time":"2022-10-11T11:00:19-05:00","message":"published all events for block"}
+{"level":"debug","module":"vald","listener":"block notifier","time":"2022-10-11T11:00:23-05:00","message":"found latest block 282"}
+{"level":"debug","module":"vald","listener":"block results","time":"2022-10-11T11:00:23-05:00","message":"fetched result for block height 282"}
+{"level":"debug","module":"vald","publisher":"events","block_height":282,"time":"2022-10-11T11:00:23-05:00","message":"published all events for block"}
+{"level":"debug","module":"vald","listener":"block notifier","time":"2022-10-11T11:00:27-05:00","message":"found latest block 283"}
+{"level":"debug","module":"vald","listener":"block results","time":"2022-10-11T11:00:27-05:00","message":"fetched result for block height 283"}
+{"level":"debug","module":"vald","publisher":"events","block_height":283,"time":"2022-10-11T11:00:27-05:00","message":"published all events for block"}
+{"level":"debug","module":"vald","listener":"block notifier","time":"2022-10-11T11:00:34-05:00","message":"found latest block 284"}
+{"level":"debug","module":"vald","listener":"block results","time":"2022-10-11T11:00:34-05:00","message":"fetched result for block height 284"}
+{"level":"debug","module":"vald","publisher":"events","block_height":284,"time":"2022-10-11T11:00:34-05:00","message":"published all events for block"}
+{"level":"debug","module":"vald","listener":"block notifier","time":"2022-10-11T11:00:41-05:00","message":"found latest block 285"}
+{"level":"debug","module":"vald","listener":"block results","time":"2022-10-11T11:00:41-05:00","message":"fetched result for block height 285"}
+{"level":"debug","module":"vald","publisher":"events","block_height":285,"time":"2022-10-11T11:00:41-05:00","message":"published all events for block"}
+{"level":"debug","module":"vald","listener":"block notifier","time":"2022-10-11T11:00:47-05:00","message":"found latest block 286"}
+{"level":"debug","module":"vald","listener":"block results","time":"2022-10-11T11:00:47-05:00","message":"fetched result for block height 286"}
+{"level":"debug","module":"vald","publisher":"events","block_height":286,"time":"2022-10-11T11:00:47-05:00","message":"published all events for block"}
+{"level":"debug","module":"vald","listener":"block notifier","time":"2022-10-11T11:00:50-05:00","message":"found latest block 287"}
+{"level":"debug","module":"vald","listener":"block results","time":"2022-10-11T11:00:50-05:00","message":"fetched result for block height 287"}
+{"level":"debug","module":"vald","publisher":"events","block_height":287,"time":"2022-10-11T11:00:50-05:00","message":"published all events for block"}
+{"level":"debug","module":"vald","listener":"block notifier","time":"2022-10-11T11:00:53-05:00","message":"found latest block 288"}
+{"level":"debug","module":"vald","listener":"block results","time":"2022-10-11T11:00:53-05:00","message":"fetched result for block height 288"}
+{"level":"debug","module":"vald","publisher":"events","block_height":288,"time":"2022-10-11T11:00:53-05:00","message":"published all events for block"}
+{"level":"debug","module":"vald","listener":"block notifier","time":"2022-10-11T11:00:54-05:00","message":"found latest block 289"}
+{"level":"debug","module":"vald","listener":"block results","time":"2022-10-11T11:00:54-05:00","message":"fetched result for block height 289"}
+{"level":"debug","module":"vald","publisher":"events","block_height":289,"time":"2022-10-11T11:00:54-05:00","message":"published all events for block"}
+{"level":"debug","module":"vald","listener":"block notifier","time":"2022-10-11T11:00:57-05:00","message":"found latest block 290"}
+{"level":"debug","module":"vald","listener":"block results","time":"2022-10-11T11:00:57-05:00","message":"fetched result for block height 290"}
+{"level":"debug","module":"vald","publisher":"events","block_height":290,"time":"2022-10-11T11:00:57-05:00","message":"published all events for block"}
+{"level":"debug","module":"vald","listener":"block notifier","time":"2022-10-11T11:01:02-05:00","message":"found latest block 291"}
+{"level":"debug","module":"vald","listener":"block results","time":"2022-10-11T11:01:02-05:00","message":"fetched result for block height 291"}
+{"level":"debug","module":"vald","publisher":"events","block_height":291,"time":"2022-10-11T11:01:02-05:00","message":"published all events for block"}
+{"level":"debug","module":"vald","listener":"block notifier","time":"2022-10-11T11:01:05-05:00","message":"found latest block 292"}
+{"level":"debug","module":"vald","listener":"block results","time":"2022-10-11T11:01:05-05:00","message":"fetched result for block height 292"}
+{"level":"debug","module":"vald","publisher":"events","block_height":292,"time":"2022-10-11T11:01:05-05:00","message":"published all events for block"}
+{"level":"debug","module":"vald","listener":"block notifier","time":"2022-10-11T11:01:07-05:00","message":"found latest block 293"}
+{"level":"debug","module":"vald","listener":"block results","time":"2022-10-11T11:01:07-05:00","message":"fetched result for block height 293"}
+{"level":"debug","module":"vald","publisher":"events","block_height":293,"time":"2022-10-11T11:01:07-05:00","message":"published all events for block"}
+{"level":"debug","module":"vald","listener":"block notifier","time":"2022-10-11T11:01:09-05:00","message":"found latest block 294"}
+{"level":"debug","module":"vald","listener":"block results","time":"2022-10-11T11:01:09-05:00","message":"fetched result for block height 294"}
+{"level":"debug","module":"vald","publisher":"events","block_height":294,"time":"2022-10-11T11:01:09-05:00","message":"published all events for block"}
+{"level":"debug","module":"vald","listener":"block notifier","time":"2022-10-11T11:01:11-05:00","message":"found latest block 295"}
+{"level":"debug","module":"vald","listener":"block results","time":"2022-10-11T11:01:11-05:00","message":"fetched result for block height 295"}
+{"level":"debug","module":"vald","publisher":"events","block_height":295,"time":"2022-10-11T11:01:11-05:00","message":"published all events for block"}
+{"level":"debug","module":"vald","listener":"block notifier","time":"2022-10-11T11:01:14-05:00","message":"found latest block 296"}
+{"level":"debug","module":"vald","listener":"block results","time":"2022-10-11T11:01:14-05:00","message":"fetched result for block height 296"}
+{"level":"debug","module":"vald","publisher":"events","block_height":296,"time":"2022-10-11T11:01:14-05:00","message":"published all events for block"}
+{"level":"debug","module":"vald","listener":"block notifier","time":"2022-10-11T11:01:17-05:00","message":"found latest block 297"}
+{"level":"debug","module":"vald","listener":"block results","time":"2022-10-11T11:01:17-05:00","message":"fetched result for block height 297"}
+{"level":"debug","module":"vald","publisher":"events","block_height":297,"time":"2022-10-11T11:01:17-05:00","message":"published all events for block"}
+{"level":"debug","module":"vald","listener":"block notifier","time":"2022-10-11T11:01:20-05:00","message":"found latest block 298"}
+{"level":"debug","module":"vald","listener":"block results","time":"2022-10-11T11:01:20-05:00","message":"fetched result for block height 298"}
+{"level":"debug","module":"vald","publisher":"events","block_height":298,"time":"2022-10-11T11:01:20-05:00","message":"published all events for block"}
+{"level":"debug","module":"vald","listener":"block notifier","time":"2022-10-11T11:01:23-05:00","message":"found latest block 299"}
+{"level":"debug","module":"vald","listener":"block results","time":"2022-10-11T11:01:23-05:00","message":"fetched result for block height 299"}
+{"level":"debug","module":"vald","publisher":"events","block_height":299,"time":"2022-10-11T11:01:23-05:00","message":"published all events for block"}
+{"level":"debug","module":"vald","listener":"block notifier","time":"2022-10-11T11:01:25-05:00","message":"found latest block 300"}
+{"level":"debug","module":"vald","listener":"block results","time":"2022-10-11T11:01:25-05:00","message":"fetched result for block height 300"}
+{"level":"debug","module":"vald","publisher":"events","block_height":300,"time":"2022-10-11T11:01:25-05:00","message":"published all events for block"}
+{"level":"info","module":"vald","listener":"tss","time":"2022-10-11T11:01:25-05:00","message":"operator axelarvaloper18hl5c9xn5dze2g50uaw0l2mr02ew57zkwxgw7w sending heartbeat acknowledging keys: []"}
+{"level":"debug","module":"vald","process":"batched broadcast","msg_count":1,"time":"2022-10-11T11:01:25-05:00","message":"queuing up messages"}
+{"level":"debug","module":"vald","process":"batched broadcast","batch_size":1,"time":"2022-10-11T11:01:25-05:00","message":"low traffic; no batch merging"}
+{"level":"debug","module":"vald","batch_size":1,"time":"2022-10-11T11:01:25-05:00","message":"starting to broadcast message batch"}
+{"level":"info","module":"vald","num_attempts":1,"time":"2022-10-11T11:01:25-05:00","message":"backing off (retry in 5s ): tx preparation failed: rpc error: code = InvalidArgument desc = signer is not a registered proxy: invalid request: invalid request"}
+{"level":"debug","module":"vald","listener":"block notifier","time":"2022-10-11T11:01:28-05:00","message":"found latest block 301"}
+{"level":"debug","module":"vald","listener":"block results","time":"2022-10-11T11:01:28-05:00","message":"fetched result for block height 301"}
+{"level":"debug","module":"vald","publisher":"events","block_height":301,"time":"2022-10-11T11:01:28-05:00","message":"published all events for block"}
+{"level":"debug","module":"vald","listener":"block notifier","time":"2022-10-11T11:01:30-05:00","message":"found latest block 302"}
+{"level":"debug","module":"vald","listener":"block results","time":"2022-10-11T11:01:30-05:00","message":"fetched result for block height 302"}
+{"level":"debug","module":"vald","publisher":"events","block_height":302,"time":"2022-10-11T11:01:30-05:00","message":"published all events for block"}
+{"level":"debug","module":"vald","batch_size":1,"time":"2022-10-11T11:01:30-05:00","message":"starting to broadcast message batch"}
+{"level":"info","module":"vald","num_attempts":1,"num_attempts":2,"time":"2022-10-11T11:01:30-05:00","message":"backing off (retry in 9.402715613s ): tx preparation failed: rpc error: code = InvalidArgument desc = signer is not a registered proxy: invalid request: invalid request"}
+{"level":"debug","module":"vald","listener":"block notifier","time":"2022-10-11T11:01:31-05:00","message":"found latest block 303"}
+{"level":"debug","module":"vald","listener":"block results","time":"2022-10-11T11:01:32-05:00","message":"fetched result for block height 303"}
+{"level":"debug","module":"vald","publisher":"events","block_height":303,"time":"2022-10-11T11:01:32-05:00","message":"published all events for block"}
+{"level":"debug","module":"vald","listener":"block notifier","time":"2022-10-11T11:01:34-05:00","message":"found latest block 304"}
+{"level":"debug","module":"vald","listener":"block results","time":"2022-10-11T11:01:34-05:00","message":"fetched result for block height 304"}
+{"level":"debug","module":"vald","publisher":"events","block_height":304,"time":"2022-10-11T11:01:34-05:00","message":"published all events for block"}
+{"level":"debug","module":"vald","listener":"block notifier","time":"2022-10-11T11:01:36-05:00","message":"found latest block 305"}
+{"level":"debug","module":"vald","listener":"block results","time":"2022-10-11T11:01:36-05:00","message":"fetched result for block height 305"}
+{"level":"debug","module":"vald","publisher":"events","block_height":305,"time":"2022-10-11T11:01:36-05:00","message":"published all events for block"}
+{"level":"debug","module":"vald","listener":"block notifier","time":"2022-10-11T11:01:38-05:00","message":"found latest block 306"}
+{"level":"debug","module":"vald","listener":"block results","time":"2022-10-11T11:01:38-05:00","message":"fetched result for block height 306"}
+{"level":"debug","module":"vald","publisher":"events","block_height":306,"time":"2022-10-11T11:01:38-05:00","message":"published all events for block"}
+{"level":"debug","module":"vald","batch_size":1,"time":"2022-10-11T11:01:40-05:00","message":"starting to broadcast message batch"}
+{"level":"info","module":"vald","num_attempts":1,"num_attempts":2,"num_attempts":3,"time":"2022-10-11T11:01:40-05:00","message":"backing off (retry in 13.943617293s ): tx preparation failed: rpc error: code = InvalidArgument desc = signer is not a registered proxy: invalid request: invalid request"}
+{"level":"debug","module":"vald","listener":"block notifier","time":"2022-10-11T11:01:40-05:00","message":"found latest block 307"}
+{"level":"debug","module":"vald","listener":"block results","time":"2022-10-11T11:01:41-05:00","message":"fetched result for block height 307"}
+{"level":"debug","module":"vald","publisher":"events","block_height":307,"time":"2022-10-11T11:01:41-05:00","message":"published all events for block"}
+{"level":"debug","module":"vald","listener":"block notifier","time":"2022-10-11T11:01:42-05:00","message":"found latest block 308"}
+{"level":"debug","module":"vald","listener":"block results","time":"2022-10-11T11:01:42-05:00","message":"fetched result for block height 308"}
+{"level":"debug","module":"vald","publisher":"events","block_height":308,"time":"2022-10-11T11:01:42-05:00","message":"published all events for block"}
+{"level":"debug","module":"vald","listener":"block notifier","time":"2022-10-11T11:01:44-05:00","message":"found latest block 309"}
+{"level":"debug","module":"vald","listener":"block results","time":"2022-10-11T11:01:44-05:00","message":"fetched result for block height 309"}
+{"level":"debug","module":"vald","publisher":"events","block_height":309,"time":"2022-10-11T11:01:44-05:00","message":"published all events for block"}
+{"level":"debug","module":"vald","listener":"block notifier","time":"2022-10-11T11:01:47-05:00","message":"found latest block 310"}
+{"level":"debug","module":"vald","listener":"block results","time":"2022-10-11T11:01:47-05:00","message":"fetched result for block height 310"}
+{"level":"debug","module":"vald","publisher":"events","block_height":310,"time":"2022-10-11T11:01:47-05:00","message":"published all events for block"}
+{"level":"debug","module":"vald","listener":"block notifier","time":"2022-10-11T11:01:49-05:00","message":"found latest block 311"}
+{"level":"debug","module":"vald","listener":"block results","time":"2022-10-11T11:01:49-05:00","message":"fetched result for block height 311"}
+{"level":"debug","module":"vald","publisher":"events","block_height":311,"time":"2022-10-11T11:01:49-05:00","message":"published all events for block"}
+{"level":"debug","module":"vald","listener":"block notifier","time":"2022-10-11T11:01:50-05:00","message":"found latest block 312"}
+{"level":"debug","module":"vald","listener":"block results","time":"2022-10-11T11:01:50-05:00","message":"fetched result for block height 312"}
+{"level":"debug","module":"vald","publisher":"events","block_height":312,"time":"2022-10-11T11:01:50-05:00","message":"published all events for block"}
+{"level":"debug","module":"vald","listener":"block notifier","time":"2022-10-11T11:01:53-05:00","message":"found latest block 313"}
+{"level":"debug","module":"vald","listener":"block results","time":"2022-10-11T11:01:53-05:00","message":"fetched result for block height 313"}
+{"level":"debug","module":"vald","publisher":"events","block_height":313,"time":"2022-10-11T11:01:53-05:00","message":"published all events for block"}
+{"level":"debug","module":"vald","batch_size":1,"time":"2022-10-11T11:01:54-05:00","message":"starting to broadcast message batch"}
+{"level":"error","module":"vald","time":"2022-10-11T11:01:54-05:00","message":"handler goroutine: failure to broadcast outgoing heartbeat msg: aborting after 3 retries: tx preparation failed: rpc error: code = InvalidArgument desc = signer is not a registered proxy: invalid request: invalid request"}
+{"level":"debug","module":"vald","listener":"block notifier","time":"2022-10-11T11:01:55-05:00","message":"found latest block 314"}
+{"level":"debug","module":"vald","listener":"block results","time":"2022-10-11T11:01:55-05:00","message":"fetched result for block height 314"}
+{"level":"debug","module":"vald","publisher":"events","block_height":314,"time":"2022-10-11T11:01:55-05:00","message":"published all events for block"}
+{"level":"debug","module":"vald","listener":"block notifier","time":"2022-10-11T11:01:57-05:00","message":"found latest block 315"}
+{"level":"debug","module":"vald","listener":"block results","time":"2022-10-11T11:01:57-05:00","message":"fetched result for block height 315"}
+{"level":"debug","module":"vald","publisher":"events","block_height":315,"time":"2022-10-11T11:01:57-05:00","message":"published all events for block"}
+{"level":"debug","module":"vald","listener":"block notifier","time":"2022-10-11T11:02:00-05:00","message":"found latest block 316"}
+{"level":"debug","module":"vald","listener":"block results","time":"2022-10-11T11:02:00-05:00","message":"fetched result for block height 316"}
+{"level":"debug","module":"vald","publisher":"events","block_height":316,"time":"2022-10-11T11:02:00-05:00","message":"published all events for block"}
+{"level":"debug","module":"vald","listener":"block notifier","time":"2022-10-11T11:02:02-05:00","message":"found latest block 317"}
+{"level":"debug","module":"vald","listener":"block results","time":"2022-10-11T11:02:02-05:00","message":"fetched result for block height 317"}
+{"level":"debug","module":"vald","publisher":"events","block_height":317,"time":"2022-10-11T11:02:02-05:00","message":"published all events for block"}
+{"level":"debug","module":"vald","listener":"block notifier","time":"2022-10-11T11:02:04-05:00","message":"found latest block 318"}
+{"level":"debug","module":"vald","listener":"block results","time":"2022-10-11T11:02:04-05:00","message":"fetched result for block height 318"}
+{"level":"debug","module":"vald","publisher":"events","block_height":318,"time":"2022-10-11T11:02:04-05:00","message":"published all events for block"}
+{"level":"debug","module":"vald","listener":"block notifier","time":"2022-10-11T11:02:07-05:00","message":"found latest block 319"}
+{"level":"debug","module":"vald","listener":"block results","time":"2022-10-11T11:02:07-05:00","message":"fetched result for block height 319"}
+{"level":"debug","module":"vald","publisher":"events","block_height":319,"time":"2022-10-11T11:02:07-05:00","message":"published all events for block"}
+{"level":"debug","module":"vald","listener":"block notifier","time":"2022-10-11T11:02:09-05:00","message":"found latest block 320"}
+{"level":"debug","module":"vald","listener":"block results","time":"2022-10-11T11:02:09-05:00","message":"fetched result for block height 320"}
+{"level":"debug","module":"vald","publisher":"events","block_height":320,"time":"2022-10-11T11:02:09-05:00","message":"published all events for block"}
+{"level":"debug","module":"vald","listener":"block notifier","time":"2022-10-11T11:02:12-05:00","message":"found latest block 321"}
+{"level":"debug","module":"vald","listener":"block results","time":"2022-10-11T11:02:12-05:00","message":"fetched result for block height 321"}
+{"level":"debug","module":"vald","publisher":"events","block_height":321,"time":"2022-10-11T11:02:12-05:00","message":"published all events for block"}
+{"level":"debug","module":"vald","listener":"block notifier","time":"2022-10-11T11:02:15-05:00","message":"found latest block 322"}
+{"level":"debug","module":"vald","listener":"block results","time":"2022-10-11T11:02:15-05:00","message":"fetched result for block height 322"}
+{"level":"debug","module":"vald","publisher":"events","block_height":322,"time":"2022-10-11T11:02:15-05:00","message":"published all events for block"}
+{"level":"debug","module":"vald","listener":"block notifier","time":"2022-10-11T11:02:18-05:00","message":"found latest block 323"}
+{"level":"debug","module":"vald","listener":"block results","time":"2022-10-11T11:02:18-05:00","message":"fetched result for block height 323"}
+{"level":"debug","module":"vald","publisher":"events","block_height":323,"time":"2022-10-11T11:02:18-05:00","message":"published all events for block"}
+{"level":"debug","module":"vald","listener":"block notifier","time":"2022-10-11T11:02:19-05:00","message":"found latest block 324"}
+{"level":"debug","module":"vald","listener":"block results","time":"2022-10-11T11:02:19-05:00","message":"fetched result for block height 324"}
+{"level":"debug","module":"vald","publisher":"events","block_height":324,"time":"2022-10-11T11:02:19-05:00","message":"published all events for block"}
+{"level":"debug","module":"vald","listener":"block notifier","time":"2022-10-11T11:02:23-05:00","message":"found latest block 325"}
+{"level":"debug","module":"vald","listener":"block results","time":"2022-10-11T11:02:23-05:00","message":"fetched result for block height 325"}
+{"level":"debug","module":"vald","publisher":"events","block_height":325,"time":"2022-10-11T11:02:23-05:00","message":"published all events for block"}
+{"level":"debug","module":"vald","listener":"block notifier","time":"2022-10-11T11:02:25-05:00","message":"found latest block 326"}
+{"level":"debug","module":"vald","listener":"block results","time":"2022-10-11T11:02:25-05:00","message":"fetched result for block height 326"}
+{"level":"debug","module":"vald","publisher":"events","block_height":326,"time":"2022-10-11T11:02:25-05:00","message":"published all events for block"}
+{"level":"debug","module":"vald","listener":"block notifier","time":"2022-10-11T11:02:27-05:00","message":"found latest block 327"}
+{"level":"debug","module":"vald","listener":"block results","time":"2022-10-11T11:02:27-05:00","message":"fetched result for block height 327"}
+{"level":"debug","module":"vald","publisher":"events","block_height":327,"time":"2022-10-11T11:02:27-05:00","message":"published all events for block"}
+{"level":"debug","module":"vald","listener":"block notifier","time":"2022-10-11T11:02:29-05:00","message":"found latest block 328"}
+{"level":"debug","module":"vald","listener":"block results","time":"2022-10-11T11:02:29-05:00","message":"fetched result for block height 328"}
+{"level":"debug","module":"vald","publisher":"events","block_height":328,"time":"2022-10-11T11:02:29-05:00","message":"published all events for block"}
+{"level":"debug","module":"vald","listener":"block notifier","time":"2022-10-11T11:02:30-05:00","message":"found latest block 329"}
+{"level":"debug","module":"vald","listener":"block results","time":"2022-10-11T11:02:30-05:00","message":"fetched result for block height 329"}
+{"level":"debug","module":"vald","publisher":"events","block_height":329,"time":"2022-10-11T11:02:30-05:00","message":"published all events for block"}
+{"level":"debug","module":"vald","listener":"block notifier","time":"2022-10-11T11:02:32-05:00","message":"found latest block 330"}
+{"level":"debug","module":"vald","listener":"block results","time":"2022-10-11T11:02:32-05:00","message":"fetched result for block height 330"}
+{"level":"debug","module":"vald","publisher":"events","block_height":330,"time":"2022-10-11T11:02:32-05:00","message":"published all events for block"}
+{"level":"debug","module":"vald","listener":"block notifier","time":"2022-10-11T11:02:35-05:00","message":"found latest block 331"}
+{"level":"debug","module":"vald","listener":"block results","time":"2022-10-11T11:02:35-05:00","message":"fetched result for block height 331"}
+{"level":"debug","module":"vald","publisher":"events","block_height":331,"time":"2022-10-11T11:02:35-05:00","message":"published all events for block"}

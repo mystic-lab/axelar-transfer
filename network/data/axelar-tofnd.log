@@ -10,3 +10,7 @@
 {"timestamp":"2022-10-11T15:51:30.706294Z","level":"INFO","message":"Key presence check completed succesfully"}
 {"timestamp":"2022-10-11T15:54:26.359451Z","level":"DEBUG","message":"[dummyID] key presence check for multisig always return Present"}
 {"timestamp":"2022-10-11T15:54:26.413120Z","level":"INFO","message":"Key presence check completed succesfully"}
+{"timestamp":"2022-10-11T15:57:13.838611Z","level":"DEBUG","message":"[dummyID] key presence check for multisig always return Present"}
+{"timestamp":"2022-10-11T15:57:13.838685Z","level":"INFO","message":"Key presence check completed succesfully"}
+{"timestamp":"2022-10-11T16:01:25.857659Z","level":"DEBUG","message":"[dummyID] key presence check for multisig always return Present"}
+{"timestamp":"2022-10-11T16:01:25.857680Z","level":"INFO","message":"Key presence check completed succesfully"}

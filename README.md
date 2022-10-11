@@ -82,7 +82,7 @@ installation = E(home.board).getValue(Installation_ID)
 instance = E(home.zoe).startInstance(installation)
 
 // Lets initialize Axelar and get the Axelar facet
-const axelar = E(instance.publicFacet).setupAxelar(zoe, myAddressNameAdmin, port2, controllerConnectionId, hostConnectionId)
+axelar = E(instance.publicFacet).setupAxelar(zoe, myAddressNameAdmin, port2, controllerConnectionId, hostConnectionId)
 
 // Lets create a deposit address on Axelar to bridge to Avalanche
 E(axelar).bridgeToEVM("Avalanche", "avax1brulqthe045psg4r1wygzlx7yhc2e9h2n0hpjp", "ubld");
