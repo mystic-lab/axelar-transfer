@@ -199,7 +199,7 @@ const transferFromICAAccount = async (
 };
 
 /**
- * Create ICS-20 (transfer) + ICS-27 (ICA) channel (which creates an ICA account) and then
+ * Create ICS-27 (ICA) channel (which creates an ICA account) and then
  * returns an object with the Axelar contract functions that are to be called
  * to interact with Axelar through Agoric.
  *
@@ -217,21 +217,23 @@ export const setupAxelar = async (
   controllerConnectionId,
   hostConnectionId,
 ) => {
+
+  console.log("running axelar setup")
+
   const nameHub = await E(nameAdmin).readonly();
+
+  console.log("making connections")
 
   // create a store for axelar
   const connections = makeWeakMap('axelar');
+
+  console.log("connections made")
 
   // grab the interaccount installation from name hub
   /** @type {Installation} */
   const interaccounts = await E(nameHub).lookup('interaccounts');
   const instanceIca = await E(zoe).startInstance(interaccounts);
   connections.init('ica', instanceIca);
-  // grab the interaccount installation from name hub
-  /** @type {Installation} */
-  const pegasus = await E(nameHub).lookup('pegasus');
-  const instanceP = await E(zoe).startInstance(pegasus);
-  connections.init('pegasus', instanceP);
 
   const icaPort = port;
 
@@ -250,12 +252,16 @@ export const setupAxelar = async (
     },
   });
 
+  console.log("creating ica channel")
+
   const connectionICA = await E(instanceIca.publicFacet).createICAAccount(
     icaPort,
     connectionHandlerICA,
     controllerConnectionId,
     hostConnectionId,
   );
+
+  console.log(connectionICA)
 
   // set the connection object for ica
   connections.init('icaConnection', connectionICA);

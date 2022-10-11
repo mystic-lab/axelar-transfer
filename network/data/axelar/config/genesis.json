@@ -1,5 +1,5 @@
 {
-  "genesis_time": "2022-09-27T17:42:44.2381888Z",
+  "genesis_time": "2022-10-11T15:44:37.8458393Z",
   "chain_id": "axelar",
   "initial_height": "1",
   "consensus_params": {
@@ -56,7 +56,9 @@
     },
     "axelarnet": {
       "params": {
-        "route_timeout_window": "17000"
+        "route_timeout_window": "17000",
+        "transfer_limit": "20",
+        "end_blocker_limit": "50"
       },
       "collector_address": "",
       "chains": [
@@ -194,7 +196,8 @@
             "min_voter_count": "1",
             "commands_gas_limit": 5000000,
             "voting_grace_period": "3",
-            "end_blocker_limit": "50"
+            "end_blocker_limit": "50",
+            "transfer_limit": "50"
           },
           "burner_infos": [],
           "command_queue": {
@@ -225,8 +228,7 @@
               170,
               51,
               121
-            ],
-            "status": "STATUS_CONFIRMED"
+            ]
           },
           "tokens": [],
           "events": [],
@@ -263,7 +265,7 @@
                 "validator_address": "axelarvaloper18hl5c9xn5dze2g50uaw0l2mr02ew57zkwxgw7w",
                 "pubkey": {
                   "@type": "/cosmos.crypto.ed25519.PubKey",
-                  "key": "gTcijl6GhjIrTSVmFMhzRxZB0KIlAw16CMY7Erd+tk0="
+                  "key": "GQ2r8DlVEURv0CfG3Uklw27kLuy8/wqEiDKZq9fONjs="
                 },
                 "value": {
                   "denom": "uaxl",
@@ -271,7 +273,7 @@
                 }
               }
             ],
-            "memo": "38fa08c0c92287270c4f37d9a260c4c777c525c9@172.22.100.60:26656",
+            "memo": "cf30349525da2a84959407ba8762a38fc21e7850@172.27.144.49:26656",
             "timeout_height": "0",
             "extension_options": [],
             "non_critical_extension_options": []
@@ -304,7 +306,7 @@
             }
           },
           "signatures": [
-            "9Q7UvEOHIALrA42D9pShwyDhA29jhW4CZ1OAIPIzHRxLvgvkgbFJ119osrJ+6NCgPO1GHbzKBpht1SWU0EPaqw=="
+            "wm3WgHWXVQ9rGf0QU0lF8A7E0Qn1mv9t2Y5zIZ0k6hBRmbLxhi7O+JkNVVj/foBPZ3eGx1TQVNVs/3R6lSRkTw=="
           ]
         }
       ]
@@ -365,6 +367,28 @@
         "next_channel_sequence": "0"
       }
     },
+    "interchainaccounts": {
+      "controller_genesis_state": {
+        "active_channels": [],
+        "interchain_accounts": [],
+        "ports": [],
+        "params": {
+          "controller_enabled": true
+        }
+      },
+      "host_genesis_state": {
+        "active_channels": [],
+        "interchain_accounts": [],
+        "port": "icahost",
+        "params": {
+          "host_enabled": true,
+          "allow_messages": [
+            "*"
+          ]
+        }
+      }
+    },
+    "intertx": null,
     "mint": {
       "minter": {
         "inflation": "0.130000000000000000",
@@ -439,7 +463,6 @@
             "key_type": "KEY_TYPE_NONE",
             "module": "axelarnet"
           },
-          "maintainers": [],
           "activated": true,
           "assets": [
             {
@@ -460,7 +483,6 @@
             "key_type": "KEY_TYPE_MULTISIG",
             "module": "evm"
           },
-          "maintainers": [],
           "activated": true,
           "assets": [
             {
@@ -506,7 +528,6 @@
       "params": {
         "min_proxy_balance": "5000000"
       },
-      "snapshots": [],
       "proxied_validators": []
     },
     "staking": {
@@ -651,13 +672,7 @@
         "max_sign_queue_size": "50",
         "max_simultaneous_sign_shares": "100",
         "tss_signed_blocks_window": "100"
-      },
-      "key_recovery_infos": [],
-      "keys": [],
-      "multisig_infos": [],
-      "external_keys": [],
-      "signatures": [],
-      "validator_statuses": []
+      }
     },
     "upgrade": {},
     "vesting": {},

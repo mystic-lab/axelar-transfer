@@ -68,7 +68,7 @@ rm ./network/data/axelar/config/config.toml
 cp ./network/axelar/config.toml ./network/data/axelar/config
 
 # add ethereum to genesis
-contents="$(jq '.app_state.nexus.chain_states[1] |= . + {"chain": {"name": "Ethereum","supports_foreign_assets": true,"key_type": "KEY_TYPE_MULTISIG","module": "evm"},"maintainers": [],"activated": true,"assets": [{"denom": "eth","is_native_asset": true}],"maintainer_states": []}' $CHAIN_DIR/$CHAINID_1/config/genesis.json)"
+contents="$(jq '.app_state.nexus.chain_states[1] |= . + {"chain": {"name": "Ethereum","supports_foreign_assets": true,"key_type": "KEY_TYPE_MULTISIG","module": "evm"},"activated": true,"assets": [{"denom": "eth","is_native_asset": true}],"maintainer_states": []}' $CHAIN_DIR/$CHAINID_1/config/genesis.json)"
 echo -E "${contents}" > $CHAIN_DIR/$CHAINID_1/config/genesis.json
 # add eth as asset for axelarnet
 contents="$(jq '.app_state.nexus.chain_states[0].assets |= . + [{"denom": "eth", "is_native_asset": false}]' $CHAIN_DIR/$CHAINID_1/config/genesis.json)"
@@ -77,9 +77,6 @@ contents="$(jq '.app_state.axelarnet.chains[0].assets |= . + [{"denom": "uaxl", 
 echo -E "${contents}" > $CHAIN_DIR/$CHAINID_1/config/genesis.json
 # add ethereum gateway contract byte address to genesis
 contents="$(jq '.app_state.evm.chains[0].gateway.address |= [4,63,87,193,111,99,34,228,47,109,29,235,70,224,245,62,111,170,51,121]' $CHAIN_DIR/$CHAINID_1/config/genesis.json)"
-echo -E "${contents}" > $CHAIN_DIR/$CHAINID_1/config/genesis.json
-# change ethereum gateway status to STATUS_CONFIRMED
-contents="$(jq '.app_state.evm.chains[0].gateway.status |= "STATUS_CONFIRMED"' $CHAIN_DIR/$CHAINID_1/config/genesis.json)"
 echo -E "${contents}" > $CHAIN_DIR/$CHAINID_1/config/genesis.json
 
 echo "Changing Genesis File"

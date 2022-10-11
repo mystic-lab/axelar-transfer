@@ -10,7 +10,6 @@ import {
   makeNetworkProtocol,
   makeLoopbackProtocolHandler,
 } from '@agoric/swingset-vat/src/vats/network/index.js';
-import pegasusBundle from '@agoric/pegasus/bundles/bundle-pegasus.js';
 import { Far } from '@endo/marshal';
 import { makePromiseKit } from '@endo/promise-kit';
 import { makeFakeVatAdmin } from '@agoric/zoe/tools/fakeVatAdmin.js';
@@ -28,10 +27,6 @@ const setupAxelarContract = async () => {
   const feePurse = E(zoeService).makeFeePurse();
   const zoe = E(zoeService).bindDefaultFeePurse(feePurse);
   const myAddressNameAdmin = makeFakeMyAddressNameAdmin();
-
-  // install the pegasus bundle and start pegasus instance
-  const installationP = await E(zoe).install(pegasusBundle);
-  await E(myAddressNameAdmin).default('pegasus', installationP);
 
   // install the interaccounts bundle and start interaccounts instance
   const icaBundle = await bundleSource(

@@ -1,18 +1,18 @@
-2022-09-28T03:07:39.724470Z  INFO ThreadId(01) starting REST API server listening at http://127.0.0.1:3000
-2022-09-28T03:07:39.822073Z  INFO ThreadId(01) chain is healthy chain=agoric
-2022-09-28T03:07:39.870416Z  INFO ThreadId(01) chain is healthy chain=axelar
-2022-09-28T03:07:39.870499Z  INFO ThreadId(01) scan.chain{chain=agoric}: scanning chain...
-2022-09-28T03:07:39.870551Z  INFO ThreadId(01) scan.chain{chain=agoric}: scanning chain for all clients, connections and channels
-2022-09-28T03:07:39.870579Z  INFO ThreadId(01) scan.chain{chain=agoric}: scanning all clients...
-2022-09-28T03:07:39.872429Z  INFO ThreadId(01) scan.chain{chain=agoric}:scan.client{client=07-tendermint-0}: scanning client...
-2022-09-28T03:07:39.980687Z  INFO ThreadId(01) scan.chain{chain=agoric}:scan.client{client=07-tendermint-0}:scan.connection{connection=connection-0}: scanning connection...
-2022-09-28T03:07:39.989333Z  INFO ThreadId(01) scan.chain{chain=axelar}: scanning chain...
-2022-09-28T03:07:39.989502Z  INFO ThreadId(01) scan.chain{chain=axelar}: scanning chain for all clients, connections and channels
-2022-09-28T03:07:39.989525Z  INFO ThreadId(01) scan.chain{chain=axelar}: scanning all clients...
-2022-09-28T03:07:39.992479Z  INFO ThreadId(01) scan.chain{chain=axelar}:scan.client{client=07-tendermint-0}: scanning client...
-2022-09-28T03:07:39.995008Z  INFO ThreadId(01) scan.chain{chain=axelar}:scan.client{client=07-tendermint-0}:scan.connection{connection=connection-0}: scanning connection...
-2022-09-28T03:07:40.035865Z  INFO ThreadId(01) Scanned chains:
-2022-09-28T03:07:40.035913Z  INFO ThreadId(01) # Chain: agoric
+2022-10-11T15:48:14.524280Z  INFO ThreadId(01) starting REST API server listening at http://127.0.0.1:3000
+2022-10-11T15:48:14.645447Z  INFO ThreadId(01) chain is healthy chain=agoric
+2022-10-11T15:48:14.680157Z  INFO ThreadId(01) chain is healthy chain=axelar
+2022-10-11T15:48:14.680258Z  INFO ThreadId(01) scan.chain{chain=agoric}: scanning chain...
+2022-10-11T15:48:14.680360Z  INFO ThreadId(01) scan.chain{chain=agoric}: scanning chain for all clients, connections and channels
+2022-10-11T15:48:14.680374Z  INFO ThreadId(01) scan.chain{chain=agoric}: scanning all clients...
+2022-10-11T15:48:14.871405Z  INFO ThreadId(01) scan.chain{chain=agoric}:scan.client{client=07-tendermint-0}: scanning client...
+2022-10-11T15:48:14.979407Z  INFO ThreadId(01) scan.chain{chain=agoric}:scan.client{client=07-tendermint-0}:scan.connection{connection=connection-0}: scanning connection...
+2022-10-11T15:48:15.231470Z  INFO ThreadId(01) scan.chain{chain=axelar}: scanning chain...
+2022-10-11T15:48:15.231705Z  INFO ThreadId(01) scan.chain{chain=axelar}: scanning chain for all clients, connections and channels
+2022-10-11T15:48:15.231725Z  INFO ThreadId(01) scan.chain{chain=axelar}: scanning all clients...
+2022-10-11T15:48:15.238025Z  INFO ThreadId(01) scan.chain{chain=axelar}:scan.client{client=07-tendermint-0}: scanning client...
+2022-10-11T15:48:15.244523Z  INFO ThreadId(01) scan.chain{chain=axelar}:scan.client{client=07-tendermint-0}:scan.connection{connection=connection-0}: scanning connection...
+2022-10-11T15:48:15.255652Z  INFO ThreadId(01) Scanned chains:
+2022-10-11T15:48:15.255712Z  INFO ThreadId(01) # Chain: agoric
   - Client: 07-tendermint-0
     * Connection: connection-0
       | State: OPEN
@@ -23,13 +23,12 @@
       | State: OPEN
       | Counterparty state: OPEN
 
-2022-09-28T03:07:40.036029Z  INFO ThreadId(01) connection is Open, state on destination chain is Open chain=agoric connection=connection-0 counterparty_chain=axelar
-2022-09-28T03:07:40.036056Z  INFO ThreadId(01) connection is already open, not spawning Connection worker chain=agoric connection=connection-0
-2022-09-28T03:07:40.036087Z  INFO ThreadId(01) no connection workers were spawn chain=agoric connection=connection-0
-2022-09-28T03:07:40.036316Z  INFO ThreadId(01) spawning Wallet worker: wallet::agoric
-2022-09-28T03:07:40.036405Z  INFO ThreadId(01) connection is Open, state on destination chain is Open chain=axelar connection=connection-0 counterparty_chain=agoric
-2022-09-28T03:07:40.036426Z  INFO ThreadId(01) connection is already open, not spawning Connection worker chain=axelar connection=connection-0
-2022-09-28T03:07:40.036438Z  INFO ThreadId(01) no connection workers were spawn chain=axelar connection=connection-0
-2022-09-28T03:07:40.036752Z  INFO ThreadId(01) spawning Wallet worker: wallet::axelar
-2022-09-28T03:07:40.055408Z  INFO ThreadId(01) Hermes has started
-2022-09-28T04:05:11.345995Z ERROR ThreadId(22) [axelar] failed to collect events: RPC error: response error
+2022-10-11T15:48:15.255926Z  INFO ThreadId(01) connection is Open, state on destination chain is Open chain=agoric connection=connection-0 counterparty_chain=axelar
+2022-10-11T15:48:15.255969Z  INFO ThreadId(01) connection is already open, not spawning Connection worker chain=agoric connection=connection-0
+2022-10-11T15:48:15.256022Z  INFO ThreadId(01) no connection workers were spawn chain=agoric connection=connection-0
+2022-10-11T15:48:15.256960Z  INFO ThreadId(01) spawning Wallet worker: wallet::agoric
+2022-10-11T15:48:15.257032Z  INFO ThreadId(01) connection is Open, state on destination chain is Open chain=axelar connection=connection-0 counterparty_chain=agoric
+2022-10-11T15:48:15.257052Z  INFO ThreadId(01) connection is already open, not spawning Connection worker chain=axelar connection=connection-0
+2022-10-11T15:48:15.257072Z  INFO ThreadId(01) no connection workers were spawn chain=axelar connection=connection-0
+2022-10-11T15:48:15.257387Z  INFO ThreadId(01) spawning Wallet worker: wallet::axelar
+2022-10-11T15:48:15.283191Z  INFO ThreadId(01) Hermes has started
