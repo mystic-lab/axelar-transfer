@@ -13,7 +13,7 @@ export const parseICAAddress = async (connection) => {
   const remote = await E(connection).getRemoteAddress();
   const version = remote.split('/')[6];
   const versionJSON = await JSON.parse(version);
-  return versionJSON.address;
+  return harden(versionJSON.address);
 };
 
 export const makeFakeMyAddressNameAdmin = async () => {
