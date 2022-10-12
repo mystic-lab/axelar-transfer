@@ -70,20 +70,20 @@ const sendToAgoricFromEVM = async (ica, connection, srcChain, denom) => {
   });
   const acc = BaseAccount.encode(baseAcc).finish();
 
-  const tx = EVMLinkRequest.fromPartial(harden({
+  const tx = EVMLinkRequest.fromPartial({
     sender: acc,
     chain: srcChain,
     recipientAddr: myaddress,
     recipientChain: 'Axelarnet',
     asset: denom,
-  }));
+  });
 
   const txBytes = EVMLinkRequest.encode(tx).finish();
 
-  const msg = await E(ica.publicFacet).makeMsg(harden({
+  const msg = await E(ica.publicFacet).makeMsg({
     typeUrl: '/axelar.evm.v1beta1.LinkRequest',
     value: harden(txBytes),
-  }));
+  });
 
   const packet = await E(ica.publicFacet).makeICAPacket([msg]);
 
@@ -118,26 +118,26 @@ const sendToEVMFromEVM = async (
   });
   const acc = BaseAccount.encode(baseAcc).finish();
 
-  const tx = EVMLinkRequest.fromPartial(harden({
+  const tx = EVMLinkRequest.fromPartial({
     sender: acc,
     chain: srcChain,
     recipientAddr: destAddress,
     recipientChain: destChain,
     asset: denom,
-  }));
+  });
 
   const txBytes = EVMLinkRequest.encode(tx).finish();
 
   const msg = await E(ica.publicFacet).makeMsg({
     typeUrl: '/axelar.evm.v1beta1.LinkRequest',
-    value: txBytes,
+    value: harden(txBytes),
   });
 
   const packet = await E(ica.publicFacet).makeICAPacket([msg]);
 
   const resp = await connection.send(JSON.stringify(packet));
 
-  return harden(resp);
+  return resp;
 };
 
 /**
@@ -169,16 +169,16 @@ const transferFromICAAccount = async (
 
   const txBytes = FungibleTokenPacketData.encode(tx).finish();
 
-  const msg = await E(ica.publicFacet).makeMsg(harden({
+  const msg = await E(ica.publicFacet).makeMsg({
     typeUrl: '/ibc.applications.transfer.v1.MsgTransfer',
-    value: txBytes,
-  }));
+    value: harden(txBytes),
+  });
 
   const packet = await E(ica.publicFacet).makeICAPacket([msg]);
 
   const resp = await connection.send(JSON.stringify(packet));
 
-  return harden(resp);
+  return resp;
 };
 
 /**
@@ -200,7 +200,6 @@ export const setupAxelar = async (
   controllerConnectionId,
   hostConnectionId,
 ) => {
-
   const nameHub = await E(nameAdmin).readonly();
 
   // grab the interaccount installation from name hub
@@ -249,7 +248,7 @@ export const setupAxelar = async (
         destAddress,
         denom,
       );
-      return harden(ret);
+      return ret;
     },
     /**
      * Create an Axelar deposit account for a cross chain transfer. Returns the deposit address.
@@ -263,9 +262,9 @@ export const setupAxelar = async (
         instanceIca,
         connectionICA,
         srcChain,
-        denom
+        denom,
       );
-      return harden(ret);
+      return ret;
     },
     /**
      * Create an EVM deposit account for EVM to EVM bridging. Returns the deposit address.
@@ -286,7 +285,7 @@ export const setupAxelar = async (
         destAddress,
         denom,
       );
-      return harden(ret);
+      return ret;
     },
     /**
      * IBC transfer amount specified from the ICA controller account held on Axelar to the Agoric account
@@ -305,7 +304,7 @@ export const setupAxelar = async (
         amount,
         agoricAddress,
       );
-      return harden(ret);
+      return ret;
     },
   });
 };

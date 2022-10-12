@@ -152,3 +152,123 @@
     },
 )
 
+2022-10-12T22:19:52.248572Z  INFO ThreadId(18) wait_for_block_commits: waiting for commit of tx hashes(s) 0E551BAE6CBA3EDE2B22D734D285C4B301965C03528F74BD78D7C86D7E38F434 id=axelar
+2022-10-12T22:19:56.182788Z  INFO ThreadId(104) worker.channel{channel=channel::channel-1/icacontroller-2:agoric->axelar}: 🎊  axelar => IbcEventWithHeight {
+    event: OpenTryChannel(
+        OpenTry {
+            port_id: PortId(
+                "icahost",
+            ),
+            channel_id: Some(
+                ChannelId(
+                    "channel-1",
+                ),
+            ),
+            connection_id: ConnectionId(
+                "connection-0",
+            ),
+            counterparty_port_id: PortId(
+                "icacontroller-2",
+            ),
+            counterparty_channel_id: Some(
+                ChannelId(
+                    "channel-1",
+                ),
+            ),
+        },
+    ),
+    height: Height {
+        revision: 0,
+        height: 1129,
+    },
+}
+
+2022-10-12T22:19:56.183724Z  INFO ThreadId(104) worker.channel{channel=channel::channel-1/icacontroller-2:agoric->axelar}: channel handshake step completed with events: OpenTryChannel(
+    OpenTry {
+        port_id: PortId(
+            "icahost",
+        ),
+        channel_id: Some(
+            ChannelId(
+                "channel-1",
+            ),
+        ),
+        connection_id: ConnectionId(
+            "connection-0",
+        ),
+        counterparty_port_id: PortId(
+            "icacontroller-2",
+        ),
+        counterparty_channel_id: Some(
+            ChannelId(
+                "channel-1",
+            ),
+        ),
+    },
+)
+
+2022-10-12T22:19:59.799008Z  INFO ThreadId(16) wait_for_block_commits: waiting for commit of tx hashes(s) 75CC5ED33BCBC05D324F3DDAE9961CF21BE819A5BBA14CE56FB1EF686E5CF974 id=agoric
+2022-10-12T22:20:10.077316Z ERROR ThreadId(114) worker.channel{channel=channel::channel-1/icahost:axelar->agoric}: failed ChanOpenAck ChannelSide { chain: CachingChainHandle { inner: BaseChainHandle { chain_id: ChainId { id: "agoric", version: 0 }, runtime_sender: Sender { .. } }, cache: Cache { .. } }, client_id: ClientId("07-tendermint-0"), connection_id: ConnectionId("connection-0"), port_id: PortId("icacontroller-2"), channel_id: Some(ChannelId("channel-1")), version: None }: failed during a transaction submission step to chain 'agoric': failed tx: no confirmation
+2022-10-12T22:20:10.079028Z ERROR ThreadId(114) worker.channel{channel=channel::channel-1/icahost:axelar->agoric}: failed ChanTryOpen with error: failed during a transaction submission step to chain 'agoric': failed tx: no confirmation
+2022-10-12T22:20:12.551653Z  INFO ThreadId(16) wait_for_block_commits: waiting for commit of tx hashes(s) EE02821215AF419A61D0C9DD1FB91EE9E2B7681D06525182210AF253F4E06E37 id=agoric
+2022-10-12T22:20:22.814746Z ERROR ThreadId(114) worker.channel{channel=channel::channel-1/icahost:axelar->agoric}: failed ChanOpenAck ChannelSide { chain: CachingChainHandle { inner: BaseChainHandle { chain_id: ChainId { id: "agoric", version: 0 }, runtime_sender: Sender { .. } }, cache: Cache { .. } }, client_id: ClientId("07-tendermint-0"), connection_id: ConnectionId("connection-0"), port_id: PortId("icacontroller-2"), channel_id: Some(ChannelId("channel-1")), version: None }: failed during a transaction submission step to chain 'agoric': failed tx: no confirmation
+2022-10-12T22:20:22.814791Z ERROR ThreadId(114) worker.channel{channel=channel::channel-1/icahost:axelar->agoric}: failed ChanTryOpen with error: failed during a transaction submission step to chain 'agoric': failed tx: no confirmation
+2022-10-12T22:20:24.005203Z  WARN ThreadId(114) worker.channel{channel=channel::channel-1/icahost:axelar->agoric}: [axelar -> agoric:07-tendermint-0] src header Timestamp(2022-10-12T22:20:20.5469343Z) is after dst latest header Timestamp(2022-10-12T22:19:55.7588344Z) + client state drift 20s, wait for next height on agoric
+2022-10-12T22:20:26.135852Z ERROR ThreadId(16) send_tx_with_account_sequence_retry{id=agoric}:estimate_gas: failed to simulate tx. propagating error to caller: gRPC call failed with status: status: Unknown, message: "failed to execute message; message index: 1: channel handshake open ack failed: channel state should be INIT or TRYOPEN (got STATE_OPEN): invalid channel state", details: [], metadata: MetadataMap { headers: {"content-type": "application/grpc", "x-cosmos-block-height": "606"} }
+2022-10-12T22:20:26.135987Z ERROR ThreadId(114) worker.channel{channel=channel::channel-1/icahost:axelar->agoric}: failed ChanOpenAck ChannelSide { chain: CachingChainHandle { inner: BaseChainHandle { chain_id: ChainId { id: "agoric", version: 0 }, runtime_sender: Sender { .. } }, cache: Cache { .. } }, client_id: ClientId("07-tendermint-0"), connection_id: ConnectionId("connection-0"), port_id: PortId("icacontroller-2"), channel_id: Some(ChannelId("channel-1")), version: None }: failed during a transaction submission step to chain 'agoric': gRPC call failed with status: status: Unknown, message: "failed to execute message; message index: 1: channel handshake open ack failed: channel state should be INIT or TRYOPEN (got STATE_OPEN): invalid channel state", details: [], metadata: MetadataMap { headers: {"content-type": "application/grpc", "x-cosmos-block-height": "606"} }
+2022-10-12T22:20:26.136023Z ERROR ThreadId(114) worker.channel{channel=channel::channel-1/icahost:axelar->agoric}: failed ChanTryOpen with error: failed during a transaction submission step to chain 'agoric': gRPC call failed with status: status: Unknown, message: "failed to execute message; message index: 1: channel handshake open ack failed: channel state should be INIT or TRYOPEN (got STATE_OPEN): invalid channel state", details: [], metadata: MetadataMap { headers: {"content-type": "application/grpc", "x-cosmos-block-height": "606"} }
+2022-10-12T22:20:33.468884Z  INFO ThreadId(18) wait_for_block_commits: waiting for commit of tx hashes(s) 02F4AE6FB226E14C784FC07F595D8B2BC946B1EA2853C912D51CB9197A42E6BE id=axelar
+2022-10-12T22:20:37.387069Z  INFO ThreadId(104) worker.channel{channel=channel::channel-1/icacontroller-2:agoric->axelar}: 🎊  axelar => IbcEventWithHeight {
+    event: OpenConfirmChannel(
+        OpenConfirm {
+            port_id: PortId(
+                "icahost",
+            ),
+            channel_id: Some(
+                ChannelId(
+                    "channel-1",
+                ),
+            ),
+            connection_id: ConnectionId(
+                "connection-0",
+            ),
+            counterparty_port_id: PortId(
+                "icacontroller-2",
+            ),
+            counterparty_channel_id: Some(
+                ChannelId(
+                    "channel-1",
+                ),
+            ),
+        },
+    ),
+    height: Height {
+        revision: 0,
+        height: 1146,
+    },
+}
+
+2022-10-12T22:20:37.387137Z  INFO ThreadId(104) worker.channel{channel=channel::channel-1/icacontroller-2:agoric->axelar}: channel handshake step completed with events: OpenConfirmChannel(
+    OpenConfirm {
+        port_id: PortId(
+            "icahost",
+        ),
+        channel_id: Some(
+            ChannelId(
+                "channel-1",
+            ),
+        ),
+        connection_id: ConnectionId(
+            "connection-0",
+        ),
+        counterparty_port_id: PortId(
+            "icacontroller-2",
+        ),
+        counterparty_channel_id: Some(
+            ChannelId(
+                "channel-1",
+            ),
+        ),
+    },
+)
+

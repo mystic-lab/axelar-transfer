@@ -1,5 +1,4 @@
 // @ts-check
-/* global harden */
 import '@agoric/zoe/exported.js';
 import { Far } from '@endo/marshal';
 import { setupAxelar } from './axelar.js';

@@ -1,5 +1,4 @@
 // @ts-nocheck
-/* global harden */
 import '@agoric/babel-standalone';
 
 import { test } from '@agoric/zoe/tools/prepare-test-env-ava.js';
