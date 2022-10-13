@@ -1,18 +1,18 @@
-2022-10-12T21:34:29.839000Z  INFO ThreadId(01) starting REST API server listening at http://127.0.0.1:3000
-2022-10-12T21:34:29.940113Z  INFO ThreadId(01) chain is healthy chain=agoric
-2022-10-12T21:34:30.083435Z  INFO ThreadId(01) chain is healthy chain=axelar
-2022-10-12T21:34:30.083613Z  INFO ThreadId(01) scan.chain{chain=agoric}: scanning chain...
-2022-10-12T21:34:30.084009Z  INFO ThreadId(01) scan.chain{chain=agoric}: scanning chain for all clients, connections and channels
-2022-10-12T21:34:30.084131Z  INFO ThreadId(01) scan.chain{chain=agoric}: scanning all clients...
-2022-10-12T21:34:30.187869Z  INFO ThreadId(01) scan.chain{chain=agoric}:scan.client{client=07-tendermint-0}: scanning client...
-2022-10-12T21:34:30.302510Z  INFO ThreadId(01) scan.chain{chain=agoric}:scan.client{client=07-tendermint-0}:scan.connection{connection=connection-0}: scanning connection...
-2022-10-12T21:34:30.439834Z  INFO ThreadId(01) scan.chain{chain=axelar}: scanning chain...
-2022-10-12T21:34:30.440106Z  INFO ThreadId(01) scan.chain{chain=axelar}: scanning chain for all clients, connections and channels
-2022-10-12T21:34:30.440131Z  INFO ThreadId(01) scan.chain{chain=axelar}: scanning all clients...
-2022-10-12T21:34:30.568768Z  INFO ThreadId(01) scan.chain{chain=axelar}:scan.client{client=07-tendermint-0}: scanning client...
-2022-10-12T21:34:30.574930Z  INFO ThreadId(01) scan.chain{chain=axelar}:scan.client{client=07-tendermint-0}:scan.connection{connection=connection-0}: scanning connection...
-2022-10-12T21:34:30.678699Z  INFO ThreadId(01) Scanned chains:
-2022-10-12T21:34:30.678735Z  INFO ThreadId(01) # Chain: agoric
+2022-10-13T00:40:21.768312Z  INFO ThreadId(01) starting REST API server listening at http://127.0.0.1:3000
+2022-10-13T00:40:21.780162Z  INFO ThreadId(01) chain is healthy chain=agoric
+2022-10-13T00:40:21.855973Z  INFO ThreadId(01) chain is healthy chain=axelar
+2022-10-13T00:40:21.856161Z  INFO ThreadId(01) scan.chain{chain=agoric}: scanning chain...
+2022-10-13T00:40:21.856341Z  INFO ThreadId(01) scan.chain{chain=agoric}: scanning chain for all clients, connections and channels
+2022-10-13T00:40:21.856353Z  INFO ThreadId(01) scan.chain{chain=agoric}: scanning all clients...
+2022-10-13T00:40:21.858356Z  INFO ThreadId(01) scan.chain{chain=agoric}:scan.client{client=07-tendermint-0}: scanning client...
+2022-10-13T00:40:21.861620Z  INFO ThreadId(01) scan.chain{chain=agoric}:scan.client{client=07-tendermint-0}:scan.connection{connection=connection-0}: scanning connection...
+2022-10-13T00:40:21.865671Z  INFO ThreadId(01) scan.chain{chain=axelar}: scanning chain...
+2022-10-13T00:40:21.865737Z  INFO ThreadId(01) scan.chain{chain=axelar}: scanning chain for all clients, connections and channels
+2022-10-13T00:40:21.865743Z  INFO ThreadId(01) scan.chain{chain=axelar}: scanning all clients...
+2022-10-13T00:40:21.867474Z  INFO ThreadId(01) scan.chain{chain=axelar}:scan.client{client=07-tendermint-0}: scanning client...
+2022-10-13T00:40:21.868897Z  INFO ThreadId(01) scan.chain{chain=axelar}:scan.client{client=07-tendermint-0}:scan.connection{connection=connection-0}: scanning connection...
+2022-10-13T00:40:21.871261Z  INFO ThreadId(01) Scanned chains:
+2022-10-13T00:40:21.871278Z  INFO ThreadId(01) # Chain: agoric
   - Client: 07-tendermint-0
     * Connection: connection-0
       | State: OPEN
@@ -23,17 +23,17 @@
       | State: OPEN
       | Counterparty state: OPEN
 
-2022-10-12T21:34:30.678789Z  INFO ThreadId(01) connection is Open, state on destination chain is Open chain=agoric connection=connection-0 counterparty_chain=axelar
-2022-10-12T21:34:30.678804Z  INFO ThreadId(01) connection is already open, not spawning Connection worker chain=agoric connection=connection-0
-2022-10-12T21:34:30.678907Z  INFO ThreadId(01) no connection workers were spawn chain=agoric connection=connection-0
-2022-10-12T21:34:30.679099Z  INFO ThreadId(01) spawning Wallet worker: wallet::agoric
-2022-10-12T21:34:30.679137Z  INFO ThreadId(01) connection is Open, state on destination chain is Open chain=axelar connection=connection-0 counterparty_chain=agoric
-2022-10-12T21:34:30.679148Z  INFO ThreadId(01) connection is already open, not spawning Connection worker chain=axelar connection=connection-0
-2022-10-12T21:34:30.679159Z  INFO ThreadId(01) no connection workers were spawn chain=axelar connection=connection-0
-2022-10-12T21:34:30.679269Z  INFO ThreadId(01) spawning Wallet worker: wallet::axelar
-2022-10-12T21:34:30.699628Z  INFO ThreadId(01) Hermes has started
-2022-10-12T21:44:24.350026Z  INFO ThreadId(18) wait_for_block_commits: waiting for commit of tx hashes(s) 686B2A9CCA8BE244AC631829331A324868AFED0B16F26F139CD2A6E9B5ACE80C id=axelar
-2022-10-12T21:44:27.063916Z  INFO ThreadId(28) worker.channel{channel=channel::channel-0/icacontroller-1:agoric->axelar}: 🎊  axelar => IbcEventWithHeight {
+2022-10-13T00:40:21.871579Z  INFO ThreadId(01) connection is Open, state on destination chain is Open chain=agoric connection=connection-0 counterparty_chain=axelar
+2022-10-13T00:40:21.871593Z  INFO ThreadId(01) connection is already open, not spawning Connection worker chain=agoric connection=connection-0
+2022-10-13T00:40:21.871780Z  INFO ThreadId(01) no connection workers were spawn chain=agoric connection=connection-0
+2022-10-13T00:40:21.872050Z  INFO ThreadId(01) spawning Wallet worker: wallet::agoric
+2022-10-13T00:40:21.872068Z  INFO ThreadId(01) connection is Open, state on destination chain is Open chain=axelar connection=connection-0 counterparty_chain=agoric
+2022-10-13T00:40:21.872074Z  INFO ThreadId(01) connection is already open, not spawning Connection worker chain=axelar connection=connection-0
+2022-10-13T00:40:21.872079Z  INFO ThreadId(01) no connection workers were spawn chain=axelar connection=connection-0
+2022-10-13T00:40:21.872175Z  INFO ThreadId(01) spawning Wallet worker: wallet::axelar
+2022-10-13T00:40:21.879309Z  INFO ThreadId(01) Hermes has started
+2022-10-13T01:04:10.403993Z  INFO ThreadId(18) wait_for_block_commits: waiting for commit of tx hashes(s) AB985CC97914225B64D2CCF47271080906CCE6A750945ABE63A063A66A241D41 id=axelar
+2022-10-13T01:04:13.762129Z  INFO ThreadId(28) worker.channel{channel=channel::channel-0/icacontroller-1:agoric->axelar}: 🎊  axelar => IbcEventWithHeight {
     event: OpenTryChannel(
         OpenTry {
             port_id: PortId(
@@ -59,11 +59,11 @@
     ),
     height: Height {
         revision: 0,
-        height: 300,
+        height: 294,
     },
 }
 
-2022-10-12T21:44:27.063965Z  INFO ThreadId(28) worker.channel{channel=channel::channel-0/icacontroller-1:agoric->axelar}: channel handshake step completed with events: OpenTryChannel(
+2022-10-13T01:04:13.762177Z  INFO ThreadId(28) worker.channel{channel=channel::channel-0/icacontroller-1:agoric->axelar}: channel handshake step completed with events: OpenTryChannel(
     OpenTry {
         port_id: PortId(
             "icahost",
@@ -87,18 +87,18 @@
     },
 )
 
-2022-10-12T21:44:30.482553Z  INFO ThreadId(16) wait_for_block_commits: waiting for commit of tx hashes(s) 3F6ABA294603E95F8558C9733C11D3280B8E5DED1E889B74AE2206B33857768E id=agoric
-2022-10-12T21:44:40.733721Z ERROR ThreadId(38) worker.channel{channel=channel::channel-0/icahost:axelar->agoric}: failed ChanOpenAck ChannelSide { chain: CachingChainHandle { inner: BaseChainHandle { chain_id: ChainId { id: "agoric", version: 0 }, runtime_sender: Sender { .. } }, cache: Cache { .. } }, client_id: ClientId("07-tendermint-0"), connection_id: ConnectionId("connection-0"), port_id: PortId("icacontroller-1"), channel_id: Some(ChannelId("channel-0")), version: None }: failed during a transaction submission step to chain 'agoric': failed tx: no confirmation
-2022-10-12T21:44:40.733785Z ERROR ThreadId(38) worker.channel{channel=channel::channel-0/icahost:axelar->agoric}: failed ChanTryOpen with error: failed during a transaction submission step to chain 'agoric': failed tx: no confirmation
-2022-10-12T21:44:42.176005Z  INFO ThreadId(16) wait_for_block_commits: waiting for commit of tx hashes(s) 958EB92CED2731C4524933B0151EA4E729ECCEC7DD1C946209FD6E2B3AEE9711 id=agoric
-2022-10-12T21:44:52.442839Z ERROR ThreadId(38) worker.channel{channel=channel::channel-0/icahost:axelar->agoric}: failed ChanOpenAck ChannelSide { chain: CachingChainHandle { inner: BaseChainHandle { chain_id: ChainId { id: "agoric", version: 0 }, runtime_sender: Sender { .. } }, cache: Cache { .. } }, client_id: ClientId("07-tendermint-0"), connection_id: ConnectionId("connection-0"), port_id: PortId("icacontroller-1"), channel_id: Some(ChannelId("channel-0")), version: None }: failed during a transaction submission step to chain 'agoric': failed tx: no confirmation
-2022-10-12T21:44:52.442898Z ERROR ThreadId(38) worker.channel{channel=channel::channel-0/icahost:axelar->agoric}: failed ChanTryOpen with error: failed during a transaction submission step to chain 'agoric': failed tx: no confirmation
-2022-10-12T21:44:54.810723Z  WARN ThreadId(38) worker.channel{channel=channel::channel-0/icahost:axelar->agoric}: [axelar -> agoric:07-tendermint-0] src header Timestamp(2022-10-12T21:44:51.2640864Z) is after dst latest header Timestamp(2022-10-12T21:44:29.2752188Z) + client state drift 20s, wait for next height on agoric
-2022-10-12T21:44:57.325853Z ERROR ThreadId(16) send_tx_with_account_sequence_retry{id=agoric}:estimate_gas: failed to simulate tx. propagating error to caller: gRPC call failed with status: status: Unknown, message: "failed to execute message; message index: 1: channel handshake open ack failed: channel state should be INIT or TRYOPEN (got STATE_OPEN): invalid channel state", details: [], metadata: MetadataMap { headers: {"content-type": "application/grpc", "x-cosmos-block-height": "322"} }
-2022-10-12T21:44:57.325948Z ERROR ThreadId(38) worker.channel{channel=channel::channel-0/icahost:axelar->agoric}: failed ChanOpenAck ChannelSide { chain: CachingChainHandle { inner: BaseChainHandle { chain_id: ChainId { id: "agoric", version: 0 }, runtime_sender: Sender { .. } }, cache: Cache { .. } }, client_id: ClientId("07-tendermint-0"), connection_id: ConnectionId("connection-0"), port_id: PortId("icacontroller-1"), channel_id: Some(ChannelId("channel-0")), version: None }: failed during a transaction submission step to chain 'agoric': gRPC call failed with status: status: Unknown, message: "failed to execute message; message index: 1: channel handshake open ack failed: channel state should be INIT or TRYOPEN (got STATE_OPEN): invalid channel state", details: [], metadata: MetadataMap { headers: {"content-type": "application/grpc", "x-cosmos-block-height": "322"} }
-2022-10-12T21:44:57.326044Z ERROR ThreadId(38) worker.channel{channel=channel::channel-0/icahost:axelar->agoric}: failed ChanTryOpen with error: failed during a transaction submission step to chain 'agoric': gRPC call failed with status: status: Unknown, message: "failed to execute message; message index: 1: channel handshake open ack failed: channel state should be INIT or TRYOPEN (got STATE_OPEN): invalid channel state", details: [], metadata: MetadataMap { headers: {"content-type": "application/grpc", "x-cosmos-block-height": "322"} }
-2022-10-12T21:45:04.038234Z  INFO ThreadId(18) wait_for_block_commits: waiting for commit of tx hashes(s) CD5F05DA0D044FA4184C93E01201026F9D83645AB24082A7007989C79FFF2886 id=axelar
-2022-10-12T21:45:07.066680Z  INFO ThreadId(28) worker.channel{channel=channel::channel-0/icacontroller-1:agoric->axelar}: 🎊  axelar => IbcEventWithHeight {
+2022-10-13T01:04:18.410214Z  INFO ThreadId(12) wait_for_block_commits: waiting for commit of tx hashes(s) 685A5213597EE1F6AA093075FDBA60FA70E130EA372279CEAAD4043FD27C4745 id=agoric
+2022-10-13T01:04:28.655187Z ERROR ThreadId(38) worker.channel{channel=channel::channel-0/icahost:axelar->agoric}: failed ChanOpenAck ChannelSide { chain: CachingChainHandle { inner: BaseChainHandle { chain_id: ChainId { id: "agoric", version: 0 }, runtime_sender: Sender { .. } }, cache: Cache { .. } }, client_id: ClientId("07-tendermint-0"), connection_id: ConnectionId("connection-0"), port_id: PortId("icacontroller-1"), channel_id: Some(ChannelId("channel-0")), version: None }: failed during a transaction submission step to chain 'agoric': failed tx: no confirmation
+2022-10-13T01:04:28.655311Z ERROR ThreadId(38) worker.channel{channel=channel::channel-0/icahost:axelar->agoric}: failed ChanTryOpen with error: failed during a transaction submission step to chain 'agoric': failed tx: no confirmation
+2022-10-13T01:04:30.702522Z  INFO ThreadId(12) wait_for_block_commits: waiting for commit of tx hashes(s) 33637853EA1346BBE5024CB52FF6AE5B184BE2EEC0E5E92001727F8132E39112 id=agoric
+2022-10-13T01:04:40.952729Z ERROR ThreadId(38) worker.channel{channel=channel::channel-0/icahost:axelar->agoric}: failed ChanOpenAck ChannelSide { chain: CachingChainHandle { inner: BaseChainHandle { chain_id: ChainId { id: "agoric", version: 0 }, runtime_sender: Sender { .. } }, cache: Cache { .. } }, client_id: ClientId("07-tendermint-0"), connection_id: ConnectionId("connection-0"), port_id: PortId("icacontroller-1"), channel_id: Some(ChannelId("channel-0")), version: None }: failed during a transaction submission step to chain 'agoric': failed tx: no confirmation
+2022-10-13T01:04:40.952769Z ERROR ThreadId(38) worker.channel{channel=channel::channel-0/icahost:axelar->agoric}: failed ChanTryOpen with error: failed during a transaction submission step to chain 'agoric': failed tx: no confirmation
+2022-10-13T01:04:43.101534Z  WARN ThreadId(38) worker.channel{channel=channel::channel-0/icahost:axelar->agoric}: [axelar -> agoric:07-tendermint-0] src header Timestamp(2022-10-13T01:04:39.6185101Z) is after dst latest header Timestamp(2022-10-13T01:04:16.2796855Z) + client state drift 20s, wait for next height on agoric
+2022-10-13T01:04:45.857093Z ERROR ThreadId(12) send_tx_with_account_sequence_retry{id=agoric}:estimate_gas: failed to simulate tx. propagating error to caller: gRPC call failed with status: status: Unknown, message: "failed to execute message; message index: 1: channel handshake open ack failed: channel state should be INIT or TRYOPEN (got STATE_OPEN): invalid channel state", details: [], metadata: MetadataMap { headers: {"content-type": "application/grpc", "x-cosmos-block-height": "220"} }
+2022-10-13T01:04:45.857336Z ERROR ThreadId(38) worker.channel{channel=channel::channel-0/icahost:axelar->agoric}: failed ChanOpenAck ChannelSide { chain: CachingChainHandle { inner: BaseChainHandle { chain_id: ChainId { id: "agoric", version: 0 }, runtime_sender: Sender { .. } }, cache: Cache { .. } }, client_id: ClientId("07-tendermint-0"), connection_id: ConnectionId("connection-0"), port_id: PortId("icacontroller-1"), channel_id: Some(ChannelId("channel-0")), version: None }: failed during a transaction submission step to chain 'agoric': gRPC call failed with status: status: Unknown, message: "failed to execute message; message index: 1: channel handshake open ack failed: channel state should be INIT or TRYOPEN (got STATE_OPEN): invalid channel state", details: [], metadata: MetadataMap { headers: {"content-type": "application/grpc", "x-cosmos-block-height": "220"} }
+2022-10-13T01:04:45.857392Z ERROR ThreadId(38) worker.channel{channel=channel::channel-0/icahost:axelar->agoric}: failed ChanTryOpen with error: failed during a transaction submission step to chain 'agoric': gRPC call failed with status: status: Unknown, message: "failed to execute message; message index: 1: channel handshake open ack failed: channel state should be INIT or TRYOPEN (got STATE_OPEN): invalid channel state", details: [], metadata: MetadataMap { headers: {"content-type": "application/grpc", "x-cosmos-block-height": "220"} }
+2022-10-13T01:04:51.739025Z  INFO ThreadId(18) wait_for_block_commits: waiting for commit of tx hashes(s) C01E2AEF76F7704C26BD4B242E1391F05D3614EAB6FA76DB4E5F50BC87BA6435 id=axelar
+2022-10-13T01:04:55.967821Z  INFO ThreadId(28) worker.channel{channel=channel::channel-0/icacontroller-1:agoric->axelar}: 🎊  axelar => IbcEventWithHeight {
     event: OpenConfirmChannel(
         OpenConfirm {
             port_id: PortId(
@@ -124,11 +124,11 @@
     ),
     height: Height {
         revision: 0,
-        height: 316,
+        height: 311,
     },
 }
 
-2022-10-12T21:45:07.066722Z  INFO ThreadId(28) worker.channel{channel=channel::channel-0/icacontroller-1:agoric->axelar}: channel handshake step completed with events: OpenConfirmChannel(
+2022-10-13T01:04:55.967866Z  INFO ThreadId(28) worker.channel{channel=channel::channel-0/icacontroller-1:agoric->axelar}: channel handshake step completed with events: OpenConfirmChannel(
     OpenConfirm {
         port_id: PortId(
             "icahost",
@@ -152,123 +152,13 @@
     },
 )
 
-2022-10-12T22:19:52.248572Z  INFO ThreadId(18) wait_for_block_commits: waiting for commit of tx hashes(s) 0E551BAE6CBA3EDE2B22D734D285C4B301965C03528F74BD78D7C86D7E38F434 id=axelar
-2022-10-12T22:19:56.182788Z  INFO ThreadId(104) worker.channel{channel=channel::channel-1/icacontroller-2:agoric->axelar}: 🎊  axelar => IbcEventWithHeight {
-    event: OpenTryChannel(
-        OpenTry {
-            port_id: PortId(
-                "icahost",
-            ),
-            channel_id: Some(
-                ChannelId(
-                    "channel-1",
-                ),
-            ),
-            connection_id: ConnectionId(
-                "connection-0",
-            ),
-            counterparty_port_id: PortId(
-                "icacontroller-2",
-            ),
-            counterparty_channel_id: Some(
-                ChannelId(
-                    "channel-1",
-                ),
-            ),
-        },
-    ),
-    height: Height {
-        revision: 0,
-        height: 1129,
-    },
-}
-
-2022-10-12T22:19:56.183724Z  INFO ThreadId(104) worker.channel{channel=channel::channel-1/icacontroller-2:agoric->axelar}: channel handshake step completed with events: OpenTryChannel(
-    OpenTry {
-        port_id: PortId(
-            "icahost",
-        ),
-        channel_id: Some(
-            ChannelId(
-                "channel-1",
-            ),
-        ),
-        connection_id: ConnectionId(
-            "connection-0",
-        ),
-        counterparty_port_id: PortId(
-            "icacontroller-2",
-        ),
-        counterparty_channel_id: Some(
-            ChannelId(
-                "channel-1",
-            ),
-        ),
-    },
-)
-
-2022-10-12T22:19:59.799008Z  INFO ThreadId(16) wait_for_block_commits: waiting for commit of tx hashes(s) 75CC5ED33BCBC05D324F3DDAE9961CF21BE819A5BBA14CE56FB1EF686E5CF974 id=agoric
-2022-10-12T22:20:10.077316Z ERROR ThreadId(114) worker.channel{channel=channel::channel-1/icahost:axelar->agoric}: failed ChanOpenAck ChannelSide { chain: CachingChainHandle { inner: BaseChainHandle { chain_id: ChainId { id: "agoric", version: 0 }, runtime_sender: Sender { .. } }, cache: Cache { .. } }, client_id: ClientId("07-tendermint-0"), connection_id: ConnectionId("connection-0"), port_id: PortId("icacontroller-2"), channel_id: Some(ChannelId("channel-1")), version: None }: failed during a transaction submission step to chain 'agoric': failed tx: no confirmation
-2022-10-12T22:20:10.079028Z ERROR ThreadId(114) worker.channel{channel=channel::channel-1/icahost:axelar->agoric}: failed ChanTryOpen with error: failed during a transaction submission step to chain 'agoric': failed tx: no confirmation
-2022-10-12T22:20:12.551653Z  INFO ThreadId(16) wait_for_block_commits: waiting for commit of tx hashes(s) EE02821215AF419A61D0C9DD1FB91EE9E2B7681D06525182210AF253F4E06E37 id=agoric
-2022-10-12T22:20:22.814746Z ERROR ThreadId(114) worker.channel{channel=channel::channel-1/icahost:axelar->agoric}: failed ChanOpenAck ChannelSide { chain: CachingChainHandle { inner: BaseChainHandle { chain_id: ChainId { id: "agoric", version: 0 }, runtime_sender: Sender { .. } }, cache: Cache { .. } }, client_id: ClientId("07-tendermint-0"), connection_id: ConnectionId("connection-0"), port_id: PortId("icacontroller-2"), channel_id: Some(ChannelId("channel-1")), version: None }: failed during a transaction submission step to chain 'agoric': failed tx: no confirmation
-2022-10-12T22:20:22.814791Z ERROR ThreadId(114) worker.channel{channel=channel::channel-1/icahost:axelar->agoric}: failed ChanTryOpen with error: failed during a transaction submission step to chain 'agoric': failed tx: no confirmation
-2022-10-12T22:20:24.005203Z  WARN ThreadId(114) worker.channel{channel=channel::channel-1/icahost:axelar->agoric}: [axelar -> agoric:07-tendermint-0] src header Timestamp(2022-10-12T22:20:20.5469343Z) is after dst latest header Timestamp(2022-10-12T22:19:55.7588344Z) + client state drift 20s, wait for next height on agoric
-2022-10-12T22:20:26.135852Z ERROR ThreadId(16) send_tx_with_account_sequence_retry{id=agoric}:estimate_gas: failed to simulate tx. propagating error to caller: gRPC call failed with status: status: Unknown, message: "failed to execute message; message index: 1: channel handshake open ack failed: channel state should be INIT or TRYOPEN (got STATE_OPEN): invalid channel state", details: [], metadata: MetadataMap { headers: {"content-type": "application/grpc", "x-cosmos-block-height": "606"} }
-2022-10-12T22:20:26.135987Z ERROR ThreadId(114) worker.channel{channel=channel::channel-1/icahost:axelar->agoric}: failed ChanOpenAck ChannelSide { chain: CachingChainHandle { inner: BaseChainHandle { chain_id: ChainId { id: "agoric", version: 0 }, runtime_sender: Sender { .. } }, cache: Cache { .. } }, client_id: ClientId("07-tendermint-0"), connection_id: ConnectionId("connection-0"), port_id: PortId("icacontroller-2"), channel_id: Some(ChannelId("channel-1")), version: None }: failed during a transaction submission step to chain 'agoric': gRPC call failed with status: status: Unknown, message: "failed to execute message; message index: 1: channel handshake open ack failed: channel state should be INIT or TRYOPEN (got STATE_OPEN): invalid channel state", details: [], metadata: MetadataMap { headers: {"content-type": "application/grpc", "x-cosmos-block-height": "606"} }
-2022-10-12T22:20:26.136023Z ERROR ThreadId(114) worker.channel{channel=channel::channel-1/icahost:axelar->agoric}: failed ChanTryOpen with error: failed during a transaction submission step to chain 'agoric': gRPC call failed with status: status: Unknown, message: "failed to execute message; message index: 1: channel handshake open ack failed: channel state should be INIT or TRYOPEN (got STATE_OPEN): invalid channel state", details: [], metadata: MetadataMap { headers: {"content-type": "application/grpc", "x-cosmos-block-height": "606"} }
-2022-10-12T22:20:33.468884Z  INFO ThreadId(18) wait_for_block_commits: waiting for commit of tx hashes(s) 02F4AE6FB226E14C784FC07F595D8B2BC946B1EA2853C912D51CB9197A42E6BE id=axelar
-2022-10-12T22:20:37.387069Z  INFO ThreadId(104) worker.channel{channel=channel::channel-1/icacontroller-2:agoric->axelar}: 🎊  axelar => IbcEventWithHeight {
-    event: OpenConfirmChannel(
-        OpenConfirm {
-            port_id: PortId(
-                "icahost",
-            ),
-            channel_id: Some(
-                ChannelId(
-                    "channel-1",
-                ),
-            ),
-            connection_id: ConnectionId(
-                "connection-0",
-            ),
-            counterparty_port_id: PortId(
-                "icacontroller-2",
-            ),
-            counterparty_channel_id: Some(
-                ChannelId(
-                    "channel-1",
-                ),
-            ),
-        },
-    ),
-    height: Height {
-        revision: 0,
-        height: 1146,
-    },
-}
-
-2022-10-12T22:20:37.387137Z  INFO ThreadId(104) worker.channel{channel=channel::channel-1/icacontroller-2:agoric->axelar}: channel handshake step completed with events: OpenConfirmChannel(
-    OpenConfirm {
-        port_id: PortId(
-            "icahost",
-        ),
-        channel_id: Some(
-            ChannelId(
-                "channel-1",
-            ),
-        ),
-        connection_id: ConnectionId(
-            "connection-0",
-        ),
-        counterparty_port_id: PortId(
-            "icacontroller-2",
-        ),
-        counterparty_channel_id: Some(
-            ChannelId(
-                "channel-1",
-            ),
-        ),
-    },
-)
-
+2022-10-13T01:09:46.033671Z ERROR ThreadId(21) [agoric] failed to collect events: WebSocket driver failed: web socket error: failed to read from WebSocket connection: WebSocket protocol error: Connection reset without closing handshake
+2022-10-13T01:09:46.191942Z  WARN ThreadId(19) wallet{chain=agoric}: task encountered ignorable error: failed to query balance for the account: error in underlying transport when making gRPC call: transport error
+2022-10-13T01:09:46.576326Z  WARN ThreadId(93) refresh{client=07-tendermint-0 src_chain=axelar dst_chain=agoric}: task encountered ignorable error: error raised while trying to refresh client 07-tendermint-0: failed querying client state on dst chain: RPC error to endpoint http://127.0.0.1:26657/: HTTP error: error trying to connect: tcp connect error: Connection refused (os error 111)
+2022-10-13T01:09:46.665977Z  WARN ThreadId(103) refresh{client=07-tendermint-0 src_chain=agoric dst_chain=axelar}: task encountered ignorable error: error raised while trying to refresh client 07-tendermint-0: failed querying the application status of source chain: RPC error to endpoint http://127.0.0.1:26657/: HTTP error: error trying to connect: tcp connect error: Connection refused (os error 111)
+2022-10-13T01:09:47.577536Z  WARN ThreadId(93) refresh{client=07-tendermint-0 src_chain=axelar dst_chain=agoric}: task encountered ignorable error: error raised while trying to refresh client 07-tendermint-0: failed querying client state on dst chain: RPC error to endpoint http://127.0.0.1:26657/: HTTP error: error trying to connect: tcp connect error: Connection refused (os error 111)
+2022-10-13T01:09:47.669571Z  WARN ThreadId(103) refresh{client=07-tendermint-0 src_chain=agoric dst_chain=axelar}: task encountered ignorable error: error raised while trying to refresh client 07-tendermint-0: failed querying the application status of source chain: RPC error to endpoint http://127.0.0.1:26657/: HTTP error: error trying to connect: tcp connect error: Connection refused (os error 111)
+2022-10-13T01:09:48.578084Z  WARN ThreadId(93) refresh{client=07-tendermint-0 src_chain=axelar dst_chain=agoric}: task encountered ignorable error: error raised while trying to refresh client 07-tendermint-0: failed querying client state on dst chain: RPC error to endpoint http://127.0.0.1:26657/: HTTP error: error trying to connect: tcp connect error: Connection refused (os error 111)
+2022-10-13T01:09:48.674112Z  WARN ThreadId(103) refresh{client=07-tendermint-0 src_chain=agoric dst_chain=axelar}: task encountered ignorable error: error raised while trying to refresh client 07-tendermint-0: failed querying the application status of source chain: RPC error to endpoint http://127.0.0.1:26657/: HTTP error: error trying to connect: tcp connect error: Connection refused (os error 111)
+2022-10-13T01:09:49.042913Z ERROR ThreadId(22) [axelar] failed to collect events: RPC error: response error
+2022-10-13T01:09:49.046884Z  INFO ThreadId(22) [axelar] successfully reconnected to WebSocket endpoint ws://localhost:16657/websocket
