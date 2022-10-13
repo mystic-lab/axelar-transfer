@@ -40,10 +40,10 @@ const sendFromAgoricToEVM = async (
 
   const txBytes = LinkRequest.encode(tx).finish();
 
-  const msg = await E(ica.publicFacet).makeMsg({
-    typeUrl: '/axelar.axelarnet.v1beta1.LinkRequest',
-    value: harden(txBytes),
-  });
+  const msg = await E(ica.publicFacet).makeMsg(
+    '/axelar.axelarnet.v1beta1.LinkRequest',
+    txBytes,
+  );
 
   const packet = await E(ica.publicFacet).makeICAPacket([msg]);
 
@@ -80,10 +80,10 @@ const sendToAgoricFromEVM = async (ica, connection, srcChain, denom) => {
 
   const txBytes = EVMLinkRequest.encode(tx).finish();
 
-  const msg = await E(ica.publicFacet).makeMsg({
-    typeUrl: '/axelar.evm.v1beta1.LinkRequest',
-    value: harden(txBytes),
-  });
+  const msg = await E(ica.publicFacet).makeMsg(
+    '/axelar.evm.v1beta1.LinkRequest',
+    harden(txBytes),
+  );
 
   const packet = await E(ica.publicFacet).makeICAPacket([msg]);
 
@@ -128,10 +128,10 @@ const sendToEVMFromEVM = async (
 
   const txBytes = EVMLinkRequest.encode(tx).finish();
 
-  const msg = await E(ica.publicFacet).makeMsg({
-    typeUrl: '/axelar.evm.v1beta1.LinkRequest',
-    value: harden(txBytes),
-  });
+  const msg = await E(ica.publicFacet).makeMsg(
+    '/axelar.evm.v1beta1.LinkRequest',
+    harden(txBytes),
+  );
 
   const packet = await E(ica.publicFacet).makeICAPacket([msg]);
 
@@ -169,10 +169,10 @@ const transferFromICAAccount = async (
 
   const txBytes = FungibleTokenPacketData.encode(tx).finish();
 
-  const msg = await E(ica.publicFacet).makeMsg({
-    typeUrl: '/ibc.applications.transfer.v1.MsgTransfer',
-    value: harden(txBytes),
-  });
+  const msg = await E(ica.publicFacet).makeMsg(
+    '/ibc.applications.transfer.v1.MsgTransfer',
+    harden(txBytes),
+  );
 
   const packet = await E(ica.publicFacet).makeICAPacket([msg]);
 
