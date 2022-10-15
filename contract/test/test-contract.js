@@ -106,6 +106,9 @@ const testAxelar = async (t) => {
     hostConnectionId,
   );
 
+  const icaAddr = await E(axelar).getICAAddress();
+  console.log("ICA Address: ", icaAddr, "\n")
+
   let pingack = await E(axelar).bridgeToEVM(
     'Avalanche',
     'avax1brulqthe045psg4r1wygzlx7yhc2e9h2n0hpjp',

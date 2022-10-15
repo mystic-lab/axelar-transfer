@@ -16,8 +16,11 @@
 /**
  *
  * @typedef {object} AxelarResponse
+ * @property {Function} getICAAddress
  * @property {Function} bridgeToEVM
  * @property {Function} bridgeFromEVM
+ * @property {Function} bridgeToEVMFromEVM
+ * @property {Function} transferFromICAAccount
  */
 
 /**

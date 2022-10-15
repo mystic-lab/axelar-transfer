@@ -1,20 +1,128 @@
-{"timestamp":"2022-10-13T00:37:54.435154Z","level":"INFO","message":"START: decrypt kvstore","spans":[{"name":"main"}]}
-{"timestamp":"2022-10-13T00:37:55.074837Z","level":"INFO","message":"DONE: decrypt kvstore","spans":[{"name":"main"}]}
-{"timestamp":"2022-10-13T00:37:55.074876Z","level":"INFO","message":"kv_manager found existing db [./network/data/.tofnd/kvstore/kv]","spans":[{"name":"main"}]}
-{"timestamp":"2022-10-13T00:37:55.074977Z","level":"INFO","message":"tofnd listen addr 0.0.0.0:50051, use ctrl+c to shutdown","spans":[{"name":"main"}]}
-{"timestamp":"2022-10-13T00:39:50.562970Z","level":"DEBUG","message":"[dummyID] key presence check for multisig always return Present"}
-{"timestamp":"2022-10-13T00:39:50.563022Z","level":"INFO","message":"Key presence check completed succesfully"}
-{"timestamp":"2022-10-13T00:41:52.996298Z","level":"DEBUG","message":"[dummyID] key presence check for multisig always return Present"}
-{"timestamp":"2022-10-13T00:41:52.996325Z","level":"INFO","message":"Key presence check completed succesfully"}
-{"timestamp":"2022-10-13T00:44:17.140737Z","level":"DEBUG","message":"[dummyID] key presence check for multisig always return Present"}
-{"timestamp":"2022-10-13T00:44:17.140761Z","level":"INFO","message":"Key presence check completed succesfully"}
-{"timestamp":"2022-10-13T00:46:36.494225Z","level":"DEBUG","message":"[dummyID] key presence check for multisig always return Present"}
-{"timestamp":"2022-10-13T00:46:36.494280Z","level":"INFO","message":"Key presence check completed succesfully"}
-{"timestamp":"2022-10-13T00:59:31.538682Z","level":"DEBUG","message":"[dummyID] key presence check for multisig always return Present"}
-{"timestamp":"2022-10-13T00:59:31.538734Z","level":"INFO","message":"Key presence check completed succesfully"}
-{"timestamp":"2022-10-13T01:04:27.848680Z","level":"DEBUG","message":"[dummyID] key presence check for multisig always return Present"}
-{"timestamp":"2022-10-13T01:04:27.901366Z","level":"INFO","message":"Key presence check completed succesfully"}
-{"timestamp":"2022-10-13T01:06:24.877771Z","level":"DEBUG","message":"[dummyID] key presence check for multisig always return Present"}
-{"timestamp":"2022-10-13T01:06:24.877798Z","level":"INFO","message":"Key presence check completed succesfully"}
-{"timestamp":"2022-10-13T01:08:13.760094Z","level":"DEBUG","message":"[dummyID] key presence check for multisig always return Present"}
-{"timestamp":"2022-10-13T01:08:13.760118Z","level":"INFO","message":"Key presence check completed succesfully"}
+{"timestamp":"2022-10-15T04:38:42.473659Z","level":"INFO","message":"START: decrypt kvstore","spans":[{"name":"main"}]}
+{"timestamp":"2022-10-15T04:38:43.146487Z","level":"INFO","message":"DONE: decrypt kvstore","spans":[{"name":"main"}]}
+{"timestamp":"2022-10-15T04:38:43.146552Z","level":"INFO","message":"kv_manager found existing db [./network/data/.tofnd/kvstore/kv]","spans":[{"name":"main"}]}
+{"timestamp":"2022-10-15T04:38:43.146735Z","level":"INFO","message":"tofnd listen addr 0.0.0.0:50051, use ctrl+c to shutdown","spans":[{"name":"main"}]}
+{"timestamp":"2022-10-15T04:40:37.972766Z","level":"DEBUG","message":"[dummyID] key presence check for multisig always return Present"}
+{"timestamp":"2022-10-15T04:40:37.972919Z","level":"INFO","message":"Key presence check completed succesfully"}
+{"timestamp":"2022-10-15T04:42:38.355347Z","level":"DEBUG","message":"[dummyID] key presence check for multisig always return Present"}
+{"timestamp":"2022-10-15T04:42:38.355406Z","level":"INFO","message":"Key presence check completed succesfully"}
+{"timestamp":"2022-10-15T04:44:47.917227Z","level":"DEBUG","message":"[dummyID] key presence check for multisig always return Present"}
+{"timestamp":"2022-10-15T04:44:47.917389Z","level":"INFO","message":"Key presence check completed succesfully"}
+{"timestamp":"2022-10-15T04:47:01.401139Z","level":"DEBUG","message":"[dummyID] key presence check for multisig always return Present"}
+{"timestamp":"2022-10-15T04:47:01.401210Z","level":"INFO","message":"Key presence check completed succesfully"}
+{"timestamp":"2022-10-15T04:49:05.279196Z","level":"DEBUG","message":"[dummyID] key presence check for multisig always return Present"}
+{"timestamp":"2022-10-15T04:49:05.279328Z","level":"INFO","message":"Key presence check completed succesfully"}
+{"timestamp":"2022-10-15T04:50:59.983396Z","level":"DEBUG","message":"[dummyID] key presence check for multisig always return Present"}
+{"timestamp":"2022-10-15T04:50:59.983438Z","level":"INFO","message":"Key presence check completed succesfully"}
+{"timestamp":"2022-10-15T04:52:40.933071Z","level":"DEBUG","message":"[dummyID] key presence check for multisig always return Present"}
+{"timestamp":"2022-10-15T04:52:40.933180Z","level":"INFO","message":"Key presence check completed succesfully"}
+{"timestamp":"2022-10-15T04:54:28.335454Z","level":"DEBUG","message":"[dummyID] key presence check for multisig always return Present"}
+{"timestamp":"2022-10-15T04:54:28.335478Z","level":"INFO","message":"Key presence check completed succesfully"}
+{"timestamp":"2022-10-15T04:56:21.044186Z","level":"DEBUG","message":"[dummyID] key presence check for multisig always return Present"}
+{"timestamp":"2022-10-15T04:56:21.044290Z","level":"INFO","message":"Key presence check completed succesfully"}
+{"timestamp":"2022-10-15T04:58:07.524706Z","level":"DEBUG","message":"[dummyID] key presence check for multisig always return Present"}
+{"timestamp":"2022-10-15T04:58:07.524770Z","level":"INFO","message":"Key presence check completed succesfully"}
+{"timestamp":"2022-10-15T04:59:51.937717Z","level":"DEBUG","message":"[dummyID] key presence check for multisig always return Present"}
+{"timestamp":"2022-10-15T04:59:51.937758Z","level":"INFO","message":"Key presence check completed succesfully"}
+{"timestamp":"2022-10-15T05:01:38.456458Z","level":"DEBUG","message":"[dummyID] key presence check for multisig always return Present"}
+{"timestamp":"2022-10-15T05:01:38.456517Z","level":"INFO","message":"Key presence check completed succesfully"}
+{"timestamp":"2022-10-15T05:03:50.971709Z","level":"DEBUG","message":"[dummyID] key presence check for multisig always return Present"}
+{"timestamp":"2022-10-15T05:03:50.971772Z","level":"INFO","message":"Key presence check completed succesfully"}
+{"timestamp":"2022-10-15T05:05:45.390045Z","level":"DEBUG","message":"[dummyID] key presence check for multisig always return Present"}
+{"timestamp":"2022-10-15T05:05:45.390147Z","level":"INFO","message":"Key presence check completed succesfully"}
+{"timestamp":"2022-10-15T05:08:03.424316Z","level":"DEBUG","message":"[dummyID] key presence check for multisig always return Present"}
+{"timestamp":"2022-10-15T05:08:03.424363Z","level":"INFO","message":"Key presence check completed succesfully"}
+{"timestamp":"2022-10-15T05:10:01.279465Z","level":"DEBUG","message":"[dummyID] key presence check for multisig always return Present"}
+{"timestamp":"2022-10-15T05:10:01.279542Z","level":"INFO","message":"Key presence check completed succesfully"}
+{"timestamp":"2022-10-15T05:11:58.259202Z","level":"DEBUG","message":"[dummyID] key presence check for multisig always return Present"}
+{"timestamp":"2022-10-15T05:11:58.259287Z","level":"INFO","message":"Key presence check completed succesfully"}
+{"timestamp":"2022-10-15T05:13:52.138261Z","level":"DEBUG","message":"[dummyID] key presence check for multisig always return Present"}
+{"timestamp":"2022-10-15T05:13:52.138370Z","level":"INFO","message":"Key presence check completed succesfully"}
+{"timestamp":"2022-10-15T05:15:41.788685Z","level":"DEBUG","message":"[dummyID] key presence check for multisig always return Present"}
+{"timestamp":"2022-10-15T05:15:41.788726Z","level":"INFO","message":"Key presence check completed succesfully"}
+{"timestamp":"2022-10-15T05:17:25.176576Z","level":"DEBUG","message":"[dummyID] key presence check for multisig always return Present"}
+{"timestamp":"2022-10-15T05:17:25.176644Z","level":"INFO","message":"Key presence check completed succesfully"}
+{"timestamp":"2022-10-15T05:19:10.616741Z","level":"DEBUG","message":"[dummyID] key presence check for multisig always return Present"}
+{"timestamp":"2022-10-15T05:19:10.616797Z","level":"INFO","message":"Key presence check completed succesfully"}
+{"timestamp":"2022-10-15T05:20:57.909878Z","level":"DEBUG","message":"[dummyID] key presence check for multisig always return Present"}
+{"timestamp":"2022-10-15T05:20:57.909920Z","level":"INFO","message":"Key presence check completed succesfully"}
+{"timestamp":"2022-10-15T05:22:43.654750Z","level":"DEBUG","message":"[dummyID] key presence check for multisig always return Present"}
+{"timestamp":"2022-10-15T05:22:43.654809Z","level":"INFO","message":"Key presence check completed succesfully"}
+{"timestamp":"2022-10-15T05:24:26.343319Z","level":"DEBUG","message":"[dummyID] key presence check for multisig always return Present"}
+{"timestamp":"2022-10-15T05:24:26.343361Z","level":"INFO","message":"Key presence check completed succesfully"}
+{"timestamp":"2022-10-15T05:26:08.341688Z","level":"DEBUG","message":"[dummyID] key presence check for multisig always return Present"}
+{"timestamp":"2022-10-15T05:26:08.341732Z","level":"INFO","message":"Key presence check completed succesfully"}
+{"timestamp":"2022-10-15T05:27:51.991517Z","level":"DEBUG","message":"[dummyID] key presence check for multisig always return Present"}
+{"timestamp":"2022-10-15T05:27:51.991570Z","level":"INFO","message":"Key presence check completed succesfully"}
+{"timestamp":"2022-10-15T05:29:38.139803Z","level":"DEBUG","message":"[dummyID] key presence check for multisig always return Present"}
+{"timestamp":"2022-10-15T05:29:38.139849Z","level":"INFO","message":"Key presence check completed succesfully"}
+{"timestamp":"2022-10-15T05:31:55.345879Z","level":"DEBUG","message":"[dummyID] key presence check for multisig always return Present"}
+{"timestamp":"2022-10-15T05:31:55.414554Z","level":"INFO","message":"Key presence check completed succesfully"}
+{"timestamp":"2022-10-15T05:33:41.577765Z","level":"DEBUG","message":"[dummyID] key presence check for multisig always return Present"}
+{"timestamp":"2022-10-15T05:33:41.577819Z","level":"INFO","message":"Key presence check completed succesfully"}
+{"timestamp":"2022-10-15T05:35:31.315650Z","level":"DEBUG","message":"[dummyID] key presence check for multisig always return Present"}
+{"timestamp":"2022-10-15T05:35:31.315800Z","level":"INFO","message":"Key presence check completed succesfully"}
+{"timestamp":"2022-10-15T05:37:14.198650Z","level":"DEBUG","message":"[dummyID] key presence check for multisig always return Present"}
+{"timestamp":"2022-10-15T05:37:14.198696Z","level":"INFO","message":"Key presence check completed succesfully"}
+{"timestamp":"2022-10-15T05:38:59.634447Z","level":"DEBUG","message":"[dummyID] key presence check for multisig always return Present"}
+{"timestamp":"2022-10-15T05:38:59.634489Z","level":"INFO","message":"Key presence check completed succesfully"}
+{"timestamp":"2022-10-15T05:40:42.683417Z","level":"DEBUG","message":"[dummyID] key presence check for multisig always return Present"}
+{"timestamp":"2022-10-15T05:40:42.683469Z","level":"INFO","message":"Key presence check completed succesfully"}
+{"timestamp":"2022-10-15T05:42:24.383940Z","level":"DEBUG","message":"[dummyID] key presence check for multisig always return Present"}
+{"timestamp":"2022-10-15T05:42:24.384028Z","level":"INFO","message":"Key presence check completed succesfully"}
+{"timestamp":"2022-10-15T05:44:04.853476Z","level":"DEBUG","message":"[dummyID] key presence check for multisig always return Present"}
+{"timestamp":"2022-10-15T05:44:04.853509Z","level":"INFO","message":"Key presence check completed succesfully"}
+{"timestamp":"2022-10-15T05:45:45.610234Z","level":"DEBUG","message":"[dummyID] key presence check for multisig always return Present"}
+{"timestamp":"2022-10-15T05:45:45.610298Z","level":"INFO","message":"Key presence check completed succesfully"}
+{"timestamp":"2022-10-15T05:47:29.049426Z","level":"DEBUG","message":"[dummyID] key presence check for multisig always return Present"}
+{"timestamp":"2022-10-15T05:47:29.049506Z","level":"INFO","message":"Key presence check completed succesfully"}
+{"timestamp":"2022-10-15T05:49:13.335328Z","level":"DEBUG","message":"[dummyID] key presence check for multisig always return Present"}
+{"timestamp":"2022-10-15T05:49:13.335425Z","level":"INFO","message":"Key presence check completed succesfully"}
+{"timestamp":"2022-10-15T05:50:54.997750Z","level":"DEBUG","message":"[dummyID] key presence check for multisig always return Present"}
+{"timestamp":"2022-10-15T05:50:54.997802Z","level":"INFO","message":"Key presence check completed succesfully"}
+{"timestamp":"2022-10-15T05:52:43.023093Z","level":"DEBUG","message":"[dummyID] key presence check for multisig always return Present"}
+{"timestamp":"2022-10-15T05:52:43.023138Z","level":"INFO","message":"Key presence check completed succesfully"}
+{"timestamp":"2022-10-15T05:54:26.690929Z","level":"DEBUG","message":"[dummyID] key presence check for multisig always return Present"}
+{"timestamp":"2022-10-15T05:54:26.690994Z","level":"INFO","message":"Key presence check completed succesfully"}
+{"timestamp":"2022-10-15T05:56:09.834147Z","level":"DEBUG","message":"[dummyID] key presence check for multisig always return Present"}
+{"timestamp":"2022-10-15T05:56:09.834220Z","level":"INFO","message":"Key presence check completed succesfully"}
+{"timestamp":"2022-10-15T05:57:52.008477Z","level":"DEBUG","message":"[dummyID] key presence check for multisig always return Present"}
+{"timestamp":"2022-10-15T05:57:52.008535Z","level":"INFO","message":"Key presence check completed succesfully"}
+{"timestamp":"2022-10-15T05:59:33.012118Z","level":"DEBUG","message":"[dummyID] key presence check for multisig always return Present"}
+{"timestamp":"2022-10-15T05:59:33.012160Z","level":"INFO","message":"Key presence check completed succesfully"}
+{"timestamp":"2022-10-15T06:01:17.509822Z","level":"DEBUG","message":"[dummyID] key presence check for multisig always return Present"}
+{"timestamp":"2022-10-15T06:01:17.509891Z","level":"INFO","message":"Key presence check completed succesfully"}
+{"timestamp":"2022-10-15T06:03:01.873174Z","level":"DEBUG","message":"[dummyID] key presence check for multisig always return Present"}
+{"timestamp":"2022-10-15T06:03:01.873244Z","level":"INFO","message":"Key presence check completed succesfully"}
+{"timestamp":"2022-10-15T06:04:47.174541Z","level":"DEBUG","message":"[dummyID] key presence check for multisig always return Present"}
+{"timestamp":"2022-10-15T06:04:47.174635Z","level":"INFO","message":"Key presence check completed succesfully"}
+{"timestamp":"2022-10-15T06:07:12.274435Z","level":"DEBUG","message":"[dummyID] key presence check for multisig always return Present"}
+{"timestamp":"2022-10-15T06:07:12.274620Z","level":"INFO","message":"Key presence check completed succesfully"}
+{"timestamp":"2022-10-15T06:09:24.508744Z","level":"DEBUG","message":"[dummyID] key presence check for multisig always return Present"}
+{"timestamp":"2022-10-15T06:09:24.508784Z","level":"INFO","message":"Key presence check completed succesfully"}
+{"timestamp":"2022-10-15T06:11:25.929304Z","level":"DEBUG","message":"[dummyID] key presence check for multisig always return Present"}
+{"timestamp":"2022-10-15T06:11:25.929366Z","level":"INFO","message":"Key presence check completed succesfully"}
+{"timestamp":"2022-10-15T06:13:53.973982Z","level":"DEBUG","message":"[dummyID] key presence check for multisig always return Present"}
+{"timestamp":"2022-10-15T06:13:53.974142Z","level":"INFO","message":"Key presence check completed succesfully"}
+{"timestamp":"2022-10-15T06:16:08.874015Z","level":"DEBUG","message":"[dummyID] key presence check for multisig always return Present"}
+{"timestamp":"2022-10-15T06:16:08.874138Z","level":"INFO","message":"Key presence check completed succesfully"}
+{"timestamp":"2022-10-15T06:18:02.470770Z","level":"DEBUG","message":"[dummyID] key presence check for multisig always return Present"}
+{"timestamp":"2022-10-15T06:18:02.470826Z","level":"INFO","message":"Key presence check completed succesfully"}
+{"timestamp":"2022-10-15T06:19:53.236919Z","level":"DEBUG","message":"[dummyID] key presence check for multisig always return Present"}
+{"timestamp":"2022-10-15T06:19:53.236961Z","level":"INFO","message":"Key presence check completed succesfully"}
+{"timestamp":"2022-10-15T06:22:48.648318Z","level":"DEBUG","message":"[dummyID] key presence check for multisig always return Present"}
+{"timestamp":"2022-10-15T06:22:48.648365Z","level":"INFO","message":"Key presence check completed succesfully"}
+{"timestamp":"2022-10-15T06:31:46.709537Z","level":"DEBUG","message":"[dummyID] key presence check for multisig always return Present"}
+{"timestamp":"2022-10-15T06:31:46.725144Z","level":"INFO","message":"Key presence check completed succesfully"}
+{"timestamp":"2022-10-15T06:37:24.801064Z","level":"DEBUG","message":"[dummyID] key presence check for multisig always return Present"}
+{"timestamp":"2022-10-15T06:37:24.801266Z","level":"INFO","message":"Key presence check completed succesfully"}
+{"timestamp":"2022-10-15T06:40:50.764169Z","level":"DEBUG","message":"[dummyID] key presence check for multisig always return Present"}
+{"timestamp":"2022-10-15T06:40:50.764261Z","level":"INFO","message":"Key presence check completed succesfully"}
+{"timestamp":"2022-10-15T06:42:53.637159Z","level":"DEBUG","message":"[dummyID] key presence check for multisig always return Present"}
+{"timestamp":"2022-10-15T06:42:53.678524Z","level":"INFO","message":"Key presence check completed succesfully"}
+{"timestamp":"2022-10-15T06:52:16.201003Z","level":"DEBUG","message":"[dummyID] key presence check for multisig always return Present"}
+{"timestamp":"2022-10-15T06:52:16.411198Z","level":"INFO","message":"Key presence check completed succesfully"}
+{"timestamp":"2022-10-15T07:00:26.876403Z","level":"DEBUG","message":"[dummyID] key presence check for multisig always return Present"}
+{"timestamp":"2022-10-15T07:00:26.876494Z","level":"INFO","message":"Key presence check completed succesfully"}
+{"timestamp":"2022-10-15T07:04:22.950356Z","level":"DEBUG","message":"[dummyID] key presence check for multisig always return Present"}
+{"timestamp":"2022-10-15T07:04:22.950755Z","level":"INFO","message":"Key presence check completed succesfully"}
