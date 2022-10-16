@@ -81,7 +81,7 @@ export const setupAxelar = async (
      bridgeToEVM: async (destChain, destAddress, denom) => {
       let myaddress = await parseICAAddress(connection);
       // we set default sender address for testing purposes
-      myaddress = myaddress == "" ? "axelar1txctskw7qy8cn2ph0hzyntq77vqd035el8nm383phj64wpdqp5cqutfg7u" : myaddress
+      myaddress = myaddress == "" ? "axelar1tw556a6ag5e60wnpgkf970k9nzuugzem33tag2x06e3xlhwsvyzq236pur" : myaddress
       const acc = fromBech32(myaddress);
     
       const tx = LinkRequest.fromPartial({
@@ -94,11 +94,13 @@ export const setupAxelar = async (
       const txBytes = LinkRequest.encode(tx).finish();
 
       const txBytesBase64 = encodeBase64(txBytes);
+
+      console.log("txBytesBase64: ", txBytesBase64, "\n")
     
       const resp = await E(ica.publicFacet).sendICATxPacket(
         [
           {
-            typeUrl: '/axelar.axelarnet.v1beta1.LinkRequest',
+            typeUrl: 'axelar.axelarnet.v1beta1.LinkRequest',
             data: txBytesBase64,
           }
         ],
@@ -117,7 +119,7 @@ export const setupAxelar = async (
      bridgeFromEVM: async (srcChain, denom) => {
       let myaddress = await parseICAAddress(connection);
       // we set default sender address for testing purposes
-      myaddress = myaddress == "" ? "axelar1txctskw7qy8cn2ph0hzyntq77vqd035el8nm383phj64wpdqp5cqutfg7u" : myaddress
+      myaddress = myaddress == "" ? "axelar1tw556a6ag5e60wnpgkf970k9nzuugzem33tag2x06e3xlhwsvyzq236pur" : myaddress
       const acc = fromBech32(myaddress);
     
       const tx = EVMLinkRequest.fromPartial({
@@ -131,11 +133,13 @@ export const setupAxelar = async (
       const txBytes = EVMLinkRequest.encode(tx).finish();
 
       const txBytesBase64 = encodeBase64(txBytes)
+
+      console.log("txBytesBase64 Two: ", txBytesBase64, "\n")
     
       const resp = await E(ica.publicFacet).sendICATxPacket(
         [
           {
-            typeUrl: '/axelar.evm.v1beta1.LinkRequest',
+            typeUrl: 'axelar.evm.v1beta1.LinkRequest',
             data: txBytesBase64,
           }
         ],
@@ -174,7 +178,7 @@ export const setupAxelar = async (
       const resp = await E(ica.publicFacet).sendICATxPacket(
         [
           {
-            typeUrl: '/axelar.evm.v1beta1.LinkRequest',
+            typeUrl: 'axelar.evm.v1beta1.LinkRequest',
             data: txBytesBase64,
           }
         ],
@@ -209,7 +213,7 @@ export const setupAxelar = async (
       const resp = await E(ica.publicFacet).sendICATxPacket(
         [
           {
-            typeUrl: '/ibc.applications.transfer.v1.MsgTransfer',
+            typeUrl: 'ibc.applications.transfer.v1.MsgTransfer',
             data: txBytesBase64,
           }
         ],
