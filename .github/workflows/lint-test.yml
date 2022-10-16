@@ -5,7 +5,7 @@ name: Lint and Test from Root
 
 on:
  push:
-   branches: [master]
+   branches: [main]
  pull_request:
 
 jobs:
@@ -31,7 +31,7 @@ jobs:
           const { body = '' } = context.payload.pull_request || {};
           const regex = /.*\#agoric-sdk-branch:\s+(\S+)/;
           const match = regex.exec(body);
-          const agoricSdkBranch = match && match[1] || 'master';
+          const agoricSdkBranch = match && match[1] || 'main';
           console.log(agoricSdkBranch);
           return agoricSdkBranch;
 

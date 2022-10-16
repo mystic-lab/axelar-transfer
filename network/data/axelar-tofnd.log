@@ -152,3 +152,5 @@
 {"timestamp":"2022-10-16T04:10:40.149415Z","level":"INFO","message":"Key presence check completed succesfully"}
 {"timestamp":"2022-10-16T04:13:48.163127Z","level":"DEBUG","message":"[dummyID] key presence check for multisig always return Present"}
 {"timestamp":"2022-10-16T04:13:48.163171Z","level":"INFO","message":"Key presence check completed succesfully"}
+{"timestamp":"2022-10-16T04:15:56.442499Z","level":"DEBUG","message":"[dummyID] key presence check for multisig always return Present"}
+{"timestamp":"2022-10-16T04:15:56.442532Z","level":"INFO","message":"Key presence check completed succesfully"}
