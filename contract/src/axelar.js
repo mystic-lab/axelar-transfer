@@ -6,7 +6,7 @@ import { LinkRequest as EVMLinkRequest } from '@axelar-network/axelarjs-types/ax
 import { FungibleTokenPacketData } from 'cosmjs-types/ibc/applications/transfer/v2/packet.js';
 import { parseICAAddress } from './utils.js';
 import { encodeBase64 } from '@endo/base64';
-import { fromBech32 } from '@cosmjs/encoding';
+import { fromBech32 } from '@cosmjs/encoding/build/bech32';
 
 /**
  * Create ICS-27 (ICA) channel (which creates an ICA account) and then
