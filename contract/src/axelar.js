@@ -1,11 +1,11 @@
 // @ts-check
 import { E } from '@endo/eventual-send';
 import { Far } from '@endo/marshal';
-import { LinkRequest } from '@axelar-network/axelarjs-types/axelar/axelarnet/v1beta1/tx.js';
-import { LinkRequest as EVMLinkRequest } from '@axelar-network/axelarjs-types/axelar/evm/v1beta1/tx.js';
+import { LinkRequest, LinkResponse } from '@axelar-network/axelarjs-types/axelar/axelarnet/v1beta1/tx.js';
+import { LinkRequest as EVMLinkRequest, LinkResponse as EVMLinkResponse } from '@axelar-network/axelarjs-types/axelar/evm/v1beta1/tx.js';
 import { FungibleTokenPacketData } from 'cosmjs-types/ibc/applications/transfer/v2/packet.js';
 import { parseICAAddress } from './utils.js';
-import { encodeBase64 } from '@endo/base64';
+import { encodeBase64, decodeBase64 } from '@endo/base64';
 import { fromBech32 } from '@cosmjs/encoding/build/bech32';
 
 /**
@@ -81,7 +81,7 @@ export const setupAxelar = async (
      bridgeToEVM: async (destChain, destAddress, denom) => {
       let myaddress = await parseICAAddress(connection);
       // we set default sender address for testing purposes
-      myaddress = myaddress == "" ? "axelar1tw556a6ag5e60wnpgkf970k9nzuugzem33tag2x06e3xlhwsvyzq236pur" : myaddress
+      myaddress = myaddress == "" ? "axelar1q536k3gtvse8nt0q75g7r4tgr932f5uyazxlvfq4nfmujeyx777stqvpmn" : myaddress
       const acc = fromBech32(myaddress);
     
       const tx = LinkRequest.fromPartial({
@@ -97,17 +97,25 @@ export const setupAxelar = async (
 
       console.log("txBytesBase64: ", txBytesBase64, "\n")
     
-      const resp = await E(ica.publicFacet).sendICATxPacket(
+      const rawResp = await E(ica.publicFacet).sendICATxPacket(
         [
           {
-            typeUrl: 'axelar.axelarnet.v1beta1.LinkRequest',
+            typeUrl: '/axelar.axelarnet.v1beta1.LinkRequest',
             data: txBytesBase64,
           }
         ],
         connection,
       );
+
+      const resp = JSON.parse(rawResp)
+
+      const bytes = decodeBase64(resp["result"])
+
+      const axelarResponse = LinkResponse.decode(bytes)
+
+      const depositAddress = axelarResponse.depositAddr.replace(/\s/g,'').split("%/axelar.axelarnet.v1beta1.LinkRequestCA")[1]
     
-      return resp;
+      return depositAddress
      },
     /**
      * Create an Axelar deposit account for a cross chain transfer. Returns the deposit address.
@@ -119,7 +127,7 @@ export const setupAxelar = async (
      bridgeFromEVM: async (srcChain, denom) => {
       let myaddress = await parseICAAddress(connection);
       // we set default sender address for testing purposes
-      myaddress = myaddress == "" ? "axelar1tw556a6ag5e60wnpgkf970k9nzuugzem33tag2x06e3xlhwsvyzq236pur" : myaddress
+      myaddress = myaddress == "" ? "axelar1q536k3gtvse8nt0q75g7r4tgr932f5uyazxlvfq4nfmujeyx777stqvpmn" : myaddress
       const acc = fromBech32(myaddress);
     
       const tx = EVMLinkRequest.fromPartial({
@@ -136,17 +144,25 @@ export const setupAxelar = async (
 
       console.log("txBytesBase64 Two: ", txBytesBase64, "\n")
     
-      const resp = await E(ica.publicFacet).sendICATxPacket(
+      const rawResp = await E(ica.publicFacet).sendICATxPacket(
         [
           {
-            typeUrl: 'axelar.evm.v1beta1.LinkRequest',
+            typeUrl: '/axelar.evm.v1beta1.LinkRequest',
             data: txBytesBase64,
           }
         ],
         connection,
       );
+
+      const resp = JSON.parse(rawResp)
+
+      const bytes = decodeBase64(resp["result"])
+
+      const axelarResponse = LinkResponse.decode(bytes)
+
+      const depositAddress = axelarResponse.depositAddr.replace(/\s/g,'').split("%/axelar.evm.v1beta1.LinkRequestCA")[1]
     
-      return resp;
+      return depositAddress
      },
     /**
      * Create an EVM deposit account for EVM to EVM bridging. Returns the deposit address.
@@ -160,7 +176,7 @@ export const setupAxelar = async (
      bridgeToEVMFromEVM: async (srcChain, destChain, destAddress, denom) => {
       let myaddress = await parseICAAddress(connection);
       // we set default sender address for testing purposes
-      myaddress = myaddress == "" ? "axelar1txctskw7qy8cn2ph0hzyntq77vqd035el8nm383phj64wpdqp5cqutfg7u" : myaddress
+      myaddress = myaddress == "" ? "axelar1q536k3gtvse8nt0q75g7r4tgr932f5uyazxlvfq4nfmujeyx777stqvpmn" : myaddress
       const acc = fromBech32(myaddress);
     
       const tx = EVMLinkRequest.fromPartial({
@@ -175,17 +191,25 @@ export const setupAxelar = async (
 
       const txBytesBase64 = encodeBase64(txBytes)
     
-      const resp = await E(ica.publicFacet).sendICATxPacket(
+      const rawResp = await E(ica.publicFacet).sendICATxPacket(
         [
           {
-            typeUrl: 'axelar.evm.v1beta1.LinkRequest',
+            typeUrl: '/axelar.evm.v1beta1.LinkRequest',
             data: txBytesBase64,
           }
         ],
         connection,
       );
     
-      return resp;
+      const resp = JSON.parse(rawResp)
+
+      const bytes = decodeBase64(resp["result"])
+
+      const axelarResponse = LinkResponse.decode(bytes)
+
+      const depositAddress = axelarResponse.depositAddr.replace(/\s/g,'').split("%/axelar.evm.v1beta1.LinkRequestCA")[1]
+    
+      return depositAddress
      },
     /**
      * IBC transfer amount specified from the ICA controller account held on Axelar to the Agoric account
@@ -213,7 +237,7 @@ export const setupAxelar = async (
       const resp = await E(ica.publicFacet).sendICATxPacket(
         [
           {
-            typeUrl: 'ibc.applications.transfer.v1.MsgTransfer',
+            typeUrl: '/ibc.applications.transfer.v1.MsgTransfer',
             data: txBytesBase64,
           }
         ],
@@ -224,3 +248,4 @@ export const setupAxelar = async (
      },
   });
 };
+

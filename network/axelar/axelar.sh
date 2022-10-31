@@ -17,4 +17,4 @@ sudo mv $GOPATH/bin/axelard /usr/local/bin
 wget https://github.com/axelarnetwork/tofnd/releases/download/$TOFND_RELEASE/tofnd-linux-amd64-$TOFND_RELEASE
 mv tofnd-linux-amd64-$TOFND_RELEASE tofnd
 chmod +x *
-sudo mv * /usr/local/bin/
+sudo mv ./tofnd /usr/local/bin/

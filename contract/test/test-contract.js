@@ -8,6 +8,7 @@ import { E } from '@endo/eventual-send';
 import {
   makeNetworkProtocol,
   makeLoopbackProtocolHandler,
+  bytesToString,
 } from '@agoric/swingset-vat/src/vats/network/index.js';
 import { Far } from '@endo/marshal';
 import { makePromiseKit } from '@endo/promise-kit';
@@ -15,6 +16,8 @@ import { makeFakeVatAdmin } from '@agoric/zoe/tools/fakeVatAdmin.js';
 import { makeZoeKit } from '@agoric/zoe';
 import bundleSource from '@endo/bundle-source';
 import { makeFakeMyAddressNameAdmin } from '../src/utils.js';
+import { encodeBase64, decodeBase64 } from '@endo/base64';
+import { LinkRequest, LinkResponse } from '@axelar-network/axelarjs-types/axelar/axelarnet/v1beta1/tx.js';
 
 const filename = new URL(import.meta.url).pathname;
 const dirname = path.dirname(filename);
@@ -78,6 +81,11 @@ const testAxelar = async (t) => {
     '/ibc-hop/connection-1/ibc-port/icahost/ordered',
   );
 
+  // Lets create all the test values we will compare against
+  const axelarnetRes = "{\"result\":\"CmwKJS9heGVsYXIuYXhlbGFybmV0LnYxYmV0YTEuTGlua1JlcXVlc3QSQwpBYXhlbGFyMTBxMzM4eGhqdmxldTZxNTlsa242dzZlMm44bnprNmdscTBmNTRoZmxneG01emdyN2Qzd3F5eWdqczQ=\"}"
+  const axelarnetDepositAddr = "axelar10q338xhjvleu6q59lkn6w6e2n8nzk6glq0f54hflgxm5zgr7d3wqyygjs4"
+  const icatransfermsg = '{"result":"CkFheGVsYXIxZGhjdWtzamh4dGN1a2FuNHp5ajc4N3FwM2ZoMnR5ZmQwaHNydGdxdDkwOG0yNnAwYW13czAzajRuZA=="}'
+
   /**
    * Create the listener for the test port
    *
@@ -90,7 +98,7 @@ const testAxelar = async (t) => {
           // Check that recieved packet is the packet we created above
           const json = await JSON.parse(packet);
           console.log('Received Packet on Port 1:', json);
-          return 'AQ==';
+          return axelarnetRes;
         },
       });
     },
@@ -106,18 +114,15 @@ const testAxelar = async (t) => {
     hostConnectionId,
   );
 
-  const icaAddr = await E(axelar).getICAAddress();
-  console.log("ICA Address: ", icaAddr, "\n")
-
   let pingack = await E(axelar).bridgeToEVM(
-    'Avalanche',
-    'avax1brulqthe045psg4r1wygzlx7yhc2e9h2n0hpjp',
+    'Ethereum',
+    '0x2b9b278Ed8754112ba6317EB277b46662B2bC365',
     'ubld',
   );
-  t.is(pingack, 'AQ==', 'expected success bytes');
+  t.is(pingack, axelarnetDepositAddr, 'expected ' + axelarnetDepositAddr);
 
-  pingack = await E(axelar).bridgeFromEVM('Ethereum', 'axelar1234567', 'weth');
-  t.is(pingack, 'AQ==', 'expected success bytes');
+  pingack = await E(axelar).bridgeFromEVM('Ethereum', 'uaxl');
+  t.is(pingack, axelarnetDepositAddr, 'expected ' + axelarnetDepositAddr);
 
   pingack = await E(axelar).bridgeToEVMFromEVM(
     'Ethereum',
@@ -125,10 +130,10 @@ const testAxelar = async (t) => {
     'avax1brulqthe045psg4r1wygzlx7yhc2e9h2n0hpjp',
     'weth',
   );
-  t.is(pingack, 'AQ==', 'expected success bytes');
+  t.is(pingack, axelarnetDepositAddr, 'expected ' + axelarnetDepositAddr);
 
   pingack = await E(axelar).transferFromICAAccount('weth', '1', address);
-  t.is(pingack, 'AQ==', 'expected success bytes');
+  t.is(pingack, icatransfermsg, 'expected ' + icatransfermsg);
 
   await port.removeListener(listener);
 

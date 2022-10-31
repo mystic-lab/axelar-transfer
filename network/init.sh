@@ -67,6 +67,10 @@ sed -i -e 's/\"allow_messages\":.*/\"allow_messages\": [\"\*\"]/g' $CHAIN_DIR/$C
 rm ./network/data/axelar/config/config.toml
 cp ./network/axelar/config.toml ./network/data/axelar/config
 
+# copy base genesis file to genesis file
+#rm ./network/data/axelar/config/genesis.json
+#cp ./network/genesis.json ./network/data/axelar/config/genesis.json
+
 # add ethereum to genesis
 contents="$(jq '.app_state.nexus.chain_states[1] |= . + {"chain": {"name": "Ethereum","supports_foreign_assets": true,"key_type": "KEY_TYPE_MULTISIG","module": "evm"},"activated": true,"assets": [{"denom": "eth","is_native_asset": true}],"maintainer_states": []}' $CHAIN_DIR/$CHAINID_1/config/genesis.json)"
 echo -E "${contents}" > $CHAIN_DIR/$CHAINID_1/config/genesis.json
@@ -94,4 +98,11 @@ contents="$(jq '.app_state.gov.deposit_params.min_deposit[0].denom = "uaxl"' $CH
 echo -E "${contents}" > $CHAIN_DIR/$CHAINID_1/config/genesis.json
 # Change nexus axelar chain to activated
 contents="$(jq '.app_state.nexus.chain_states[0].activated = true' $CHAIN_DIR/$CHAINID_1/config/genesis.json)" && \
+echo -E "${contents}" > $CHAIN_DIR/$CHAINID_1/config/genesis.json
+# Change nexus ethereum chain assets to have ubld
+contents="$(jq '.app_state.nexus.chain_states[1].assets = [{"denom": "eth","is_native_asset": true}, {"denom": "ubld","is_native_asset": false}]' $CHAIN_DIR/$CHAINID_1/config/genesis.json)" && \
+echo -E "${contents}" > $CHAIN_DIR/$CHAINID_1/config/genesis.json
+
+# add demowallet1 as managing account
+contents="$(jq '.app_state.permission.gov_accounts |= . + [{"address": "axelar10h9stc5v6ntgeygf5xf945njqq5h32r54jk580", "role": "ROLE_CHAIN_MANAGEMENT"}]' $CHAIN_DIR/$CHAINID_1/config/genesis.json)"
 echo -E "${contents}" > $CHAIN_DIR/$CHAINID_1/config/genesis.json

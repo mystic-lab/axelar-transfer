@@ -85,7 +85,7 @@ instance = E(home.zoe).startInstance(installation)
 axelar = E(instance.publicFacet).setupAxelar(zoe, myAddressNameAdmin, port2, controllerConnectionId, hostConnectionId)
 
 // Lets create a deposit address on Axelar to bridge to Avalanche
-E(axelar).bridgeToEVM("Avalanche", "avax1brulqthe045psg4r1wygzlx7yhc2e9h2n0hpjp", "ubld");
+E(axelar).bridgeToEVM("Ethereum", "0x2b9b278Ed8754112ba6317EB277b46662B2bC365", "ubld");
 ```
 
 Send the assets to the deposit address on `Axelar` using the Pegasus contract, and let Axelar handle the rest!
