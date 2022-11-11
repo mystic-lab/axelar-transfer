@@ -94,8 +94,6 @@ export const setupAxelar = async (
       const txBytes = LinkRequest.encode(tx).finish();
 
       const txBytesBase64 = encodeBase64(txBytes);
-
-      console.log("txBytesBase64: ", txBytesBase64, "\n")
     
       const rawResp = await E(ica.publicFacet).sendICATxPacket(
         [
@@ -141,8 +139,6 @@ export const setupAxelar = async (
       const txBytes = EVMLinkRequest.encode(tx).finish();
 
       const txBytesBase64 = encodeBase64(txBytes)
-
-      console.log("txBytesBase64 Two: ", txBytesBase64, "\n")
     
       const rawResp = await E(ica.publicFacet).sendICATxPacket(
         [

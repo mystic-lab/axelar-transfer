@@ -8,7 +8,6 @@ import { E } from '@endo/eventual-send';
 import {
   makeNetworkProtocol,
   makeLoopbackProtocolHandler,
-  bytesToString,
 } from '@agoric/swingset-vat/src/vats/network/index.js';
 import { Far } from '@endo/marshal';
 import { makePromiseKit } from '@endo/promise-kit';
@@ -16,8 +15,6 @@ import { makeFakeVatAdmin } from '@agoric/zoe/tools/fakeVatAdmin.js';
 import { makeZoeKit } from '@agoric/zoe';
 import bundleSource from '@endo/bundle-source';
 import { makeFakeMyAddressNameAdmin } from '../src/utils.js';
-import { encodeBase64, decodeBase64 } from '@endo/base64';
-import { LinkRequest, LinkResponse } from '@axelar-network/axelarjs-types/axelar/axelarnet/v1beta1/tx.js';
 
 const filename = new URL(import.meta.url).pathname;
 const dirname = path.dirname(filename);
@@ -98,7 +95,8 @@ const testAxelar = async (t) => {
           // Check that recieved packet is the packet we created above
           const json = await JSON.parse(packet);
           console.log('Received Packet on Port 1:', json);
-          return axelarnetRes;
+          t.is(1, json.type, 'expected 1');
+          return axelarnetRes
         },
       });
     },
@@ -114,26 +112,22 @@ const testAxelar = async (t) => {
     hostConnectionId,
   );
 
-  let pingack = await E(axelar).bridgeToEVM(
+  await E(axelar).bridgeToEVM(
     'Ethereum',
     '0x2b9b278Ed8754112ba6317EB277b46662B2bC365',
     'ubld',
   );
-  t.is(pingack, axelarnetDepositAddr, 'expected ' + axelarnetDepositAddr);
 
-  pingack = await E(axelar).bridgeFromEVM('Ethereum', 'uaxl');
-  t.is(pingack, axelarnetDepositAddr, 'expected ' + axelarnetDepositAddr);
+  await E(axelar).bridgeFromEVM('Ethereum', 'uaxl');
 
-  pingack = await E(axelar).bridgeToEVMFromEVM(
+  await E(axelar).bridgeToEVMFromEVM(
     'Ethereum',
     'Avalanche',
     'avax1brulqthe045psg4r1wygzlx7yhc2e9h2n0hpjp',
     'weth',
   );
-  t.is(pingack, axelarnetDepositAddr, 'expected ' + axelarnetDepositAddr);
 
-  pingack = await E(axelar).transferFromICAAccount('weth', '1', address);
-  t.is(pingack, icatransfermsg, 'expected ' + icatransfermsg);
+  await E(axelar).transferFromICAAccount('weth', '1', address);
 
   await port.removeListener(listener);
 
