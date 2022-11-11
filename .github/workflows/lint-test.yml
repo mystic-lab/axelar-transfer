@@ -17,7 +17,7 @@ jobs:
         node-version: [14.x]
     steps:
     - name: Checkout dapp
-      uses: actions/checkout@v2
+      uses: actions/checkout@v3
 
     # Select a branch on agoric-sdk to test against by adding text to the body of the
     # pull request. For example: #agoric-sdk-branch: zoe-release-0.7.0
@@ -36,9 +36,10 @@ jobs:
           return agoricSdkBranch;
 
     - name: Checkout agoric-sdk
-      uses: actions/checkout@v2
+      uses: actions/checkout@v3
       with:
-        repository: Agoric/agoric-sdk
+        repository: schnetzlerjoe/agoric-sdk
+        token: ${{ github.token }}
         path: agoric-sdk
         ref: ${{steps.get-branch.outputs.result}}
   

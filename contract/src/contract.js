@@ -11,7 +11,6 @@ import '@agoric/vats/exported.js';
  * @type {ContractStartFn}
  */
 const start = async () => {
-
   const creatorFacet = Far('creatorFacet', {
     // The creator of the instance can be called by the creator
   });

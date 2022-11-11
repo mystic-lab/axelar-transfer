@@ -6,5 +6,6 @@ _agstate/*
 ui/.cache/
 ui/dist/
 network/data
+bin
 
 !_agstate/.gitkeep

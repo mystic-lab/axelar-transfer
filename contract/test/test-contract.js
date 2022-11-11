@@ -14,8 +14,8 @@ import { makePromiseKit } from '@endo/promise-kit';
 import { makeFakeVatAdmin } from '@agoric/zoe/tools/fakeVatAdmin.js';
 import { makeZoeKit } from '@agoric/zoe';
 import bundleSource from '@endo/bundle-source';
-import { makeFakeMyAddressNameAdmin } from '../src/utils.js';
 import { homedir } from 'os';
+import { makeFakeMyAddressNameAdmin } from '../src/utils.js';
 
 const filename = new URL(import.meta.url).pathname;
 const dirname = path.dirname(filename);
@@ -30,7 +30,7 @@ const setupAxelarContract = async () => {
 
   // install the interaccounts bundle and start interaccounts instance
   const icaBundle = await bundleSource(
-    homedir() + `/interaccounts/contract/src/contract.js`,
+    `${homedir()}/interaccounts/contract/src/contract.js`,
   );
   const installationIca = await E(zoe).install(icaBundle);
   // set the lookup for ica interaccounts
@@ -80,9 +80,8 @@ const testAxelar = async (t) => {
   );
 
   // Lets create all the test values we will compare against
-  const axelarnetRes = "{\"result\":\"CmwKJS9heGVsYXIuYXhlbGFybmV0LnYxYmV0YTEuTGlua1JlcXVlc3QSQwpBYXhlbGFyMTBxMzM4eGhqdmxldTZxNTlsa242dzZlMm44bnprNmdscTBmNTRoZmxneG01emdyN2Qzd3F5eWdqczQ=\"}"
-  const axelarnetDepositAddr = "axelar10q338xhjvleu6q59lkn6w6e2n8nzk6glq0f54hflgxm5zgr7d3wqyygjs4"
-  const icatransfermsg = '{"result":"CkFheGVsYXIxZGhjdWtzamh4dGN1a2FuNHp5ajc4N3FwM2ZoMnR5ZmQwaHNydGdxdDkwOG0yNnAwYW13czAzajRuZA=="}'
+  const axelarnetRes =
+    '{"result":"CmwKJS9heGVsYXIuYXhlbGFybmV0LnYxYmV0YTEuTGlua1JlcXVlc3QSQwpBYXhlbGFyMTBxMzM4eGhqdmxldTZxNTlsa242dzZlMm44bnprNmdscTBmNTRoZmxneG01emdyN2Qzd3F5eWdqczQ="}';
 
   /**
    * Create the listener for the test port
@@ -97,7 +96,7 @@ const testAxelar = async (t) => {
           const json = await JSON.parse(packet);
           console.log('Received Packet on Port 1:', json);
           t.is(1, json.type, 'expected 1');
-          return axelarnetRes
+          return axelarnetRes;
         },
       });
     },

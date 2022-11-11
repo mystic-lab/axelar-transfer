@@ -16,7 +16,7 @@ export const parseICAAddress = async (connection) => {
   const remote = await E(connection).getRemoteAddress();
   const version = remote.split('/')[6];
   const versionJSON = await JSON.parse(version);
-  const addr = await versionJSON["address"]
+  const addr = await versionJSON.address;
   return addr;
 };
 
@@ -32,15 +32,15 @@ export const makeFakeMyAddressNameAdmin = async () => {
 };
 
 /**
-* Create an interchain transaction from a msg - {type, value}
-*
-* @param {string} typeUrl
-* @param {Uint8Array} value
-* @returns {Promise<Any>}
-*/
+ * Create an interchain transaction from a msg - {type, value}
+ *
+ * @param {string} typeUrl
+ * @param {Uint8Array} value
+ * @returns {Promise<Any>}
+ */
 export const makeMsg = async (typeUrl, value) => {
   // Asserts/checks
-  assert.typeof(typeUrl, 'string', X`typeUrl ${typeUrl} must be a string`);
+  assert.typeof(typeUrl, 'string', `typeUrl ${typeUrl} must be a string`);
 
   // Generate the msg.
   /** @type {Any} */
@@ -48,7 +48,7 @@ export const makeMsg = async (typeUrl, value) => {
     typeUrl,
     value,
   });
-  
+
   return txmsg;
 };
 
@@ -58,7 +58,7 @@ export const makeMsg = async (typeUrl, value) => {
  * @param {[{typeUrl: string, value: Uint8Array}]} msgs
  * @returns {Promise<Bytes>}
  */
- export const makeICS27ICAPacket = async (msgs) => {
+export const makeICS27ICAPacket = async (msgs) => {
   const body = TxBody.fromPartial({
     messages: Array.from(msgs),
   });
