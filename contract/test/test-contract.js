@@ -15,6 +15,7 @@ import { makeFakeVatAdmin } from '@agoric/zoe/tools/fakeVatAdmin.js';
 import { makeZoeKit } from '@agoric/zoe';
 import bundleSource from '@endo/bundle-source';
 import { makeFakeMyAddressNameAdmin } from '../src/utils.js';
+import { homedir } from 'os';
 
 const filename = new URL(import.meta.url).pathname;
 const dirname = path.dirname(filename);
@@ -29,7 +30,7 @@ const setupAxelarContract = async () => {
 
   // install the interaccounts bundle and start interaccounts instance
   const icaBundle = await bundleSource(
-    `../interaccounts/contract/src/contract.js`,
+    homedir() + `/interaccounts/contract/src/contract.js`,
   );
   const installationIca = await E(zoe).install(icaBundle);
   // set the lookup for ica interaccounts

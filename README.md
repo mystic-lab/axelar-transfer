@@ -8,9 +8,15 @@ You will need to have Golang, NodeJS and Rust installed to get started.
 ## Installation & Setup
 
 ```sh
-git clone https://github.com/pitalco/axelar-transfer
+cd $HOME
+git clone https://github.com/pitalco/interaccounts
+cd interaccounts
+agoric install
 
+cd $HOME
+git clone https://github.com/pitalco/axelar-transfer
 cd axelar-transfer
+agoric install
 
 # Install all required software. Agoric, Axelar, and Hermes Relayer
 make install
@@ -50,7 +56,7 @@ make start-rly
 Lets deploy the dependency contract to Zoe so we can use it for our Axelar contract. Move back to an open terminal and run the following commands
 ```sh
 # Make sure you are in the linked interaccounts base directory
-cd ~/axelar-transfer/interaccounts/contract
+cd $HOME/interaccounts/contract
 
 agoric deploy ./deploy.js
 ```
