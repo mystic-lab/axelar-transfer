@@ -3,11 +3,8 @@
 TOFND_RELEASE=v0.10.1
 
 cd $HOME
-mkdir binaries && cd binaries
-
-cd $HOME
 yes | rm -r axelar-core
-git clone https://github.com/pitalco/axelar-core
+git clone https://github.com/schnetzlerjoe/axelar-core
 cd axelar-core
 git checkout upgrade-ibc3
 make build
