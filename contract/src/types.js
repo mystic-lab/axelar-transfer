@@ -16,11 +16,7 @@
 /**
  *
  * @typedef {object} AxelarResponse
- * @property {Function} getICAAddress
- * @property {Function} bridgeToEVM
- * @property {Function} bridgeFromEVM
- * @property {Function} bridgeToEVMFromEVM
- * @property {Function} transferFromICAAccount
+ * @property {Function} sendGMP
  */
 
 /**
@@ -42,4 +38,14 @@
  * @typedef {object} Msg
  * @property {MsgType} typeUrl
  * @property {MsgValue} value
+ */
+
+/**
+ * @typedef {object} Metadata
+ * @property {string} sender
+ * @property {string} sourceChain
+ * @property {Bytes} value
+ * @property {Number} type
+ * @property {string} destChain
+ * @property {string} destAddress
  */

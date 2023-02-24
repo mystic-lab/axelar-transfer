@@ -18,28 +18,18 @@ const start = async () => {
   const publicFacet = Far('publicFacet', {
     // Public faucet for anyone to call
     /**
-     * This is a contract to interact with Axelar and bridge tokens from Agoric to EVM's
-     * with Axelar to any supported chains using ICS-27 through the Interaccounts Contract.
+     * This is a contract to interact with Axelar and send messages and tokens from Agoric to EVM's with Axelar
      *
-     * @param {ZoeService} zoe
-     * @param {NameAdmin} nameHub
      * @param {Port} port
-     * @param {string} controllerConnectionId
-     * @param {string} hostConnectionId
+     * @param {string} connectionId
      */
     setupAxelar: async (
-      zoe,
-      nameHub,
       port,
-      controllerConnectionId,
-      hostConnectionId,
+      connectionId,
     ) => {
       const ret = await setupAxelar(
-        zoe,
-        nameHub,
         port,
-        controllerConnectionId,
-        hostConnectionId,
+        connectionId
       );
       return ret;
     },
