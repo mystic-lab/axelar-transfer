@@ -31,7 +31,8 @@
     "@cosmjs/tendermint-rpc": "^0.28.13",
     "@cosmjs/encoding": "^0.28.13",
     "patch-package": "latest",
-    "postinstall-postinstall": "latest"
+    "postinstall-postinstall": "latest",
+    "ethers": "^6.0.8"
   },
   "resolutions": {
     "**/protobufjs": "agoric-labs/protobuf.js#Agoric-built",

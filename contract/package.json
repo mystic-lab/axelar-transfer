@@ -43,7 +43,8 @@
     "@endo/promise-kit": "^0.2.42",
     "cosmjs-types": "agoric-labs/cosmjs-types#Agoric-built",
     "@axelar-network/axelarjs-types": "pitalco/axelarjs-types",
-    "crypto": "^1.0.1"
+    "crypto": "^1.0.1",
+    "ethers": "^6.0.8"
   },
   "resolutions": {
     "**/protobufjs": "agoric-labs/protobuf.js#Agoric-built"

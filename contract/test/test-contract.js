@@ -1,7 +1,7 @@
 // @ts-nocheck
 import '@agoric/babel-standalone';
 
-import { test } from '@agoric/zoe/tools/prepare-test-env-ava.js';
+import { test } from './prepare-test-env-ava.js';
 import path from 'path';
 
 import { E } from '@endo/eventual-send';
@@ -14,8 +14,9 @@ import { makePromiseKit } from '@endo/promise-kit';
 import { makeFakeVatAdmin } from '@agoric/zoe/tools/fakeVatAdmin.js';
 import { makeZoeKit } from '@agoric/zoe';
 import bundleSource from '@endo/bundle-source';
-import { homedir } from 'os';
 import { makeFakeMyAddressNameAdmin } from '../src/utils.js';
+import { Interface } from '../../node_modules/ethers/lib.esm/abi/index.js';
+import { parseEther } from '../../node_modules/ethers/lib.esm/utils/index.js';
 
 const filename = new URL(import.meta.url).pathname;
 const dirname = path.dirname(filename);
@@ -28,17 +29,8 @@ const setupAxelarContract = async () => {
   const zoe = E(zoeService).bindDefaultFeePurse(feePurse);
   const myAddressNameAdmin = makeFakeMyAddressNameAdmin();
 
-  // install the interaccounts bundle and start interaccounts instance
-  const icaBundle = await bundleSource(
-    `${homedir()}/interaccounts/contract/src/contract.js`,
-  );
-  const installationIca = await E(zoe).install(icaBundle);
-  // set the lookup for ica interaccounts
-  await E(myAddressNameAdmin).default('interaccounts', installationIca);
-
   // setup connections
   const controllerConnectionId = 'connection-0';
-  const hostConnectionId = 'connection-1';
 
   // get your agoric address
   const address = await E(myAddressNameAdmin).getMyAddress();
@@ -48,17 +40,13 @@ const setupAxelarContract = async () => {
     myAddressNameAdmin,
     address,
     controllerConnectionId,
-    hostConnectionId,
   };
 };
 
 const testAxelar = async (t) => {
   const {
     zoe,
-    myAddressNameAdmin,
-    address,
     controllerConnectionId,
-    hostConnectionId,
   } = await setupAxelarContract();
 
   const bundle = await bundleSource(contractPath);
@@ -72,16 +60,12 @@ const testAxelar = async (t) => {
 
   // Create first port that packet will be sent to
   const port = await protocol.bind(
-    '/ibc-hop/connection-0/ibc-port/icahost/ordered',
+    '/ibc-hop/connection-0/ibc-port/transfer/ordered/ics20-1',
   );
   // Create and send packet to first port utilizing port 2
   const port2 = await protocol.bind(
-    '/ibc-hop/connection-1/ibc-port/icahost/ordered',
+    '/ibc-hop/connection-1/ibc-port/transfer/ordered/ics20-1',
   );
-
-  // Lets create all the test values we will compare against
-  const axelarnetRes =
-    '{"result":"CmwKJS9heGVsYXIuYXhlbGFybmV0LnYxYmV0YTEuTGlua1JlcXVlc3QSQwpBYXhlbGFyMTBxMzM4eGhqdmxldTZxNTlsa242dzZlMm44bnprNmdscTBmNTRoZmxneG01emdyN2Qzd3F5eWdqczQ="}';
 
   /**
    * Create the listener for the test port
@@ -95,8 +79,14 @@ const testAxelar = async (t) => {
           // Check that recieved packet is the packet we created above
           const json = await JSON.parse(packet);
           console.log('Received Packet on Port 1:', json);
-          t.is(1, json.type, 'expected 1');
-          return axelarnetRes;
+          const expected = {
+            denom: 'axlUSDC',
+            amount: '1000000',
+            sender: 'agoric1',
+            receiver: 'axelar1',
+            memo: '7b2273656e646572223a2261676f72696331222c22736f75726365436861696e223a224178656c61726e6574222c227061796c6f6164223a22307861393035396362623030303030303030303030303030303030303030303030303132333435363738393031323334353637383930313233343536373839303132333435363738393030303030303030303030303030303030303030303030303030303030303030303030303030303030303030303030303030646530623662336137363430303030222c2274797065223a312c2264657374436861696e223a22457468657265756d222c226465737441646472657373223a22307862373934663565613062613339343934636538333936313366666662613734323739353739323638227d'
+          }
+          t.is(packet, JSON.stringify(expected))
         },
       });
     },
@@ -105,29 +95,34 @@ const testAxelar = async (t) => {
 
   // run the setup axelar process to receive the Axelar action object
   const axelar = await E(instance.publicFacet).setupAxelar(
-    zoe,
-    myAddressNameAdmin,
     port2,
     controllerConnectionId,
-    hostConnectionId,
   );
 
-  await E(axelar).bridgeToEVM(
-    'Ethereum',
-    '0x2b9b278Ed8754112ba6317EB277b46662B2bC365',
-    'ubld',
+  // construct abi payload
+  let ABI = [
+    "function transfer(address to, uint amount)"
+  ];
+  let iface = new Interface(ABI);
+  let payload = iface.encodeFunctionData("transfer", [ "0x1234567890123456789012345678901234567890", parseEther("1.0") ])
+
+  /** @type {Metadata} */
+  const metadata = {
+    sender: "agoric1",
+    sourceChain: "Axelarnet",
+    payload,
+    type: 1,
+    destChain: "Ethereum",
+    destAddress: "0xb794f5ea0ba39494ce839613fffba74279579268"
+  }
+
+  await E(axelar).sendGMP(
+    'axlUSDC',
+    '1000000',
+    'agoric1',
+    'axelar1',
+    metadata
   );
-
-  await E(axelar).bridgeFromEVM('Ethereum', 'uaxl');
-
-  await E(axelar).bridgeToEVMFromEVM(
-    'Ethereum',
-    'Avalanche',
-    'avax1brulqthe045psg4r1wygzlx7yhc2e9h2n0hpjp',
-    'weth',
-  );
-
-  await E(axelar).transferFromICAAccount('weth', '1', address);
 
   await port.removeListener(listener);
 

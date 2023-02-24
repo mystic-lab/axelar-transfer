@@ -2,7 +2,8 @@
 import { E } from '@endo/eventual-send';
 import { Far } from '@endo/marshal';
 import { makeScalarMapStore } from '@agoric/store';
-import { toHex } from '@cosmjs/encoding';
+import { toHex } from '@cosmjs/encoding/build/hex';
+import { toAscii } from '@cosmjs/encoding/build/ascii';
 
 /**
  * Creates an ics-20 channel with Axelar on connection created and then returns an object with a 
@@ -33,7 +34,7 @@ export const setupAxelar = async (
 
   const remoteEndpoint = `/ibc-hop/${connectionId}/ibc-port/transfer/ordered/ics20-1`;
   const c = await E(port).connect(remoteEndpoint, connectionHandlerICA);
-  storeConnection.set("connection", c);
+  storeConnection.init("connection", c);
 
   return Far('axelar', {
     /**
@@ -50,14 +51,16 @@ export const setupAxelar = async (
       /** @type {Connection} */
       const connection = await storeConnection.get("connection");
 
-      const memo = Buffer.from(JSON.stringify(metadata));
+      // escrow the tokens if provided
+
+      const memo = toAscii(JSON.stringify(metadata));
 
       const ack = await E(connection).send(JSON.stringify({
         denom,
         amount,
         sender,
         receiver,
-        memo: toHex(new Uint8Array(memo))
+        memo: toHex(memo)
       }))
 
       return ack;
