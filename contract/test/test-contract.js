@@ -10,24 +10,37 @@ import {
   makeLoopbackProtocolHandler,
 } from '@agoric/swingset-vat/src/vats/network/index.js';
 import { Far } from '@endo/marshal';
-import { makePromiseKit } from '@endo/promise-kit';
 import { makeFakeVatAdmin } from '@agoric/zoe/tools/fakeVatAdmin.js';
 import { makeZoeKit } from '@agoric/zoe';
 import bundleSource from '@endo/bundle-source';
 import { makeFakeMyAddressNameAdmin } from '../src/utils.js';
 import { Interface } from '../../node_modules/ethers/lib.esm/abi/index.js';
 import { parseEther } from '../../node_modules/ethers/lib.esm/utils/index.js';
+import { makeSubscription } from '@agoric/notifier';
+import { makePromiseKit } from '@endo/promise-kit';
 
 const filename = new URL(import.meta.url).pathname;
 const dirname = path.dirname(filename);
 
 const contractPath = `${dirname}/../src/contract.js`;
 
+/**
+ * @template T
+ * @param {ERef<Subscription<T>>} sub
+ * @returns {AsyncIterator<T, T>}
+ */
+const makeAsyncIteratorFromSubscription = async sub => {
+  const ret = makeSubscription(await E(sub).getSharableSubscriptionInternals())[
+    Symbol.asyncIterator
+  ]();
+  return ret
+}
+
 const setupAxelarContract = async () => {
   const { zoeService } = makeZoeKit(makeFakeVatAdmin().admin);
-  const feePurse = E(zoeService).makeFeePurse();
-  const zoe = E(zoeService).bindDefaultFeePurse(feePurse);
-  const myAddressNameAdmin = makeFakeMyAddressNameAdmin();
+  const feePurse = await E(zoeService).makeFeePurse();
+  const zoe = await E(zoeService).bindDefaultFeePurse(feePurse);
+  const myAddressNameAdmin = await makeFakeMyAddressNameAdmin();
 
   // setup connections
   const controllerConnectionId = 'connection-0';
@@ -37,6 +50,7 @@ const setupAxelarContract = async () => {
 
   return {
     zoe,
+    feePurse,
     myAddressNameAdmin,
     address,
     controllerConnectionId,
@@ -46,7 +60,7 @@ const setupAxelarContract = async () => {
 const testAxelar = async (t) => {
   const {
     zoe,
-    controllerConnectionId,
+    feePurse,
   } = await setupAxelarContract();
 
   const bundle = await bundleSource(contractPath);
@@ -56,47 +70,125 @@ const testAxelar = async (t) => {
   // Create a network protocol to be used for testing
   const protocol = makeNetworkProtocol(makeLoopbackProtocolHandler());
 
-  const closed = makePromiseKit();
-
-  // Create first port that packet will be sent to
-  const port = await protocol.bind(
-    '/ibc-hop/connection-0/ibc-port/transfer/ordered/ics20-1',
-  );
-  // Create and send packet to first port utilizing port 2
-  const port2 = await protocol.bind(
-    '/ibc-hop/connection-1/ibc-port/transfer/ordered/ics20-1',
-  );
-
   /**
-   * Create the listener for the test port
-   *
-   * @type {import('../src/vats/network').ListenHandler}
+   * @type {PromiseRecord<import('@agoric/ertp').DepositFacet>}
    */
-  const listener = Far('listener', {
-    async onAccept(_p, _localAddr, _remoteAddr, _listenHandler) {
-      return harden({
-        async onReceive(c, packet, _connectionHandler) {
-          // Check that recieved packet is the packet we created above
-          const json = await JSON.parse(packet);
-          console.log('Received Packet on Port 1:', json);
-          const expected = {
-            denom: 'axlUSDC',
-            amount: '1000000',
-            sender: 'agoric1',
-            receiver: 'axelar1',
-            memo: '7b2273656e646572223a2261676f72696331222c22736f75726365436861696e223a224178656c61726e6574222c227061796c6f6164223a22307861393035396362623030303030303030303030303030303030303030303030303132333435363738393031323334353637383930313233343536373839303132333435363738393030303030303030303030303030303030303030303030303030303030303030303030303030303030303030303030303030646530623662336137363430303030222c2274797065223a312c2264657374436861696e223a22457468657265756d222c226465737441646472657373223a22307862373934663565613062613339343934636538333936313366666662613734323739353739323638227d'
-          }
-          t.is(packet, JSON.stringify(expected))
-        },
-      });
+  const { promise: localDepositFacet, resolve: resolveLocalDepositFacet } =
+    makePromiseKit();
+  // Setup pegasus
+  const fakeBoard = Far('fakeBoard', {
+    getValue(id) {
+      if (id === '0x1234') {
+        return localDepositFacet;
+      }
+      t.is(id, 'agoric1234567', 'tried bech32 first in board');
+      throw Error(`unrecognized board id ${id}`);
     },
   });
-  await port.addListener(listener);
+  const fakeNamesByAddress = Far('fakeNamesByAddress', {
+    lookup(...keys) {
+      t.is(keys[0], '0x1234', 'unrecognized fakeNamesByAddress');
+      t.is(keys[1], 'depositFacet', 'lookup not for the depositFacet');
+      t.is(keys.length, 2);
+      return localDepositFacet;
+    },
+  });
+  const contractBundle = await bundleSource(`${dirname}/../node_modules/@agoric/pegasus/src/pegasus.js`);
+  const installationHandle = await E(zoe).install(contractBundle);
+  const { publicFacet: publicAPI } = await E(zoe).startInstance(
+    installationHandle,
+    {},
+    { board: fakeBoard, namesByAddress: fakeNamesByAddress },
+  );
+  /**
+   * @type {import('@agoric/pegasus').Pegasus}
+   */
+  const pegasus = await publicAPI;
+
+  const port = E(protocol).bind('/ibc-channel/chanabc/ibc-port/portdef');
+  const portName = await E(port).getLocalAddress();
+
+  /**
+   * Pretend we're Axelar.
+   *
+   * @type {import('@agoric/swingset-vat/src/vats/network').Connection?}
+   */
+  let axelarConnection;
+  E(port).addListener(
+    Far('acceptor', {
+      async onAccept(_p, _localAddr, _remoteAddr) {
+        return Far('handler', {
+          async onOpen(c) {
+            axelarConnection = c;
+          },
+          async onReceive(_c, packetBytes) {
+            const packet = JSON.parse(packetBytes);
+            console.log("Received packet on Axelar: ", packet);
+            t.deepEqual(
+              packet,
+              {
+                amount: '100000000000000000001',
+                denom: 'portdef/chanabc/axlUSDC',
+                receiver: 'markaccount',
+                sender: 'pegasus',
+              },
+              'expected transfer packet',
+            );
+            return JSON.stringify({ result: 'AQ==' });
+          },
+        });
+      },
+    }),
+  );
+
+  // Pretend we're Agoric.
+  const { handler: chandler, subscription: connectionSubscription } = await E(
+    pegasus,
+  ).makePegasusConnectionKit();
+  const connP = await E(port).connect(portName, chandler);
+
+  // Get some local Axelar USDC.
+  const sendPacket = {
+    amount: '100000000000000000001',
+    denom: 'axlUSDC',
+    receiver: 'agoric1234567',
+    sender: 'FIXME:sender',
+    memo: ""
+  };
+  t.assert(connP);
+  const sendAckDataP = E(axelarConnection).send(JSON.stringify(sendPacket));
+  const sendAckData = await sendAckDataP;
+  const sendAck = JSON.parse(sendAckData);
+  t.deepEqual(sendAck, { result: 'AQ==' }, 'Gaia sent the atoms');
+  if (!sendAck.result) {
+    console.log(sendAckData, sendAck.error);
+  }
+  
+  const connectionAit = makeAsyncIteratorFromSubscription(
+    connectionSubscription,
+  );
+  const {
+    value: {
+      actions: pegConnActions,
+      localAddr,
+      remoteAddr,
+      remoteDenomSubscription,
+    },
+  } = await E(connectionAit).next();
+  // Check the connection metadata.
+  t.is(localAddr, '/ibc-channel/chanabc/ibc-port/portdef/nonce/1', 'localAddr');
+  t.is(
+    remoteAddr,
+    '/ibc-channel/chanabc/ibc-port/portdef/nonce/2',
+    'remoteAddr',
+  );
+
+  const peg = await E(pegConnActions).pegRemote('Axelar', 'axlUSDC');
+  /////////////////////////////////////////////////////////////////
 
   // run the setup axelar process to receive the Axelar action object
   const axelar = await E(instance.publicFacet).setupAxelar(
-    port2,
-    controllerConnectionId,
+    pegasus,
   );
 
   // construct abi payload
@@ -116,17 +208,18 @@ const testAxelar = async (t) => {
     destAddress: "0xb794f5ea0ba39494ce839613fffba74279579268"
   }
 
-  await E(axelar).sendGMP(
-    'axlUSDC',
-    '1000000',
-    'agoric1',
+  const res = await E(axelar).sendGMP(
+    zoe,
+    feePurse,
+    peg,
     'axelar1',
+    1000000n / 4n,
     metadata
   );
 
-  await port.removeListener(listener);
+  console.log(res);
 
-  closed.promise;
+  return
 };
 
 test('Axelar Contract', async (t) => {

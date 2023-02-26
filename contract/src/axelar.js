@@ -9,61 +9,54 @@ import { toAscii } from '@cosmjs/encoding/build/ascii';
  * Creates an ics-20 channel with Axelar on connection created and then returns an object with a 
  * function to send GMP messages to remote EVM chains through Axelar
  *
- * @param {Port} port
- * @param {string} connectionId
+ * @param {Instance} pegasus Pegasus instance
  * @returns {Promise<AxelarResponse>}
  */
 export const setupAxelar = async (
-  port,
-  connectionId,
+  pegasus,
 ) => {
   /** @type {MapStore<String,Object>} */
   let storeConnection = makeScalarMapStore("connection");
 
-  /** @type {ConnectionHandler} */
-  const connectionHandlerICA = Far('handler', {
-    onOpen: async (c) => {
-      console.log("Opened channel: ", c)
-    },
-    onReceive: async (c, p) => {
-      console.log('Received packet: ', p);
-      const ret = await '';
-      return ret;
-    }
-  });
-
-  const remoteEndpoint = `/ibc-hop/${connectionId}/ibc-port/transfer/ordered/ics20-1`;
-  const c = await E(port).connect(remoteEndpoint, connectionHandlerICA);
-  storeConnection.init("connection", c);
+  // store the issuer for the axelar wrapped asset
+  storeConnection.init("pegasus", pegasus);
 
   return Far('axelar', {
     /**
      * Sends a GMP message to an EVM chain from Agoric.
      *
-     * @param {string} denom
-     * @param {string} amount
-     * @param {string} sender
+     * @param {ZoeService} zoe
+     * @param {Purse} purse
+     * @param {Peg} peg
      * @param {string} receiver
+     * @param {NatValue} amount
      * @param {Metadata} metadata
-     * @returns {Promise<string>}
+     * @returns {Promise<any>}
      */
-    sendGMP: async (denom, amount, sender, receiver, metadata) => {
-      /** @type {Connection} */
-      const connection = await storeConnection.get("connection");
-
-      // escrow the tokens if provided
+    sendGMP: async (zoe, purse, peg, receiver, amount, metadata) => {
+      /** @type {import('@agoric/pegasus').Pegasus} */
+      const pegasus = await storeConnection.get("pegasus");
 
       const memo = toAscii(JSON.stringify(metadata));
 
-      const ack = await E(connection).send(JSON.stringify({
-        denom,
-        amount,
-        sender,
-        receiver,
-        memo: toHex(memo)
-      }))
+      const [invitation, brand] = await Promise.all([
+        E(pegasus).makeInvitationToTransfer(peg, receiver, toHex(memo)),
+        E(peg).getLocalBrand()
+      ]);
 
-      return ack;
+      const amt = harden({ brand, value: amount });
+      const pmt = await E(purse).withdraw(amt);
+
+      const seat = E(zoe).offer(
+        invitation,
+        harden({ give: { Transfer: amt } }),
+        harden({ Transfer: pmt }),
+      );
+
+      const result = await E(seat).getOfferResult();
+      console.log(result);
+
+      return result
     }
   });
 };

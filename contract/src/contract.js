@@ -10,7 +10,8 @@ import '@agoric/vats/exported.js';
  *
  * @type {ContractStartFn}
  */
-const start = async () => {
+const start = async (zcf) => {
+
   const creatorFacet = Far('creatorFacet', {
     // The creator of the instance can be called by the creator
   });
@@ -20,16 +21,13 @@ const start = async () => {
     /**
      * This is a contract to interact with Axelar and send messages and tokens from Agoric to EVM's with Axelar
      *
-     * @param {Port} port
-     * @param {string} connectionId
+     * @param {Instance} pegasus Pegasus instance
      */
     setupAxelar: async (
-      port,
-      connectionId,
+      pegasus
     ) => {
       const ret = await setupAxelar(
-        port,
-        connectionId
+        pegasus
       );
       return ret;
     },
