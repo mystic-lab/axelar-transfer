@@ -37,11 +37,11 @@ export const setupAxelar = async (
       /** @type {import('@agoric/pegasus').Pegasus} */
       const pegasus = await storeConnection.get("pegasus");
 
-      const memo = toAscii(JSON.stringify(metadata));
+      const memo = toHex(toAscii(JSON.stringify(metadata)));
 
       const [invitation, brand] = await Promise.all([
-        E(pegasus).makeInvitationToTransfer(peg, receiver, toHex(memo)),
-        E(peg).getLocalBrand()
+        E(pegasus).makeInvitationToTransfer(peg, receiver, memo),
+        E(purse).getAllegedBrand()
       ]);
 
       const amt = harden({ brand, value: amount });
@@ -54,7 +54,6 @@ export const setupAxelar = async (
       );
 
       const result = await E(seat).getOfferResult();
-      console.log(result);
 
       return result
     }

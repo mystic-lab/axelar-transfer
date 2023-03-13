@@ -6,7 +6,7 @@
  * @typedef {object} Axelar
  * @property {ZoeService} zoe
  * @property {Instance} pegasus
- * @property {Board} board
+ * @property {import("@agoric/vats").Board} board
  * @property {Array<Port>} ports
  * @property {Instance} interaccounts
  * @property {string} controllerConnectionId
@@ -43,8 +43,7 @@
 /**
  * @typedef {object} Metadata
  * @property {string} sender
- * @property {string} sourceChain
- * @property {Bytes} value
+ * @property {Bytes} payload
  * @property {Number} type
  * @property {string} destChain
  * @property {string} destAddress
