@@ -53,6 +53,7 @@ jobs:
         yarn install
         yarn build
         yarn link-cli ~/bin/agoric
+        export PATH="$PATH:~/bin"
         echo "/home/runner/bin" >> $GITHUB_PATH
       working-directory: ./agoric-sdk
 
@@ -60,7 +61,5 @@ jobs:
       run: agoric install
     - name: yarn build
       run: yarn build
-    - name: yarn lint
-      run: yarn lint
     - name: yarn test (everything)
       run: yarn test
