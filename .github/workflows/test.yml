@@ -1,4 +1,4 @@
-name: Lint and Test from Root
+name: Run Tests
 
 # run CI on pushes to master, and on all PRs (even the ones that target other
 # branches)
@@ -31,7 +31,7 @@ jobs:
           const { body = '' } = context.payload.pull_request || {};
           const regex = /.*\#agoric-sdk-branch:\s+(\S+)/;
           const match = regex.exec(body);
-          const agoricSdkBranch = match && match[1] || 'main';
+          const agoricSdkBranch = match && match[1] || 'master';
           console.log(agoricSdkBranch);
           return agoricSdkBranch;
 
@@ -39,7 +39,6 @@ jobs:
       uses: actions/checkout@v3
       with:
         repository: schnetzlerjoe/agoric-sdk
-        token: ${{ github.token }}
         path: agoric-sdk
         ref: ${{steps.get-branch.outputs.result}}
   
@@ -48,12 +47,14 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
 
+    - name: Install yarn
+      run: npm i yarn -g
+
     - name: Setup and link agoric-sdk packages
       run: |
         yarn install
         yarn build
         yarn link-cli ~/bin/agoric
-        export PATH="$PATH:~/bin"
         echo "/home/runner/bin" >> $GITHUB_PATH
       working-directory: ./agoric-sdk
 
