@@ -1,4 +1,4 @@
-// @ts-nocheck
+/// @ts-nocheck
 import '@agoric/babel-standalone';
 
 import { test } from './prepare-test-env-ava.js';
@@ -10,11 +10,10 @@ import {
   makeLoopbackProtocolHandler,
 } from '@agoric/swingset-vat/src/vats/network/index.js';
 import { Far } from '@endo/marshal';
-import fakeVatAdmin from '@agoric/zoe/tools/fakeVatAdmin.js';
+import { makeFakeVatAdmin } from '@agoric/zoe/tools/fakeVatAdmin.js';
 import { makeZoeKit } from '@agoric/zoe';
 import bundleSource from '@endo/bundle-source';
-import { Interface } from '../../node_modules/ethers/lib.esm/abi/index.js';
-import { parseEther } from '../../node_modules/ethers/lib.esm/utils/index.js';
+import { makeFakeMyAddressNameAdmin } from '../src/utils.js';
 import { makeSubscription } from '@agoric/notifier';
 import { makePromiseKit } from '@endo/promise-kit';
 
@@ -36,31 +35,21 @@ const makeAsyncIteratorFromSubscription = async sub => {
 }
 
 const setupAxelarContract = async () => {
-  /**
-   * @type {PromiseRecord<import('@agoric/ertp').DepositFacet>}
-   */
-  const { promise: localDepositFacet, resolve: _resolveLocalDepositFacet } =
-    makePromiseKit();
-  const myAddressNameAdmin = Far('fakeNamesByAddress', {
-    lookup(...keys) {
-      t.is(keys[0], 'agoric1234567', 'unrecognized fakeNamesByAddress');
-      t.is(keys[1], 'depositFacet', 'lookup not for the depositFacet');
-      t.is(keys.length, 2);
-      return localDepositFacet;
-    },
-  });
-
-  const { zoeService: zoe } = makeZoeKit(fakeVatAdmin);
+  const { zoeService: zoe } = makeZoeKit(makeFakeVatAdmin().admin);
+  const feePurse = await E(E(zoe).getFeeIssuer()).makeEmptyPurse();
+  const myAddressNameAdmin = await makeFakeMyAddressNameAdmin();
 
   // setup connections
   const controllerConnectionId = 'connection-0';
 
-  const feePurse = await E(zoe).getFeeIssuer()
+  // get your agoric address
+  const address = await E(myAddressNameAdmin).getMyAddress();
 
   return {
     zoe,
     feePurse,
     myAddressNameAdmin,
+    address,
     controllerConnectionId,
   };
 };
@@ -81,21 +70,20 @@ const testAxelar = async (t) => {
   /**
    * @type {PromiseRecord<import('@agoric/ertp').DepositFacet>}
    */
-  const { promise: localDepositFacet, resolve: _resolveLocalDepositFacet } =
+  const { promise: localDepositFacet, resolve: resolveLocalDepositFacet } =
     makePromiseKit();
   // Setup pegasus
   const fakeBoard = Far('fakeBoard', {
     getValue(id) {
-      if (id === '0x1234') {
+      if (id === 'agoric1234567') {
         return localDepositFacet;
       }
-      t.is(id, 'agoric1234567', 'tried bech32 first in board');
       throw Error(`unrecognized board id ${id}`);
     },
   });
   const fakeNamesByAddress = Far('fakeNamesByAddress', {
     lookup(...keys) {
-      t.is(keys[0], '0x1234', 'unrecognized fakeNamesByAddress');
+      t.is(keys[0], 'agoric1234567', 'unrecognized fakeNamesByAddress');
       t.is(keys[1], 'depositFacet', 'lookup not for the depositFacet');
       t.is(keys.length, 2);
       return localDepositFacet;
@@ -122,7 +110,7 @@ const testAxelar = async (t) => {
    * @type {import('@agoric/swingset-vat/src/vats/network').Connection?}
    */
   let axelarConnection;
-  E(port).addListener(
+  await E(port).addListener(
     Far('acceptor', {
       async onAccept(_p, _localAddr, _remoteAddr) {
         return Far('handler', {
@@ -135,10 +123,11 @@ const testAxelar = async (t) => {
             t.deepEqual(
               packet,
               {
-                amount: '100000000000000000001',
+                amount: '250000',
                 denom: 'portdef/chanabc/axlUSDC',
-                receiver: 'markaccount',
+                receiver: 'axelar1',
                 sender: 'pegasus',
+                memo: "7b2273656e646572223a2261676f72696331222c227061796c6f6164223a223078303030303030303030303030303030303030303030303030303030303030303030303030303030303030303030303030303030303030303030303030303032303030303030303030303030303030303030303030303030303030303030303030303030303030303030303030303030303030303030303030303030303030313034643739323036653631366436353230363937333230346436663732363732653030303030303030303030303030303030303030303030303030303030303030222c2274797065223a312c2264657374436861696e223a22506f6c79676f6e222c226465737441646472657373223a22307862393444384132663543414539413934413844343336346241326434633737653837323139666639227d"
               },
               'expected transfer packet',
             );
@@ -160,17 +149,11 @@ const testAxelar = async (t) => {
     amount: '100000000000000000001',
     denom: 'axlUSDC',
     receiver: 'agoric1234567',
-    sender: 'FIXME:sender',
+    sender: 'pegasus',
     memo: ""
   };
-  t.assert(connP);
+  t.assert(await connP);
   const sendAckDataP = E(axelarConnection).send(JSON.stringify(sendPacket));
-  const sendAckData = await sendAckDataP;
-  const sendAck = JSON.parse(sendAckData);
-  t.deepEqual(sendAck, { result: 'AQ==' }, 'Gaia sent the atoms');
-  if (!sendAck.result) {
-    console.log(sendAckData, sendAck.error);
-  }
   
   const connectionAit = makeAsyncIteratorFromSubscription(
     connectionSubscription,
@@ -192,6 +175,17 @@ const testAxelar = async (t) => {
   );
 
   const peg = await E(pegConnActions).pegRemote('Axelar', 'axlUSDC');
+  const localBrand = await E(peg).getLocalBrand();
+  const localIssuerP = await E(pegasus).getLocalIssuer(localBrand);
+  const localPurseP = await E(localIssuerP).makeEmptyPurse();
+  resolveLocalDepositFacet(E(localPurseP).getDepositFacet());
+
+  const sendAckData = await sendAckDataP;
+  const sendAck = JSON.parse(sendAckData);
+  t.deepEqual(sendAck, { result: 'AQ==' }, 'Gaia sent the atoms');
+  if (!sendAck.result) {
+    console.log(sendAckData, sendAck.error);
+  }
   /////////////////////////////////////////////////////////////////
 
   // run the setup axelar process to receive the Axelar action object
@@ -199,35 +193,29 @@ const testAxelar = async (t) => {
     pegasus,
   );
 
-  // construct abi payload
-  let ABI = [
-    "function transfer(address to, uint amount)"
-  ];
-  let iface = new Interface(ABI);
-  let payload = iface.encodeFunctionData("transfer", [ "0x1234567890123456789012345678901234567890", parseEther("1.0") ])
+  let payload = "0x000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000000000000104d79206e616d65206973204d6f72672e00000000000000000000000000000000"
 
   /** @type {Metadata} */
   const metadata = {
     sender: "agoric1",
-    sourceChain: "Axelarnet",
     payload,
     type: 1,
-    destChain: "Ethereum",
-    destAddress: "0xb794f5ea0ba39494ce839613fffba74279579268"
+    destChain: "Polygon",
+    destAddress: "0xb94D8A2f5CAE9A94A8D4364bA2d4c77e87219ff9"
   }
 
   const res = await E(axelar).sendGMP(
     zoe,
-    feePurse,
+    localPurseP,
     peg,
     'axelar1',
     1000000n / 4n,
     metadata
   );
 
-  console.log(res);
+  t.assert(res == undefined)
 
-  return
+  return res
 };
 
 test('Axelar Contract', async (t) => {
