@@ -10,10 +10,9 @@ import {
   makeLoopbackProtocolHandler,
 } from '@agoric/swingset-vat/src/vats/network/index.js';
 import { Far } from '@endo/marshal';
-import { makeFakeVatAdmin } from '@agoric/zoe/tools/fakeVatAdmin.js';
+import fakeVatAdmin from '@agoric/zoe/tools/fakeVatAdmin.js';
 import { makeZoeKit } from '@agoric/zoe';
 import bundleSource from '@endo/bundle-source';
-import { makeFakeMyAddressNameAdmin } from '../src/utils.js';
 import { Interface } from '../../node_modules/ethers/lib.esm/abi/index.js';
 import { parseEther } from '../../node_modules/ethers/lib.esm/utils/index.js';
 import { makeSubscription } from '@agoric/notifier';
@@ -37,22 +36,31 @@ const makeAsyncIteratorFromSubscription = async sub => {
 }
 
 const setupAxelarContract = async () => {
-  const { zoeService } = makeZoeKit(makeFakeVatAdmin().admin);
-  const feePurse = await E(zoeService).makeFeePurse();
-  const zoe = await E(zoeService).bindDefaultFeePurse(feePurse);
-  const myAddressNameAdmin = await makeFakeMyAddressNameAdmin();
+  /**
+   * @type {PromiseRecord<import('@agoric/ertp').DepositFacet>}
+   */
+  const { promise: localDepositFacet, resolve: _resolveLocalDepositFacet } =
+    makePromiseKit();
+  const myAddressNameAdmin = Far('fakeNamesByAddress', {
+    lookup(...keys) {
+      t.is(keys[0], 'agoric1234567', 'unrecognized fakeNamesByAddress');
+      t.is(keys[1], 'depositFacet', 'lookup not for the depositFacet');
+      t.is(keys.length, 2);
+      return localDepositFacet;
+    },
+  });
+
+  const { zoeService: zoe } = makeZoeKit(fakeVatAdmin);
 
   // setup connections
   const controllerConnectionId = 'connection-0';
 
-  // get your agoric address
-  const address = await E(myAddressNameAdmin).getMyAddress();
+  const feePurse = await E(zoe).getFeeIssuer()
 
   return {
     zoe,
     feePurse,
     myAddressNameAdmin,
-    address,
     controllerConnectionId,
   };
 };
@@ -73,7 +81,7 @@ const testAxelar = async (t) => {
   /**
    * @type {PromiseRecord<import('@agoric/ertp').DepositFacet>}
    */
-  const { promise: localDepositFacet, resolve: resolveLocalDepositFacet } =
+  const { promise: localDepositFacet, resolve: _resolveLocalDepositFacet } =
     makePromiseKit();
   // Setup pegasus
   const fakeBoard = Far('fakeBoard', {
