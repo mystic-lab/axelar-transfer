@@ -60,7 +60,85 @@ let payload = "0x000000000000000000000000000000000000000000000000000000000000002
 const metadata = {
     sender: "agoric1",
     payload,
+    type: 2,
+    destChain: "Polygon",
+    destAddress: "0xb94D8A2f5CAE9A94A8D4364bA2d4c77e87219ff9"
+}
+
+// Lets send a GMP message
+await E(axelar).sendGMP(
+    zoe,
+    localPurseP,
+    peg,
+    'axelar1',
+    1000000n / 4n,
+    metadata
+);
+```
+
+### Send Token Only
+Use `Type: 3` to send only a token with no payload to run on remote chain.
+```javascript
+// create metadata (note you have to abi encode payload)
+let payload = ""
+
+/** @type {Metadata} */
+const metadata = {
+    sender: "agoric1",
+    payload,
+    type: 3,
+    destChain: "Polygon",
+    destAddress: "0xb94D8A2f5CAE9A94A8D4364bA2d4c77e87219ff9"
+}
+
+// Lets send a GMP message
+await E(axelar).sendGMP(
+    zoe,
+    localPurseP,
+    peg,
+    'axelar1',
+    1000000n / 4n,
+    metadata
+);
+```
+
+### Send Message Only
+Use `Type: 1` to send only a message with payload with no token to send to remote chain.
+```javascript
+// create metadata (note you have to abi encode payload)
+let payload = "0x000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000000000000104d79206e616d65206973204d6f72672e00000000000000000000000000000000"
+
+/** @type {Metadata} */
+const metadata = {
+    sender: "agoric1",
+    payload,
     type: 1,
+    destChain: "Polygon",
+    destAddress: "0xb94D8A2f5CAE9A94A8D4364bA2d4c77e87219ff9"
+}
+
+// Lets send a GMP message
+await E(axelar).sendGMP(
+    zoe,
+    localPurseP,
+    peg,
+    'axelar1',
+    0n,
+    metadata
+);
+```
+
+### Send Token and Message
+Use `Type: 2` to send a payload to run on remote chain and send token to remote chain.
+```javascript
+// create metadata (note you have to abi encode payload)
+let payload = "0x000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000000000000104d79206e616d65206973204d6f72672e00000000000000000000000000000000"
+
+/** @type {Metadata} */
+const metadata = {
+    sender: "agoric1",
+    payload,
+    type: 2,
     destChain: "Polygon",
     destAddress: "0xb94D8A2f5CAE9A94A8D4364bA2d4c77e87219ff9"
 }
