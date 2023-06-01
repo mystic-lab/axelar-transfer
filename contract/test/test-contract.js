@@ -1,4 +1,4 @@
-// @ts-nocheck
+/// @ts-nocheck
 import '@agoric/babel-standalone';
 
 import { test } from './prepare-test-env-ava.js';

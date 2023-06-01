@@ -7,8 +7,6 @@ DOCKER_BUF := $(DOCKER) run --rm -v $(CURDIR):/workspace --workdir /workspace bu
 ###                           Install                                       ###
 ###############################################################################
 install:
-		@echo "---> Installing axelar"
-		@bash ./network/axelar/axelar.sh
 		@echo "---> Installing Hermes relayer"
 		@bash ./network/hermes/install.sh
 		@echo "---> Installing Agoric SDK"
