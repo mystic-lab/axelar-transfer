@@ -62,7 +62,7 @@ clear_on_start = true
 # If set to `false`, the following telemetry metrics will be disabled:
 # `acknowledgment_packets_confirmed`, `receive_packets_confirmed` and `timeout_packets_confirmed`.
 # [Default: false]
-tx_confirmation = false
+tx_confirmation = true
 
 # The REST section defines parameters for Hermes' built-in RESTful API.
 # https://hermes.informal.systems/rest.html
@@ -96,7 +96,7 @@ host = '127.0.0.1'
 port = 3001
 
 [[chains]]
-id = 'agoric'
+id = 'agoriclocal'
 rpc_addr = 'http://127.0.0.1:26657'
 grpc_addr = 'http://127.0.0.1:9090'
 websocket_addr = 'ws://127.0.0.1:26657/websocket'
@@ -106,7 +106,7 @@ key_name = 'rly1'
 store_prefix = 'ibc'
 default_gas = 100000
 max_gas = 3000000
-gas_price = { price = 0.001, denom = 'ubld' }
+gas_price = { price = 0.1, denom = 'uist' }
 max_msg_num = 30
 max_tx_size = 2097152
 gas_multiplier = 1.1
@@ -117,17 +117,17 @@ trust_threshold = { numerator = '1', denominator = '3' }
 address_type = { derivation = 'cosmos' }
 
 [[chains]]
-id = 'axelar'
-rpc_addr = 'http://localhost:16657/'
-grpc_addr = 'http://localhost:7090/'
-websocket_addr = 'ws://localhost:16657/websocket'
+id = 'axelar-testnet-lisbon-3'
+rpc_addr = 'https://rpc-axelar-testnet.imperator.co:443'
+grpc_addr = 'http://axelar-testnet-grpc.qubelabs.io:9090'
+websocket_addr = 'ws://rpc-axelar-testnet.imperator.co/wss'
 rpc_timeout = '10s'
 account_prefix = 'axelar'
 key_name = 'rly1'
 store_prefix = 'ibc'
 default_gas = 100000
 max_gas = 3000000
-gas_price = { price = 0.10, denom = 'uaxl' }
+gas_price = { price = 0.1, denom = 'uaxl' }
 max_msg_num = 30
 max_tx_size = 2097152
 gas_multiplier = 1.1

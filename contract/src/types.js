@@ -4,13 +4,7 @@
 /**
  *
  * @typedef {object} Axelar
- * @property {ZoeService} zoe
  * @property {Instance} pegasus
- * @property {Board} board
- * @property {Array<Port>} ports
- * @property {Instance} interaccounts
- * @property {string} controllerConnectionId
- * @property {string} hostConnectionId
  */
 
 /**
@@ -42,10 +36,8 @@
 
 /**
  * @typedef {object} Metadata
- * @property {string} sender
- * @property {string} sourceChain
- * @property {Bytes} value
+ * @property {Uint8Array} payload
  * @property {Number} type
- * @property {string} destChain
- * @property {string} destAddress
+ * @property {string} destination_chain
+ * @property {string} destination_address
  */

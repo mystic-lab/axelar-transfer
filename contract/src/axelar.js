@@ -2,8 +2,6 @@
 import { E } from '@endo/eventual-send';
 import { Far } from '@endo/marshal';
 import { makeScalarMapStore } from '@agoric/store';
-import { toHex } from '@cosmjs/encoding/build/hex';
-import { toAscii } from '@cosmjs/encoding/build/ascii';
 
 /**
  * Creates an ics-20 channel with Axelar on connection created and then returns an object with a 
@@ -37,10 +35,10 @@ export const setupAxelar = async (
       /** @type {import('@agoric/pegasus').Pegasus} */
       const pegasus = await storeConnection.get("pegasus");
 
-      const memo = toAscii(JSON.stringify(metadata));
+      const memo = JSON.stringify(metadata);
 
       const [invitation, brand] = await Promise.all([
-        E(pegasus).makeInvitationToTransfer(peg, receiver, toHex(memo)),
+        E(pegasus).makeInvitationToTransfer(peg, receiver, memo),
         E(peg).getLocalBrand()
       ]);
 
