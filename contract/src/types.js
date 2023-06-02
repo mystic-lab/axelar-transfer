@@ -5,6 +5,14 @@
  *
  * @typedef {object} Axelar
  * @property {Instance} pegasus
+<<<<<<< HEAD
+=======
+ * @property {import("@agoric/vats").Board} board
+ * @property {Array<Port>} ports
+ * @property {Instance} interaccounts
+ * @property {string} controllerConnectionId
+ * @property {string} hostConnectionId
+>>>>>>> 4be8b162adbdac7caa45fb938ef17a6d264c9f47
  */
 
 /**

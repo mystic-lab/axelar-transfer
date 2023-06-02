@@ -52,7 +52,6 @@ export const setupAxelar = async (
       );
 
       const result = await E(seat).getOfferResult();
-      console.log(result);
 
       return result
     }
