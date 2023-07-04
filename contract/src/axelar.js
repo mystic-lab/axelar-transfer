@@ -39,7 +39,7 @@ export const setupAxelar = async (
       const memo = JSON.stringify(metadata);
 
       const [invitation, brand] = await Promise.all([
-        E(pegasus).makeInvitationToTransfer(peg, receiver, `'${memo}'`, sender),
+        E(pegasus).makeInvitationToTransfer(peg, receiver, memo, sender),
         E(peg).getLocalBrand()
       ]);
 

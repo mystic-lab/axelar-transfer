@@ -109,7 +109,7 @@ rly transact transfer axelar agoriclocal 1000000uausdc {agoric address from abov
 localPurseP = E(home.wallet).getPurse("Axelar USDC")
 // Lets send a GMP message
 await E(axelar).sendGMP(
-    zoe,
+    home.zoe,
     localPurseP,
     peg,
     'axelar1dv4u5k73pzqrxlzujxg3qp8kvc3pje7jtdvu72npnt5zhq05ejcsn5qme5',
@@ -132,7 +132,7 @@ const metadata = {
 
 // Lets send a GMP message
 await E(axelar).sendGMP(
-    zoe,
+    home.zoe,
     localPurseP,
     peg,
     'axelar1dv4u5k73pzqrxlzujxg3qp8kvc3pje7jtdvu72npnt5zhq05ejcsn5qme5',
@@ -158,7 +158,7 @@ const metadata = {
 
 // Lets send a GMP message
 await E(axelar).sendGMP(
-    zoe,
+    home.zoe,
     localPurseP,
     peg,
     'axelar1dv4u5k73pzqrxlzujxg3qp8kvc3pje7jtdvu72npnt5zhq05ejcsn5qme5',
@@ -184,7 +184,7 @@ const metadata = {
 
 // Lets send a GMP message
 await E(axelar).sendGMP(
-    zoe,
+    home.zoe,
     localPurseP,
     peg,
     'axelar1dv4u5k73pzqrxlzujxg3qp8kvc3pje7jtdvu72npnt5zhq05ejcsn5qme5',
