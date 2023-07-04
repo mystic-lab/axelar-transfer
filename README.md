@@ -88,6 +88,9 @@ const metadata = {
     "destination_chain": "avalance",
     "destination_address": "0xb94D8A2f5CAE9A94A8D4364bA2d4c77e87219ff9"
 }
+
+// Get your Agoric address. Note this for the rly transact step below
+E(home.myAddressNameAdmin).getMyAddress()
 ```
 
 ```bash
@@ -98,12 +101,11 @@ agoric deploy ./src/deploy-peg.js
 rly start agoric-axelar
 
 # Send USDC to Agoric
-rly transact transfer axelar agoriclocal 1000000uausdc agoric12gu8wpascv2lqatquj7umx5du3zcn0azzyens3 {channel-id from above} --path agoric-axelar
+rly transact transfer axelar agoriclocal 1000000uausdc {agoric address from above} {channel-id from above} --path agoric-axelar
 ```
 
 ```javascript
-// Get the 
-// Get the UAXL purse
+// Get the USDC purse
 localPurseP = E(home.wallet).getPurse("Axelar USDC")
 // Lets send a GMP message
 await E(axelar).sendGMP(
