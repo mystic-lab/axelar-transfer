@@ -130,7 +130,7 @@ const testAxelar = async (t) => {
                 denom: 'portdef/chanabc/axlUSDC',
                 receiver: 'axelar1',
                 sender: 'agoric1jmd7lwdyykrxm5h83nlhg74fctwnky04ufpqtc',
-                memo: `'${JSON.stringify(memo)}'`
+                memo: JSON.stringify(memo)
               },
               'expected transfer packet',
             );

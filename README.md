@@ -85,7 +85,7 @@ axelar = E(instance.publicFacet).setupAxelar(pegPub)
 const metadata = {
     "payload": null,
     "type": 3,
-    "destination_chain": "avalance",
+    "destination_chain": "avalanche",
     "destination_address": "0xb94D8A2f5CAE9A94A8D4364bA2d4c77e87219ff9"
 }
 
