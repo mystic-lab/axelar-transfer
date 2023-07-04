@@ -111,6 +111,7 @@ await E(axelar).sendGMP(
     localPurseP,
     peg,
     'axelar1dv4u5k73pzqrxlzujxg3qp8kvc3pje7jtdvu72npnt5zhq05ejcsn5qme5',
+    'agoric1m26r7lnp422hftlspza6e8pkun3nvddacmu8ta',
     1000000n / 4n,
     metadata
 );
@@ -133,6 +134,7 @@ await E(axelar).sendGMP(
     localPurseP,
     peg,
     'axelar1dv4u5k73pzqrxlzujxg3qp8kvc3pje7jtdvu72npnt5zhq05ejcsn5qme5',
+    'agoric1m26r7lnp422hftlspza6e8pkun3nvddacmu8ta',
     1000000n / 4n,
     metadata
 );
@@ -142,7 +144,7 @@ await E(axelar).sendGMP(
 Use `Type: 1` to send only a message with payload with no token to send to remote chain.
 ```javascript
 // create metadata (note you have to abi encode payload)
-let payload = "0x000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000000000000104d79206e616d65206973204d6f72672e00000000000000000000000000000000"
+let payload = [0]
 
 /** @type {Metadata} */
 const metadata = {
@@ -158,6 +160,7 @@ await E(axelar).sendGMP(
     localPurseP,
     peg,
     'axelar1dv4u5k73pzqrxlzujxg3qp8kvc3pje7jtdvu72npnt5zhq05ejcsn5qme5',
+    'agoric1m26r7lnp422hftlspza6e8pkun3nvddacmu8ta',
     0n,
     metadata
 );
@@ -167,7 +170,7 @@ await E(axelar).sendGMP(
 Use `Type: 2` to send a payload to run on remote chain and send token to remote chain.
 ```javascript
 // create metadata (note you have to abi encode payload)
-let payload = "0x000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000000000000104d79206e616d65206973204d6f72672e00000000000000000000000000000000"
+let payload = [0]
 
 /** @type {Metadata} */
 const metadata = {
@@ -183,6 +186,7 @@ await E(axelar).sendGMP(
     localPurseP,
     peg,
     'axelar1dv4u5k73pzqrxlzujxg3qp8kvc3pje7jtdvu72npnt5zhq05ejcsn5qme5',
+    'agoric1m26r7lnp422hftlspza6e8pkun3nvddacmu8ta',
     1000000n / 4n,
     metadata
 );
