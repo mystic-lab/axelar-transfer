@@ -7,7 +7,7 @@ import { makeScalarMapStore } from '@agoric/store';
  * Creates an ics-20 channel with Axelar on connection created and then returns an object with a 
  * function to send GMP messages to remote EVM chains through Axelar
  *
- * @param {Instance} pegasus Pegasus instance
+ * @param {import('@agoric/pegasus').Pegasus} pegasus Pegasus public facet
  * @returns {Promise<AxelarResponse>}
  */
 export const setupAxelar = async (
@@ -27,18 +27,19 @@ export const setupAxelar = async (
      * @param {Purse} purse
      * @param {Peg} peg
      * @param {string} receiver
+     * @param {string} sender
      * @param {NatValue} amount
      * @param {Metadata} metadata
      * @returns {Promise<any>}
      */
-    sendGMP: async (zoe, purse, peg, receiver, amount, metadata) => {
+    sendGMP: async (zoe, purse, peg, receiver, sender, amount, metadata) => {
       /** @type {import('@agoric/pegasus').Pegasus} */
       const pegasus = await storeConnection.get("pegasus");
 
       const memo = JSON.stringify(metadata);
 
       const [invitation, brand] = await Promise.all([
-        E(pegasus).makeInvitationToTransfer(peg, receiver, memo),
+        E(pegasus).makeInvitationToTransfer(peg, receiver, `'${memo}'`, sender),
         E(peg).getLocalBrand()
       ]);
 

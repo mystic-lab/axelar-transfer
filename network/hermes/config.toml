@@ -117,8 +117,8 @@ trust_threshold = { numerator = '1', denominator = '3' }
 address_type = { derivation = 'cosmos' }
 
 [[chains]]
-id = 'axelar-testnet-lisbon-3'
-rpc_addr = 'https://rpc-axelar-testnet.imperator.co:443'
+id = 'axelar'
+rpc_addr = 'http://localhost:16657'
 grpc_addr = 'http://axelar-testnet-grpc.qubelabs.io:9090'
 websocket_addr = 'ws://rpc-axelar-testnet.imperator.co/wss'
 rpc_timeout = '10s'

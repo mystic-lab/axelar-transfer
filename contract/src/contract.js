@@ -21,7 +21,7 @@ const start = async (zcf) => {
     /**
      * This is a contract to interact with Axelar and send messages and tokens from Agoric to EVM's with Axelar
      *
-     * @param {Instance} pegasus Pegasus instance
+     * @param {import('@agoric/pegasus').Pegasus} pegasus Pegasus public facet
      */
     setupAxelar: async (
       pegasus

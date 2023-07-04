@@ -1,0 +1,59 @@
+global:
+    api-listen-addr: :5183
+    timeout: 10s
+    memo: ""
+    light-cache-size: 20
+chains:
+    agoriclocal:
+        type: cosmos
+        value:
+            key-directory: /home/joe/.relayer/keys/agoriclocal
+            key: agoric
+            chain-id: agoriclocal
+            rpc-addr: http://localhost:26657
+            account-prefix: agoric
+            keyring-backend: test
+            gas-adjustment: 1.2
+            gas-prices: 0.01uist
+            min-gas-amount: 0
+            debug: false
+            timeout: 20s
+            block-timeout: ""
+            output-format: json
+            sign-mode: direct
+            extra-codecs: []
+            coin-type: 564
+            broadcast-mode: batch
+    axelar:
+        type: cosmos
+        value:
+            key-directory: /home/joe/.relayer/keys/devnet-wk
+            key: axelar
+            chain-id: devnet-wk
+            rpc-addr: http://afc5d4a439e4a456bafe34c2d9cd955b-182827533.us-east-2.elb.amazonaws.com:26657
+            account-prefix: axelar
+            keyring-backend: test
+            gas-adjustment: 1.2
+            gas-prices: 0.01uwk
+            min-gas-amount: 0
+            debug: false
+            timeout: 20s
+            block-timeout: ""
+            output-format: json
+            sign-mode: direct
+            extra-codecs: []
+            coin-type: 118
+            broadcast-mode: batch
+paths:
+    agoric-axelar:
+        src:
+            chain-id: devnet-wk
+            client-id: 07-tendermint-13
+            connection-id: connection-13
+        dst:
+            chain-id: agoriclocal
+            client-id: 07-tendermint-0
+            connection-id: connection-0
+        src-channel-filter:
+            rule: ""
+            channel-list: []
