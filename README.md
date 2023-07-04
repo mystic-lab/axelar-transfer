@@ -5,6 +5,8 @@ This repo holds the Agoric smart contract for interacting with the Axelar cross-
 ## Getting Started
 You will need to have Docker, NodeJS, Agoric SDK and IBC Golang Relayer installed to get started.
 
+NOTE: PLEASE USE https://github.com/schnetzlerjoe/agoric-sdk/tree/community-dev AGORIC SDK
+
 ## Installation & Setup
 ```bash
 cd $HOME
