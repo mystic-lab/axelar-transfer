@@ -85,7 +85,7 @@ axelar = E(instance.publicFacet).setupAxelar(pegPub)
 const metadata = {
     "payload": null,
     "type": 3,
-    "destination_chain": "Ethereum",
+    "destination_chain": "avalance",
     "destination_address": "0xb94D8A2f5CAE9A94A8D4364bA2d4c77e87219ff9"
 }
 ```
@@ -123,7 +123,7 @@ Use `Type: 3` to send only a token with no payload to run on remote chain.
 const metadata = {
     "payload": null,
     "type": 3,
-    "destination_chain": "Ethereum",
+    "destination_chain": "avalanche",
     "destination_address": "0xb94D8A2f5CAE9A94A8D4364bA2d4c77e87219ff9"
 }
 
@@ -148,7 +148,7 @@ let payload = "0x000000000000000000000000000000000000000000000000000000000000002
 const metadata = {
     payload,
     "type": 1,
-    "destination_chain": "Ethereum",
+    "destination_chain": "avalanche",
     "destination_address": "0xb94D8A2f5CAE9A94A8D4364bA2d4c77e87219ff9"
 }
 
@@ -173,7 +173,7 @@ let payload = "0x000000000000000000000000000000000000000000000000000000000000002
 const metadata = {
     payload,
     "type": 2,
-    "destination_chain": "Ethereum",
+    "destination_chain": "avalanche",
     "destination_address": "0xb94D8A2f5CAE9A94A8D4364bA2d4c77e87219ff9"
 }
 
@@ -188,4 +188,4 @@ await E(axelar).sendGMP(
 );
 ```
 
-Axelar will now take the message and handle the rest running it on the desination chain (Ethereum here)!
+Axelar will now take the message and handle the rest running it on the desination chain (Avalanche here)!
