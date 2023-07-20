@@ -148,14 +148,14 @@ await E(axelar).sendGMP(
 Use `Type: 1` to send only a message with payload with no token to send to remote chain.
 ```javascript
 // create metadata (note you have to abi encode payload)
-let payload = [0]
+let payload = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,32,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,185,77,138,47,92,174,154,148,168,212,54,75,162,212,199,126,135,33,159,249]
 
 /** @type {Metadata} */
 const metadata = {
     payload,
     "type": 1,
     "destination_chain": "avalanche",
-    "destination_address": "0xb94D8A2f5CAE9A94A8D4364bA2d4c77e87219ff9"
+    "destination_address": "0xF4799D77Cc7280fd3Bd9186A7e86B0540243E32d"
 }
 
 // Lets send a GMP message
@@ -174,14 +174,14 @@ await E(axelar).sendGMP(
 Use `Type: 2` to send a payload to run on remote chain and send token to remote chain.
 ```javascript
 // create metadata (note you have to abi encode payload)
-let payload = [0]
+let payload = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,32,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,185,77,138,47,92,174,154,148,168,212,54,75,162,212,199,126,135,33,159,249]
 
 /** @type {Metadata} */
 const metadata = {
     payload,
     "type": 2,
     "destination_chain": "avalanche",
-    "destination_address": "0xb94D8A2f5CAE9A94A8D4364bA2d4c77e87219ff9"
+    "destination_address": "0xF4799D77Cc7280fd3Bd9186A7e86B0540243E32d"
 }
 
 // Lets send a GMP message
